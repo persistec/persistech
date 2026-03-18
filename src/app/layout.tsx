@@ -9,9 +9,34 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Persistec",
-  description: "Website Corporativo da Persistec",
+  metadataBase: new URL('https://persistec.com'),
+  title: {
+    template: '%s | Persistec',
+    default: 'Persistec - Expandimos limites',
+  },
+  description: 'Soluções de excelência tecnológica e infraestrutura IT em Angola. Expandimos os limites do seu negócio com inovação e confiança.',
+  openGraph: {
+    type: 'website',
+    locale: 'pt_PT',
+    url: 'https://persistec.com',
+    siteName: 'Persistec',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Persistec - Excelência Tecnológica',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Persistec - Expandimos limites',
+    description: 'Soluções de excelência tecnológica e infraestrutura IT em Angola.',
+    images: ['/og-image.jpg'],
+  },
 };
+
 
 export default function RootLayout({
   children,
