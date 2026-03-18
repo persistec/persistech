@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import Image from "next/image";
+
 const navLinks = [
   { name: "Início", href: "/" },
   { name: "Quem Somos", href: "/quem-somos" },
@@ -11,12 +13,19 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-persistec-charcoal backdrop-blur-md">
       <div className="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Logo placeholder */}
-        <div className="flex items-center gap-2">
-          <Link href="/" className="text-2xl font-bold tracking-tight text-persistec-charcoal">
-            PERSISTEC<span className="text-persistec-gold">.</span>
+        {/* Logo */}
+        <div className="flex items-center">
+          <Link href="/">
+            <Image
+              src="/logo_PT.png"
+              alt="Logótipo Persistec"
+              width={180}
+              height={48}
+              priority
+              className="h-10 w-auto brightness-0 invert"
+            />
           </Link>
         </div>
 
@@ -27,7 +36,7 @@ export default function Header() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm font-medium text-persistec-charcoal transition-colors hover:text-persistec-gold"
+                  className="text-sm font-medium text-persistec-light transition-colors hover:text-persistec-gold"
                 >
                   {link.name}
                 </Link>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { name: "Início", href: "/" },
@@ -16,12 +17,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           {/* Brand & Contact Information */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-xl font-bold tracking-tight">
-              PERSISTEC<span className="text-persistec-gold">.</span>
-            </h3>
+            <Link href="/" className="inline-block">
+              <Image
+                src="/logo_PT.png"
+                alt="Logótipo Persistec"
+                width={150}
+                height={40}
+                className="h-10 w-auto brightness-0 invert"
+              />
+            </Link>
             <div className="space-y-2 text-sm text-gray-400">
-              <p>Rua Exemplo, n.º 123</p>
-              <p>1234-567 Localidade, Portugal</p>
+              <p>Rua Major Kanhangulo, Prédio Ambriz, 3º Andar</p>
+              <p>Luanda, Angola</p>
               <p className="pt-2">
                 Email:{" "}
                 <a
