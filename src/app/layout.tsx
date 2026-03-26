@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import { Footer, Navbar } from "@/components/layout";
 
 const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -44,13 +45,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-PT">
+    <html lang="pt-PT" className="dark">
       <body
-        className={`${inter.className} bg-white text-persistec-charcoal antialiased`}
+        className={`${inter.className} ${inter.variable} bg-background-primary text-text-primary antialiased`}
       >
         <div className="flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-grow">{children}</main>
+          <Navbar />
+          <main className="flex-grow pt-20">{children}</main>
           <Footer />
         </div>
       </body>
