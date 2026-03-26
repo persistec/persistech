@@ -13,6 +13,7 @@ type BaseButtonProps = {
   href?: string;
   target?: string;
   rel?: string;
+  type?: "button" | "submit" | "reset";
 };
 
 function cn(...classes: Array<string | false | null | undefined>) {
@@ -46,6 +47,7 @@ export default function Button({
   href,
   target,
   rel,
+  type = "button",
 }: BaseButtonProps) {
   const classes = cn(sharedClasses, variantClasses[variant], sizeClasses[size], className);
 
@@ -58,7 +60,7 @@ export default function Button({
   }
 
   return (
-    <button type="button" className={classes} onClick={onClick}>
+    <button type={type} className={classes} onClick={onClick}>
       {children}
     </button>
   );

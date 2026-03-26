@@ -39,7 +39,7 @@ export default function TimelineSection() {
         <SectionHeading eyebrow="Percurso" title="A Nossa Jornada" align="center" />
 
         <div className="relative mt-16">
-          <div className="absolute left-5 top-0 h-full w-px bg-border-accent md:left-1/2 md:-translate-x-1/2" />
+          <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-border-accent md:block" />
 
           <div className="space-y-10">
             {milestones.map((item, index) => (

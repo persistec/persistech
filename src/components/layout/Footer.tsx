@@ -1,18 +1,8 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, createLucideIcon } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
-const Facebook = createLucideIcon("Facebook", [
-  ["path", { d: "M17 3h-3a5 5 0 0 0-5 5v3H6v4h3v6h4v-6h3l1-4h-4V8a1 1 0 0 1 1-1h3z", key: "facebook-path" }],
-]);
-
-const Linkedin = createLucideIcon("Linkedin", [
-  ["path", { d: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z", key: "linkedin-path-1" }],
-  ["rect", { width: "4", height: "12", x: "2", y: "9", key: "linkedin-rect" }],
-  ["circle", { cx: "4", cy: "4", r: "2", key: "linkedin-circle" }],
-]);
+import { FacebookIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
 
 const navLinks = [
   { label: "Início", href: "/" },
@@ -32,8 +22,8 @@ const services = [
 ];
 
 const socialLinks = [
-  { label: "Facebook", href: "https://www.facebook.com/", icon: Facebook },
-  { label: "LinkedIn", href: "https://www.linkedin.com/", icon: Linkedin },
+  { label: "Facebook", href: "https://www.facebook.com/", icon: FacebookIcon },
+  { label: "LinkedIn", href: "https://www.linkedin.com/", icon: LinkedinIcon },
 ];
 
 const legalLinks = ["Política de Privacidade", "Termos de Uso"];
@@ -47,7 +37,7 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center" aria-label="Persistec">
               <Image
                 src="/logo_PT.png"
-                alt="Persistec"
+                alt="Logótipo Persistec"
                 width={200}
                 height={40}
                 className="h-10 w-auto"
@@ -65,7 +55,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="text-text-muted transition-colors duration-200 ease-out hover:text-accent-primary"
+                  className="text-text-secondary transition-colors duration-200 ease-out hover:text-accent-primary"
                 >
                   <Icon className="h-5 w-5" />
                 </Link>

@@ -14,6 +14,8 @@ export default function ClientsSection() {
 
         <div
           className="mt-8 overflow-hidden"
+          role="region"
+          aria-label="Clientes da Persistec"
           style={{
             maskImage:
               "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
@@ -32,6 +34,7 @@ export default function ClientsSection() {
                   alt={client.name}
                   width={140}
                   height={64}
+                  loading={index < 4 ? "eager" : "lazy"}
                   className="h-12 w-auto opacity-50 grayscale transition-all duration-300 ease-out hover:opacity-100 hover:grayscale-0"
                 />
               </div>

@@ -1,18 +1,22 @@
+import type { Metadata } from "next";
 import Link from "next/link";
-import { createLucideIcon } from "lucide-react";
 
-import PageHero from "@/components/contactos/PageHero";
 import ContactSection from "@/components/contactos/ContactSection";
+import PageHero from "@/components/contactos/PageHero";
+import { FacebookIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
 
-const Facebook = createLucideIcon("Facebook", [
-  ["path", { d: "M17 3h-3a5 5 0 0 0-5 5v3H6v4h3v6h4v-6h3l1-4h-4V8a1 1 0 0 1 1-1h3z", key: "facebook-path" }],
-]);
-
-const Linkedin = createLucideIcon("Linkedin", [
-  ["path", { d: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z", key: "linkedin-path-1" }],
-  ["rect", { width: "4", height: "12", x: "2", y: "9", key: "linkedin-rect" }],
-  ["circle", { cx: "4", cy: "4", r: "2", key: "linkedin-circle" }],
-]);
+export const metadata: Metadata = {
+  title: "Contactos | Persistec",
+  description:
+    "Entre em contacto com a Persistec. Estamos em Luanda, Angola, prontos para ajudar.",
+  openGraph: {
+    title: "Contactos | Persistec",
+    description:
+      "Entre em contacto com a Persistec. Estamos em Luanda, Angola, prontos para ajudar.",
+    type: "website",
+    locale: "pt_AO",
+  },
+};
 
 export default function ContactosPage() {
   return (
@@ -30,7 +34,7 @@ export default function ContactosPage() {
             aria-label="Facebook Persistec"
             className="text-text-secondary transition-colors duration-200 ease-out hover:text-accent-primary"
           >
-            <Facebook className="h-6 w-6" />
+            <FacebookIcon className="h-6 w-6" />
           </Link>
           <Link
             href="https://www.linkedin.com/company/2090589"
@@ -39,7 +43,7 @@ export default function ContactosPage() {
             aria-label="LinkedIn Persistec"
             className="text-text-secondary transition-colors duration-200 ease-out hover:text-accent-primary"
           >
-            <Linkedin className="h-6 w-6" />
+            <LinkedinIcon className="h-6 w-6" />
           </Link>
         </div>
       </section>

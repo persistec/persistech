@@ -5,6 +5,7 @@ import { CheckCircle, Mail, MapPin, Phone, Send } from "lucide-react";
 
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
+import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 type FormValues = {
@@ -123,119 +124,121 @@ export default function ContactSection() {
             />
           </div>
 
-          <Card className="p-8">
-            {submitted ? (
-              <div className="flex min-h-[26rem] flex-col items-center justify-center text-center">
-                <CheckCircle className="h-14 w-14 text-accent-primary" />
-                <h2 className="mt-6 text-2xl font-semibold text-text-primary">
-                  Mensagem enviada!
-                </h2>
-                <p className="mt-3 max-w-sm text-text-secondary">
-                  Entraremos em contacto brevemente.
-                </p>
-              </div>
-            ) : (
-              <div>
-                <h2 className="text-xl font-semibold text-text-primary">
-                  Envie-nos uma mensagem
-                </h2>
+          <Reveal className="delay-[100ms]">
+            <Card className="p-8">
+              {submitted ? (
+                <div className="flex min-h-[26rem] flex-col items-center justify-center text-center">
+                  <CheckCircle className="h-14 w-14 text-accent-primary" />
+                  <h2 className="mt-6 text-2xl font-semibold text-text-primary">
+                    Mensagem enviada!
+                  </h2>
+                  <p className="mt-3 max-w-sm text-text-secondary">
+                    Entraremos em contacto brevemente.
+                  </p>
+                </div>
+              ) : (
+                <div>
+                  <h2 className="text-xl font-semibold text-text-primary">
+                    Envie-nos uma mensagem
+                  </h2>
 
-                <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm text-text-secondary">
-                      Nome completo
-                    </label>
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      value={values.name}
-                      onChange={handleChange}
-                      className={fieldClass(Boolean(errors.name))}
-                    />
-                    {errors.name ? (
-                      <p className="text-sm text-accent-light">{errors.name}</p>
-                    ) : null}
-                  </div>
+                  <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+                    <div className="space-y-2">
+                      <label htmlFor="name" className="text-sm text-text-secondary">
+                        Nome completo
+                      </label>
+                      <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        value={values.name}
+                        onChange={handleChange}
+                        className={fieldClass(Boolean(errors.name))}
+                      />
+                      {errors.name ? (
+                        <p className="text-sm text-accent-light">{errors.name}</p>
+                      ) : null}
+                    </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm text-text-secondary">
-                      Email
-                    </label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={values.email}
-                      onChange={handleChange}
-                      className={fieldClass(Boolean(errors.email))}
-                    />
-                    {errors.email ? (
-                      <p className="text-sm text-accent-light">{errors.email}</p>
-                    ) : null}
-                  </div>
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="text-sm text-text-secondary">
+                        Email
+                      </label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={values.email}
+                        onChange={handleChange}
+                        className={fieldClass(Boolean(errors.email))}
+                      />
+                      {errors.email ? (
+                        <p className="text-sm text-accent-light">{errors.email}</p>
+                      ) : null}
+                    </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="company" className="text-sm text-text-secondary">
-                      Empresa
-                    </label>
-                    <input
-                      id="company"
-                      name="company"
-                      type="text"
-                      value={values.company}
-                      onChange={handleChange}
-                      className={fieldClass(false)}
-                    />
-                  </div>
+                    <div className="space-y-2">
+                      <label htmlFor="company" className="text-sm text-text-secondary">
+                        Empresa
+                      </label>
+                      <input
+                        id="company"
+                        name="company"
+                        type="text"
+                        value={values.company}
+                        onChange={handleChange}
+                        className={fieldClass(false)}
+                      />
+                    </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="subject" className="text-sm text-text-secondary">
-                      Assunto
-                    </label>
-                    <select
-                      id="subject"
-                      name="subject"
-                      value={values.subject}
-                      onChange={handleChange}
-                      className={fieldClass(false)}
-                    >
-                      <option value="Infraestrutura IT">Infraestrutura IT</option>
-                      <option value="Cibersegurança">Cibersegurança</option>
-                      <option value="Cloud & Virtualização">Cloud & Virtualização</option>
-                      <option value="Web Design & Newmedia">Web Design & Newmedia</option>
-                      <option value="Suporte Técnico">Suporte Técnico</option>
-                      <option value="Outro">Outro</option>
-                    </select>
-                  </div>
+                    <div className="space-y-2">
+                      <label htmlFor="subject" className="text-sm text-text-secondary">
+                        Assunto
+                      </label>
+                      <select
+                        id="subject"
+                        name="subject"
+                        value={values.subject}
+                        onChange={handleChange}
+                        className={fieldClass(false)}
+                      >
+                        <option value="Infraestrutura IT">Infraestrutura IT</option>
+                        <option value="Cibersegurança">Cibersegurança</option>
+                        <option value="Cloud & Virtualização">Cloud & Virtualização</option>
+                        <option value="Web Design & Newmedia">Web Design & Newmedia</option>
+                        <option value="Suporte Técnico">Suporte Técnico</option>
+                        <option value="Outro">Outro</option>
+                      </select>
+                    </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm text-text-secondary">
-                      Mensagem
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={5}
-                      value={values.message}
-                      onChange={handleChange}
-                      className={fieldClass(Boolean(errors.message))}
-                    />
-                    {errors.message ? (
-                      <p className="text-sm text-accent-light">{errors.message}</p>
-                    ) : null}
-                  </div>
+                    <div className="space-y-2">
+                      <label htmlFor="message" className="text-sm text-text-secondary">
+                        Mensagem
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows={5}
+                        value={values.message}
+                        onChange={handleChange}
+                        className={fieldClass(Boolean(errors.message))}
+                      />
+                      {errors.message ? (
+                        <p className="text-sm text-accent-light">{errors.message}</p>
+                      ) : null}
+                    </div>
 
-                  <Button variant="primary" size="lg" className="w-full">
-                    <span className="flex items-center justify-center gap-2">
-                      Enviar Mensagem
-                      <Send className="h-4 w-4" />
-                    </span>
-                  </Button>
-                </form>
-              </div>
-            )}
-          </Card>
+                    <Button variant="primary" size="lg" className="w-full" type="submit">
+                      <span className="flex items-center justify-center gap-2">
+                        Enviar Mensagem
+                        <Send className="h-4 w-4" />
+                      </span>
+                    </Button>
+                  </form>
+                </div>
+              )}
+            </Card>
+          </Reveal>
         </div>
       </div>
     </section>

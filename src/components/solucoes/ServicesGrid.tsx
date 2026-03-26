@@ -3,6 +3,7 @@ import { Check, Cloud, Cpu, Headphones, Monitor, Server, Shield } from "lucide-r
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
+import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const services = [
@@ -86,6 +87,15 @@ const services = [
   },
 ];
 
+const revealDelays = [
+  "delay-[0ms]",
+  "delay-[100ms]",
+  "delay-[200ms]",
+  "delay-[300ms]",
+  "delay-[400ms]",
+  "delay-[500ms]",
+];
+
 export default function ServicesGrid() {
   return (
     <>
@@ -98,31 +108,33 @@ export default function ServicesGrid() {
           />
 
           <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
-            {services.map(({ title, category, description, icon: Icon, bullets }) => (
-              <Card key={title}>
-                <div className="flex flex-col gap-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-border-accent bg-background-elevated text-accent-primary">
-                      <Icon className="h-10 w-10" />
+            {services.map(({ title, category, description, icon: Icon, bullets }, index) => (
+              <Reveal key={title} className={revealDelays[index]}>
+                <Card className="h-full">
+                  <div className="flex flex-col gap-6">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-border-accent bg-background-elevated text-accent-primary">
+                        <Icon className="h-10 w-10" />
+                      </div>
+                      <Badge>{category}</Badge>
                     </div>
-                    <Badge>{category}</Badge>
-                  </div>
 
-                  <div className="space-y-3">
-                    <h2 className="text-xl font-semibold text-text-primary">{title}</h2>
-                    <p className="text-sm leading-7 text-text-secondary">{description}</p>
-                  </div>
+                    <div className="space-y-3">
+                      <h2 className="text-xl font-semibold text-text-primary">{title}</h2>
+                      <p className="text-sm leading-7 text-text-secondary">{description}</p>
+                    </div>
 
-                  <ul className="space-y-3">
-                    {bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-3">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-primary" />
-                        <span className="text-sm text-text-secondary">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Card>
+                    <ul className="space-y-3">
+                      {bullets.map((bullet) => (
+                        <li key={bullet} className="flex items-start gap-3">
+                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-primary" />
+                          <span className="text-sm text-text-secondary">{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </div>

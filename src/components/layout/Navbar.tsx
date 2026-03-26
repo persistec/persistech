@@ -48,10 +48,6 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
     if (!isMenuOpen) {
       return undefined;
     }
@@ -76,7 +72,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center" aria-label="Persistec">
             <Image
               src="/logo_PT.png"
-              alt="Persistec"
+              alt="Logótipo Persistec"
               width={180}
               height={36}
               priority
@@ -138,6 +134,8 @@ export default function Navbar() {
       />
 
       <aside
+        role={isMenuOpen ? "dialog" : undefined}
+        aria-modal={isMenuOpen ? true : undefined}
         className={cn(
           "glass fixed top-0 right-0 z-50 flex h-full w-[min(86vw,24rem)] flex-col border-l border-border-default bg-background-secondary px-6 pb-8 pt-24 shadow-glow-blue transition-transform duration-300 ease-out md:hidden",
           isMenuOpen ? "translate-x-0" : "translate-x-full",

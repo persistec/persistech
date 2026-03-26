@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+
 import { Footer, Navbar } from "@/components/layout";
+
+import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -10,34 +12,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://persistec.com'),
-  title: {
-    template: '%s | Persistec',
-    default: 'Persistec - Expandimos limites',
+  metadataBase: new URL("https://persistec.com"),
+  description: "Soluções de excelência tecnológica e infraestrutura IT em Angola.",
+  appleWebApp: {
+    title: "Persistec",
+    statusBarStyle: "black-translucent",
+    capable: true,
   },
-  description: 'Soluções de excelência tecnológica e infraestrutura IT em Angola. Expandimos os limites do seu negócio com inovação e confiança.',
   openGraph: {
-    type: 'website',
-    locale: 'pt_PT',
-    url: 'https://persistec.com',
-    siteName: 'Persistec',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Persistec - Excelência Tecnológica',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Persistec - Expandimos limites',
-    description: 'Soluções de excelência tecnológica e infraestrutura IT em Angola.',
-    images: ['/og-image.jpg'],
+    siteName: "Persistec",
   },
 };
-
 
 export default function RootLayout({
   children,

@@ -1,8 +1,23 @@
-import Button from "@/components/ui/Button";
-import SectionHeading from "@/components/ui/SectionHeading";
+import type { Metadata } from "next";
+
 import PageHero from "@/components/newmedia/PageHero";
 import PortfolioSection from "@/components/newmedia/PortfolioSection";
 import ServicesSection from "@/components/newmedia/ServicesSection";
+import Button from "@/components/ui/Button";
+import SectionHeading from "@/components/ui/SectionHeading";
+
+export const metadata: Metadata = {
+  title: "Newmedia | Persistec",
+  description:
+    "Web design, desenvolvimento, SEO e estratégia digital para empresas em Angola.",
+  openGraph: {
+    title: "Newmedia | Persistec",
+    description:
+      "Web design, desenvolvimento, SEO e estratégia digital para empresas em Angola.",
+    type: "website",
+    locale: "pt_AO",
+  },
+};
 
 export default function NewmediaPage() {
   return (
