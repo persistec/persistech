@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       "Conheça a Persistec, empresa angolana dedicada a transformar organizações através da tecnologia.",
     type: "website",
     locale: "pt_AO",
+    images: [{ url: "/images/og/og-quem-somos.jpg", width: 1200, height: 630 }],
   },
 };
 

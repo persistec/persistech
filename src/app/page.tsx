@@ -18,6 +18,7 @@ export const metadata: Metadata = {
       "Infraestrutura IT, cibersegurança e soluções digitais para empresas em Angola.",
     type: "website",
     locale: "pt_AO",
+    images: [{ url: "/images/og/og-home.jpg", width: 1200, height: 630 }],
   },
 };
 

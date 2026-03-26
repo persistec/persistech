@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowDown } from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
@@ -6,6 +7,21 @@ import Button from "@/components/ui/Button";
 export default function HeroSection() {
   return (
     <section className="circuit-bg relative flex min-h-screen items-center justify-center overflow-hidden bg-background-primary px-6">
+      <Image
+        src="/images/heroes/hero-home.jpg"
+        alt=""
+        role="presentation"
+        fill
+        priority
+        className="object-cover object-center"
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.75) 100%)",
+        }}
+      />
       <div
         className="pointer-events-none absolute inset-0 opacity-30"
         style={{
@@ -37,7 +53,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-accent-primary">
+      <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-accent-primary">
         <ArrowDown className="h-6 w-6 animate-bounce" />
       </div>
     </section>

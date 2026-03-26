@@ -13,6 +13,7 @@ export const metadata: Metadata = {
       "Infraestrutura IT, cloud, cibersegurança, suporte técnico e web design em Angola.",
     type: "website",
     locale: "pt_AO",
+    images: [{ url: "/images/og/og-solucoes.jpg", width: 1200, height: 630 }],
   },
 };
 

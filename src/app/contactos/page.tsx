@@ -15,6 +15,7 @@ export const metadata: Metadata = {
       "Entre em contacto com a Persistec. Estamos em Luanda, Angola, prontos para ajudar.",
     type: "website",
     locale: "pt_AO",
+    images: [{ url: "/images/og/og-contactos.jpg", width: 1200, height: 630 }],
   },
 };
 

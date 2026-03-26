@@ -16,6 +16,7 @@ export const metadata: Metadata = {
       "Web design, desenvolvimento, SEO e estratégia digital para empresas em Angola.",
     type: "website",
     locale: "pt_AO",
+    images: [{ url: "/images/og/og-newmedia.jpg", width: 1200, height: 630 }],
   },
 };
 
