@@ -2,7 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
 
-import { FacebookIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedinIcon,
+} from "@/components/ui/SocialIcons";
 
 const navLinks = [
   { label: "Início", href: "/" },
@@ -22,8 +26,21 @@ const services = [
 ];
 
 const socialLinks = [
-  { label: "Facebook", href: "https://www.facebook.com/", icon: FacebookIcon },
-  { label: "LinkedIn", href: "https://www.linkedin.com/", icon: LinkedinIcon },
+  {
+    label: "Facebook",
+    href: "https://web.facebook.com/Persistech",
+    icon: FacebookIcon,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/2090589",
+    icon: LinkedinIcon,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/persistech.lda",
+    icon: InstagramIcon,
+  },
 ];
 
 const legalLinks = ["Política de Privacidade", "Termos de Uso"];
@@ -118,6 +135,14 @@ export default function Footer() {
                 >
                   contacto@persistec.com
                 </Link>
+              </div>
+              <div className="pt-2">
+                <p className="text-xs font-semibold uppercase tracking-wider text-text-muted">
+                  Horário
+                </p>
+                <p className="mt-1 text-sm text-text-secondary">
+                  Seg — Sex: 08:00 – 16:30
+                </p>
               </div>
             </div>
           </div>

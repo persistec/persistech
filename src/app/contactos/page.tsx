@@ -3,19 +3,31 @@ import Link from "next/link";
 
 import ContactSection from "@/components/contactos/ContactSection";
 import PageHero from "@/components/contactos/PageHero";
-import { FacebookIcon, LinkedinIcon } from "@/components/ui/SocialIcons";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedinIcon,
+} from "@/components/ui/SocialIcons";
 
 export const metadata: Metadata = {
-  title: "Contactos | Persistec",
+  title: "Contactos | Persistec - Fale Connosco em Luanda",
   description:
-    "Entre em contacto com a Persistec. Estamos em Luanda, Angola, prontos para ajudar.",
+    "Entre em contacto com a Persistec. Estamos em Luanda, Angola, prontos para ajudar o seu negócio com soluções IT de excelência.",
+  keywords: ["Contacto Persistec", "Suporte IT Angola", "Morada Persistec", "Telefone Persistec"],
   openGraph: {
-    title: "Contactos | Persistec",
+    title: "Contactos | Persistec - Fale Connosco em Luanda",
     description:
-      "Entre em contacto com a Persistec. Estamos em Luanda, Angola, prontos para ajudar.",
+      "Entre em contacto com a Persistec. Estamos em Luanda, Angola, prontos para ajudar o seu negócio com soluções IT de excelência.",
     type: "website",
     locale: "pt_AO",
-    images: [{ url: "/images/og/og-contactos.jpg", width: 1200, height: 630 }],
+    images: [
+      {
+        url: "/images/og/contactos.png",
+        width: 1200,
+        height: 630,
+        alt: "Contacte a Persistec",
+      },
+    ],
   },
 };
 
@@ -45,6 +57,15 @@ export default function ContactosPage() {
             className="text-text-secondary transition-colors duration-200 ease-out hover:text-accent-primary"
           >
             <LinkedinIcon className="h-6 w-6" />
+          </Link>
+          <Link
+            href="https://www.instagram.com/persistech.lda"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram Persistec"
+            className="text-text-secondary transition-colors duration-200 ease-out hover:text-accent-primary"
+          >
+            <InstagramIcon className="h-6 w-6" />
           </Link>
         </div>
       </section>

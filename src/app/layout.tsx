@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import { Footer, Navbar } from "@/components/layout";
+import { Footer, JsonLd, Navbar } from "@/components/layout";
 
 import "./globals.css";
 
@@ -21,6 +21,12 @@ export const metadata: Metadata = {
   },
   openGraph: {
     siteName: "Persistec",
+    type: "website",
+    locale: "pt_AO",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@persistec",
   },
 };
 
@@ -30,7 +36,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-PT" className="dark">
+    <html lang="pt-AO" className="dark">
+      <head>
+        <JsonLd />
+      </head>
       <body
         className={`${inter.className} ${inter.variable} bg-background-primary text-text-primary antialiased`}
       >
