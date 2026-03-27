@@ -14,17 +14,17 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://persistec.com"),
   title: {
-    default: "Persistec",
-    template: "%s | Persistec",
+    default: "Persistech",
+    template: "%s | Persistech",
   },
   description: "Soluções de excelência tecnológica e infraestrutura IT em Angola.",
   appleWebApp: {
-    title: "Persistec",
+    title: "Persistech",
     statusBarStyle: "black-translucent",
     capable: true,
   },
   openGraph: {
-    siteName: "Persistec",
+    siteName: "Persistech",
     type: "website",
     locale: "pt_AO",
   },

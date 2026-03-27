@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Infraestrutura IT, cibersegurança, cloud e soluções digitais para empresas em Angola. Mais de uma década de excelência tecnológica.",
   keywords: [
-    "Persistec",
+    "Persistech",
     "Tecnologia",
     "Angola",
     "Google Workspace",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
         url: "/images/og/og-home.jpg",
         width: 1200,
         height: 630,
-        alt: "Persistec — Expandimos limites",
+        alt: "Persistech — Expandimos limites",
       },
     ],
   },

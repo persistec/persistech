@@ -22,9 +22,9 @@ function cn(...classes: Array<string | false | null | undefined>) {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-accent-primary text-white hover:bg-accent-hover hover:shadow-glow-blue",
+    "bg-accent-primary text-white hover:bg-accent-hover hover:shadow-glow-gold",
   outline:
-    "border border-accent-primary bg-transparent text-accent-light hover:bg-[rgba(26,127,212,0.1)] hover:shadow-glow-blue",
+    "border border-accent-primary bg-transparent text-accent-light hover:bg-[rgba(212,175,55,0.1)] hover:shadow-glow-gold",
   ghost:
     "bg-transparent text-text-secondary hover:text-text-primary",
 };

@@ -69,12 +69,12 @@ export default function Navbar() {
         )}
       >
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="flex items-center" aria-label="Persistec">
+          <Link href="/" className="flex items-center" aria-label="Persistech">
             <Image
-              src="/logo_navbar.png"
-              alt="Logótipo Persistec"
-              width={140}
-              height={48}
+              src="/logo_persistech.png"
+              alt="Logótipo Persistech"
+              width={160}
+              height={52}
               priority
               className="object-contain"
             />
@@ -137,7 +137,7 @@ export default function Navbar() {
         role={isMenuOpen ? "dialog" : undefined}
         aria-modal={isMenuOpen ? true : undefined}
         className={cn(
-          "glass fixed top-0 right-0 z-50 flex h-full w-[min(86vw,24rem)] flex-col border-l border-border-default bg-background-secondary px-6 pb-8 pt-24 shadow-glow-blue transition-transform duration-300 ease-out md:hidden",
+          "glass fixed top-0 right-0 z-50 flex h-full w-[min(86vw,24rem)] flex-col border-l border-border-default bg-background-secondary px-6 pb-8 pt-24 shadow-glow-gold transition-transform duration-300 ease-out md:hidden",
           isMenuOpen ? "translate-x-0" : "translate-x-full",
         )}
         aria-hidden={!isMenuOpen}

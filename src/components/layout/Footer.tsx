@@ -51,12 +51,12 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-5">
-            <Link href="/" className="inline-flex items-center" aria-label="Persistec">
+            <Link href="/" className="inline-flex items-center" aria-label="Persistech">
               <Image
-                src="/logo_navbar.png"
-                alt="Logótipo Persistec"
-                width={160}
-                height={56}
+                src="/logo_persistech.png"
+                alt="Logótipo Persistech"
+                width={180}
+                height={60}
                 className="object-contain"
               />
             </Link>
@@ -149,7 +149,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-4 border-t border-border-default pt-8 text-sm text-text-muted md:flex-row md:items-center md:justify-between">
-          <p>© 2026 Persistec. Todos os direitos reservados.</p>
+          <p>© 2026 Persistech. Todos os direitos reservados.</p>
           <div className="flex flex-wrap items-center gap-6">
             {legalLinks.map((link) => (
               <span key={link} className="text-text-muted">

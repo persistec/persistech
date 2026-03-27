@@ -15,7 +15,7 @@ export default function ClientsSection() {
         <div
           className="mt-8 overflow-hidden"
           role="region"
-          aria-label="Clientes da Persistec"
+          aria-label="Clientes da Persistech"
           style={{
             maskImage:
               "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",

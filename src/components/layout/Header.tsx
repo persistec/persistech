@@ -20,7 +20,7 @@ export default function Header() {
           <Link href="/">
             <Image
               src="/logo.png"
-              alt="Logótipo Persistec"
+              alt="Logótipo Persistech"
               width={180}
               height={48}
               priority

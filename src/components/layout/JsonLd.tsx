@@ -2,7 +2,7 @@ export default function JsonLd() {
   const organizationData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Persistec",
+    "name": "Persistech",
     "url": "https://persistec.com",
     "logo": "https://persistec.com/logo_PT.png",
     "sameAs": [
@@ -22,7 +22,7 @@ export default function JsonLd() {
   const localBusinessData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Persistec",
+    "name": "Persistech",
     "image": "https://persistec.com/images/og/home.png",
     "@id": "https://persistec.com",
     "url": "https://persistec.com",
