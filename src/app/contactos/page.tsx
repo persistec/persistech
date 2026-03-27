@@ -22,10 +22,10 @@ export const metadata: Metadata = {
     locale: "pt_AO",
     images: [
       {
-        url: "/images/og/contactos.png",
+        url: "/images/og/og-contactos.jpg",
         width: 1200,
         height: 630,
-        alt: "Contacte a Persistec",
+        alt: "Persistec — Contactos",
       },
     ],
   },

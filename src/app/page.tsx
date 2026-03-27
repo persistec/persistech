@@ -33,10 +33,10 @@ export const metadata: Metadata = {
     locale: "pt_AO",
     images: [
       {
-        url: "/images/og/home.png",
+        url: "/images/og/og-home.jpg",
         width: 1200,
         height: 630,
-        alt: "Persistec - Soluções Tecnológicas de Confiança",
+        alt: "Persistec — Expandimos limites",
       },
     ],
   },

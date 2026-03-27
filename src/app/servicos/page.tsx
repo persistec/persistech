@@ -13,7 +13,14 @@ export const metadata: Metadata = {
       "Suporte técnico certificado, web design e fornecimento de hardware para manter o seu negócio sempre a funcionar.",
     type: "website",
     locale: "pt_AO",
-    images: [{ url: "/images/og/og-solucoes.jpg", width: 1200, height: 630 }],
+    images: [
+      {
+        url: "/images/og/og-solucoes.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Persistec — Serviços",
+      },
+    ],
   },
 };
 

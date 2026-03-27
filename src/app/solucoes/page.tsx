@@ -13,7 +13,14 @@ export const metadata: Metadata = {
       "Infraestrutura de rede, cibersegurança e cloud para empresas que exigem robustez, segurança e continuidade operacional.",
     type: "website",
     locale: "pt_AO",
-    images: [{ url: "/images/og/og-solucoes.jpg", width: 1200, height: 630 }],
+    images: [
+      {
+        url: "/images/og/og-solucoes.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Persistec — Soluções",
+      },
+    ],
   },
 };
 

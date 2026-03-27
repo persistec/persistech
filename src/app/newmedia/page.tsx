@@ -26,10 +26,10 @@ export const metadata: Metadata = {
     locale: "pt_AO",
     images: [
       {
-        url: "/images/og/newmedia.png",
+        url: "/images/og/og-newmedia.jpg",
         width: 1200,
         height: 630,
-        alt: "Newmedia e Estratégia Digital - Persistec",
+        alt: "Persistec — Newmedia",
       },
     ],
   },

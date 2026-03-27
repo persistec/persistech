@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     locale: "pt_AO",
     images: [
       {
-        url: "/images/og/quem-somos.png",
+        url: "/images/og/og-quem-somos.jpg",
         width: 1200,
         height: 630,
-        alt: "Quem Somos - Persistec",
+        alt: "Persistec — Quem Somos",
       },
     ],
   },
