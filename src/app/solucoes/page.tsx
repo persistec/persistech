@@ -4,39 +4,27 @@ import PageHero from "@/components/solucoes/PageHero";
 import ServicesGrid from "@/components/solucoes/ServicesGrid";
 
 export const metadata: Metadata = {
-  title: "Soluções & Serviços IT em Angola | Persistec",
+  title: "Soluções | Persistec",
   description:
-    "Google Workspace, Microsoft 365, 3CX, cibersegurança, infraestrutura IT e suporte técnico. Soluções completas para empresas em Luanda.",
-  keywords: [
-    "Google Workspace Angola",
-    "Microsoft 365 Luanda",
-    "3CX Angola",
-    "Venda de Produtos Eletrónicos",
-    "Reparação de Computadores",
-    "Emails Corporativos",
-    "Suporte Técnico Luanda",
-  ],
+    "Infraestrutura IT, cibersegurança e cloud para empresas em Angola.",
   openGraph: {
-    title: "Soluções & Serviços IT em Angola | Persistec",
+    title: "Soluções | Persistec",
     description:
-      "Google Workspace, Microsoft 365, 3CX, cibersegurança, infraestrutura IT e suporte técnico. Soluções completas para empresas em Luanda.",
+      "Infraestrutura IT, cibersegurança e cloud para empresas em Angola.",
     type: "website",
     locale: "pt_AO",
-    images: [
-      {
-        url: "/images/og/solucoes.png",
-        width: 1200,
-        height: 630,
-        alt: "Soluções e Serviços - Persistec",
-      },
-    ],
+    images: [{ url: "/images/og/og-solucoes.jpg", width: 1200, height: 630 }],
   },
 };
 
 export default function SolucoesPage() {
   return (
     <>
-      <PageHero />
+      <PageHero
+        badge="Soluções Tecnológicas"
+        title="Soluções"
+        subtitle="Infraestrutura robusta, cibersegurança e cloud para empresas que exigem o melhor."
+      />
       <ServicesGrid />
     </>
   );
