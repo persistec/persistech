@@ -71,12 +71,12 @@ export default function Navbar() {
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
           <Link href="/" className="flex items-center" aria-label="Persistec">
             <Image
-              src="/logo_PT.png"
+              src="/logo_navbar.png"
               alt="Logótipo Persistec"
-              width={180}
-              height={36}
+              width={140}
+              height={48}
               priority
-              className="h-9 w-auto"
+              className="object-contain"
             />
           </Link>
 

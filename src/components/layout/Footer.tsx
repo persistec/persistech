@@ -53,11 +53,11 @@ export default function Footer() {
           <div className="space-y-5">
             <Link href="/" className="inline-flex items-center" aria-label="Persistec">
               <Image
-                src="/logo_PT.png"
+                src="/logo_navbar.png"
                 alt="Logótipo Persistec"
-                width={200}
-                height={40}
-                className="h-10 w-auto"
+                width={160}
+                height={56}
+                className="object-contain"
               />
             </Link>
             <p className="text-sm text-text-secondary">Expandimos limites</p>
