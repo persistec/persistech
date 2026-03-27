@@ -1,5 +1,27 @@
-import { redirect } from "next/navigation";
+import type { Metadata } from "next";
+
+import PageHero from "@/components/servicos/PageHero";
+import ServicesGrid from "@/components/servicos/ServicesGrid";
+
+export const metadata: Metadata = {
+  title: "Serviços",
+  description:
+    "Suporte técnico certificado, web design e hardware para empresas em Angola.",
+  openGraph: {
+    title: "Serviços",
+    description:
+      "Suporte técnico certificado, web design e hardware para empresas em Angola.",
+    type: "website",
+    locale: "pt_AO",
+    images: [{ url: "/images/og/og-solucoes.jpg", width: 1200, height: 630 }],
+  },
+};
 
 export default function ServicosPage() {
-  redirect("/solucoes");
+  return (
+    <>
+      <PageHero />
+      <ServicesGrid />
+    </>
+  );
 }

@@ -1,4 +1,4 @@
-import { Check, Cloud, Server, Shield } from "lucide-react";
+import { Check, Cpu, Headphones, Monitor } from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
@@ -8,42 +8,42 @@ import SectionHeading from "@/components/ui/SectionHeading";
 
 const services = [
   {
-    title: "Infraestrutura IT",
-    category: "Redes",
+    title: "Suporte Técnico",
+    category: "Suporte",
     description:
-      "Planeamos, implementamos e gerimos infraestruturas críticas para garantir desempenho, segurança e continuidade operacional.",
-    icon: Server,
+      "A nossa equipa responde com rapidez e proximidade para manter os seus sistemas operacionais sem interrupções.",
+    icon: Headphones,
     bullets: [
-      "Implementação de redes LAN/WAN",
-      "Gestão de servidores físicos e virtuais",
-      "Monitorização e manutenção contínua",
-      "Disaster recovery e backup",
+      "Helpdesk on-site e remoto",
+      "SLA garantido",
+      "Técnicos certificados",
+      "Gestão de ativos IT",
     ],
   },
   {
-    title: "Cibersegurança",
-    category: "Segurança",
+    title: "Web Design & Newmedia",
+    category: "Digital",
     description:
-      "Protegemos o seu ambiente digital com soluções robustas, políticas de controlo e acompanhamento técnico especializado.",
-    icon: Shield,
+      "Desenvolvemos presença digital com foco em performance, comunicação clara e experiência alinhada à sua marca.",
+    icon: Monitor,
     bullets: [
-      "Soluções antivírus e endpoint Kaspersky",
-      "Auditorias de segurança",
-      "Firewalls e VPNs",
-      "Formação em boas práticas",
+      "Design e desenvolvimento web",
+      "SEO e marketing digital",
+      "Gestão de redes sociais",
+      "Identidade visual e branding",
     ],
   },
   {
-    title: "Cloud & Virtualização",
-    category: "Cloud",
+    title: "Hardware & Equipamento",
+    category: "Hardware",
     description:
-      "Apoiamos a modernização da infraestrutura com arquiteturas cloud e ambientes virtualizados preparados para crescer.",
-    icon: Cloud,
+      "Fornecemos e mantemos equipamentos fiáveis para equipas que precisam de produtividade e estabilidade no dia a dia.",
+    icon: Cpu,
     bullets: [
-      "Migração para cloud",
-      "Implementação VMware e Hyper-V",
-      "Google Workspace e Microsoft 365",
-      "Gestão de ambientes híbridos",
+      "Fornecimento HP certificado",
+      "Manutenção preventiva e corretiva",
+      "Upgrades e reposição de componentes",
+      "Impressoras, scanners e periféricos",
     ],
   },
 ];
@@ -57,7 +57,7 @@ export default function ServicesGrid() {
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeading
             eyebrow="Portfólio"
-            title="As Nossas Soluções"
+            title="Os Nossos Serviços"
             align="center"
           />
 
