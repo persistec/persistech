@@ -1,28 +1,55 @@
-import ClientsBanner from "@/components/ui/ClientsBanner";
+import type { Metadata } from "next";
+
+import {
+  CTASection,
+  ClientsSection,
+  HeroSection,
+  ServicesSection,
+  WhyUsSection,
+} from "@/components/home";
+
+export const metadata: Metadata = {
+  title: "Persistec — Soluções Tecnológicas de Confiança em Angola",
+  description:
+    "Soluções de excelência tecnológica e infraestrutura IT em Angola. Parceiros Google e Microsoft. Revendedores Google Workspace, Microsoft 365, Cibersegurança e Cloud.",
+  keywords: [
+    "Persistec",
+    "Tecnologia",
+    "Angola",
+    "Google Workspace",
+    "Microsoft 365",
+    "Cibersegurança",
+    "Infraestrutura IT",
+    "Cloud",
+    "Virtualização",
+    "Revendedor Google Workspace",
+    "Suporte Técnico Luanda",
+  ],
+  openGraph: {
+    title: "Persistec — Soluções Tecnológicas de Confiança em Angola",
+    description:
+      "Soluções de excelência tecnológica e infraestrutura IT em Angola. Parceiros Google e Microsoft. Revendedores Google Workspace, Microsoft 365, Cibersegurança e Cloud.",
+    type: "website",
+    locale: "pt_AO",
+    images: [
+      {
+        url: "/images/og/home.png",
+        width: 1200,
+        height: 630,
+        alt: "Persistec - Soluções Tecnológicas de Confiança",
+      },
+    ],
+  },
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
-      {/* Hero Section Placeholder */}
-      <section className="flex flex-col items-center justify-center py-24 text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-persistec-charcoal sm:text-6xl">
-          Soluções Tecnológicas de <span className="text-persistec-gold">Confiança</span>
-        </h1>
-        <p className="mt-6 text-lg leading-8 text-gray-600 max-w-2xl px-4">
-          Ajudamos empresas a prosperar na era digital com infraestrutura robusta e serviços especializados.
-        </p>
-      </section>
-
-      {/* Social Proof Section */}
-      <ClientsBanner />
-
-      {/* Other sections placeholders */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-persistec-charcoal">Nossos Serviços</h2>
-          <p className="mt-4 text-gray-500">Brevemente mais detalhes sobre o nosso portfólio.</p>
-        </div>
-      </section>
-    </div>
+    <>
+      <HeroSection />
+      <ClientsSection />
+      <ServicesSection />
+      <WhyUsSection />
+      <CTASection />
+    </>
   );
 }

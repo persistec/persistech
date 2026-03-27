@@ -1,42 +1,34 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+
+import { Footer, JsonLd, Navbar } from "@/components/layout";
+
 import "./globals.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://persistec.com'),
-  title: {
-    template: '%s | Persistec',
-    default: 'Persistec - Expandimos limites',
+  metadataBase: new URL("https://persistec.com"),
+  description: "Soluções de excelência tecnológica e infraestrutura IT em Angola.",
+  appleWebApp: {
+    title: "Persistec",
+    statusBarStyle: "black-translucent",
+    capable: true,
   },
-  description: 'Soluções de excelência tecnológica e infraestrutura IT em Angola. Expandimos os limites do seu negócio com inovação e confiança.',
   openGraph: {
-    type: 'website',
-    locale: 'pt_PT',
-    url: 'https://persistec.com',
-    siteName: 'Persistec',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Persistec - Excelência Tecnológica',
-      },
-    ],
+    siteName: "Persistec",
+    type: "website",
+    locale: "pt_AO",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Persistec - Expandimos limites',
-    description: 'Soluções de excelência tecnológica e infraestrutura IT em Angola.',
-    images: ['/og-image.jpg'],
+    card: "summary_large_image",
+    site: "@persistec",
   },
 };
-
 
 export default function RootLayout({
   children,
@@ -44,13 +36,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-PT">
+    <html lang="pt-AO" className="dark">
+      <head>
+        <JsonLd />
+      </head>
       <body
-        className={`${inter.className} bg-white text-persistec-charcoal antialiased`}
+        className={`${inter.className} ${inter.variable} bg-background-primary text-text-primary antialiased`}
       >
         <div className="flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-grow">{children}</main>
+          <Navbar />
+          <main className="flex-grow pt-20">{children}</main>
           <Footer />
         </div>
       </body>
