@@ -4,13 +4,13 @@ import PageHero from "@/components/solucoes/PageHero";
 import ServicesGrid from "@/components/solucoes/ServicesGrid";
 
 export const metadata: Metadata = {
-  title: "Soluções | Persistec",
+  title: "Soluções",
   description:
-    "Infraestrutura IT, cibersegurança e cloud para empresas em Angola.",
+    "Infraestrutura de rede, cibersegurança e cloud para empresas que exigem robustez, segurança e continuidade operacional.",
   openGraph: {
-    title: "Soluções | Persistec",
+    title: "Soluções",
     description:
-      "Infraestrutura IT, cibersegurança e cloud para empresas em Angola.",
+      "Infraestrutura de rede, cibersegurança e cloud para empresas que exigem robustez, segurança e continuidade operacional.",
     type: "website",
     locale: "pt_AO",
     images: [{ url: "/images/og/og-solucoes.jpg", width: 1200, height: 630 }],

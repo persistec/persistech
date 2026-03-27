@@ -9,9 +9,9 @@ import {
 } from "@/components/home";
 
 export const metadata: Metadata = {
-  title: "Persistec — Soluções Tecnológicas de Confiança em Angola",
+  title: "Soluções Tecnológicas de Confiança",
   description:
-    "Soluções de excelência tecnológica e infraestrutura IT em Angola. Parceiros Google e Microsoft. Revendedores Google Workspace, Microsoft 365, Cibersegurança e Cloud.",
+    "Infraestrutura IT, cibersegurança, cloud e soluções digitais para empresas em Angola. Mais de uma década de excelência tecnológica.",
   keywords: [
     "Persistec",
     "Tecnologia",
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     "Suporte Técnico Luanda",
   ],
   openGraph: {
-    title: "Persistec — Soluções Tecnológicas de Confiança em Angola",
+    title: "Soluções Tecnológicas de Confiança",
     description:
-      "Soluções de excelência tecnológica e infraestrutura IT em Angola. Parceiros Google e Microsoft. Revendedores Google Workspace, Microsoft 365, Cibersegurança e Cloud.",
+      "Infraestrutura IT, cibersegurança, cloud e soluções digitais para empresas em Angola. Mais de uma década de excelência tecnológica.",
     type: "website",
     locale: "pt_AO",
     images: [
