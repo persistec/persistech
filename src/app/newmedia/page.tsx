@@ -7,15 +7,31 @@ import Button from "@/components/ui/Button";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
-  title: "Newmedia | Persistec",
+  title: "Newmedia & Estratégia Digital em Angola | Persistec",
   description:
-    "Web design, desenvolvimento, SEO e estratégia digital para empresas em Angola.",
+    "Desenvolvimento de websites, SEO, web design, venda de domínios e marketing digital para empresas em Angola.",
+  keywords: [
+    "Web Design Angola",
+    "Desenvolvimento Web Luanda",
+    "SEO Angola",
+    "Venda de Domínios",
+    "Estratégia Digital",
+    "Marketing Digital Luanda",
+  ],
   openGraph: {
-    title: "Newmedia | Persistec",
+    title: "Newmedia & Estratégia Digital em Angola | Persistec",
     description:
-      "Web design, desenvolvimento, SEO e estratégia digital para empresas em Angola.",
+      "Desenvolvimento de websites, SEO, web design, venda de domínios e marketing digital para empresas em Angola.",
     type: "website",
     locale: "pt_AO",
+    images: [
+      {
+        url: "/images/og/newmedia.png",
+        width: 1200,
+        height: 630,
+        alt: "Newmedia e Estratégia Digital - Persistec",
+      },
+    ],
   },
 };
 

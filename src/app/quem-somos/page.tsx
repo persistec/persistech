@@ -8,13 +8,22 @@ import TimelineSection from "@/components/quem-somos/TimelineSection";
 export const metadata: Metadata = {
   title: "Quem Somos | Persistec",
   description:
-    "Conheça a Persistec, empresa angolana dedicada a transformar organizações através da tecnologia.",
+    "Saiba mais sobre a Persistec, o seu parceiro tecnológico em Angola. Especialistas em infraestrutura IT, parceiros Google e Microsoft.",
+  keywords: ["Empresa IT Angola", "Sobre a Persistec", "Equipa Persistec", "Tecnologia Luanda"],
   openGraph: {
     title: "Quem Somos | Persistec",
     description:
-      "Conheça a Persistec, empresa angolana dedicada a transformar organizações através da tecnologia.",
+      "Saiba mais sobre a Persistec, o seu parceiro tecnológico em Angola. Especialistas em infraestrutura IT, parceiros Google e Microsoft.",
     type: "website",
     locale: "pt_AO",
+    images: [
+      {
+        url: "/images/og/quem-somos.png",
+        width: 1200,
+        height: 630,
+        alt: "Quem Somos - Persistec",
+      },
+    ],
   },
 };
 

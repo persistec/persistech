@@ -105,12 +105,17 @@ export default function ContactSection() {
 
               <div className="flex items-start gap-4">
                 <Phone className="mt-1 h-6 w-6 shrink-0 text-accent-primary" />
-                <a
-                  href="tel:+244923000000"
-                  className="text-base text-text-secondary transition-colors duration-200 ease-out hover:text-accent-light"
-                >
-                  (+244) 923 000 000
-                </a>
+                <div className="space-y-1">
+                  <a
+                    href="tel:+244923000000"
+                    className="block text-base text-text-secondary transition-colors duration-200 ease-out hover:text-accent-light"
+                  >
+                    (+244) 923 000 000
+                  </a>
+                  <p className="text-sm text-text-muted">
+                    Segunda a sexta: 08:00 – 16:30
+                  </p>
+                </div>
               </div>
             </div>
 
