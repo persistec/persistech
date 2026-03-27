@@ -10,22 +10,22 @@ import {
 } from "@/components/ui/SocialIcons";
 
 export const metadata: Metadata = {
-  title: "Contactos | Persistec - Fale Connosco em Luanda",
+  title: "Contactos",
   description:
-    "Entre em contacto com a Persistec. Estamos em Luanda, Angola, prontos para ajudar o seu negócio com soluções IT de excelência.",
+    "Fale connosco. Estamos em Luanda, prontos para analisar as necessidades da sua empresa e apresentar a solução ideal.",
   keywords: ["Contacto Persistec", "Suporte IT Angola", "Morada Persistec", "Telefone Persistec"],
   openGraph: {
-    title: "Contactos | Persistec - Fale Connosco em Luanda",
+    title: "Contactos",
     description:
-      "Entre em contacto com a Persistec. Estamos em Luanda, Angola, prontos para ajudar o seu negócio com soluções IT de excelência.",
+      "Fale connosco. Estamos em Luanda, prontos para analisar as necessidades da sua empresa e apresentar a solução ideal.",
     type: "website",
     locale: "pt_AO",
     images: [
       {
-        url: "/images/og/contactos.png",
+        url: "/images/og/og-contactos.jpg",
         width: 1200,
         height: 630,
-        alt: "Contacte a Persistec",
+        alt: "Persistec — Contactos",
       },
     ],
   },

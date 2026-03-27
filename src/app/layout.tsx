@@ -13,6 +13,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://persistec.com"),
+  title: {
+    default: "Persistec",
+    template: "%s | Persistec",
+  },
   description: "Soluções de excelência tecnológica e infraestrutura IT em Angola.",
   appleWebApp: {
     title: "Persistec",
