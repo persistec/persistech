@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         url: "/images/og/og-newmedia.jpg",
         width: 1200,
         height: 630,
-        alt: "Persistec — Newmedia",
+        alt: "Persistech — Newmedia",
       },
     ],
   },
@@ -44,7 +44,7 @@ export default function NewmediaPage() {
 
       <section className="bg-background-primary py-24">
         <div className="mx-auto max-w-5xl px-6">
-          <div className="glass-blue rounded-[2rem] px-6 py-16 shadow-glow-blue md:px-12">
+          <div className="glass-blue rounded-[2rem] px-6 py-16 shadow-glow-gold md:px-12">
             <SectionHeading
               eyebrow="Vamos criar"
               title="Tem um projeto em mente?"

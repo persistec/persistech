@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         url: "/images/og/og-solucoes.jpg",
         width: 1200,
         height: 630,
-        alt: "Persistec — Soluções",
+        alt: "Persistech — Soluções",
       },
     ],
   },

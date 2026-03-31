@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Contactos",
   description:
     "Fale connosco. Estamos em Luanda, prontos para analisar as necessidades da sua empresa e apresentar a solução ideal.",
-  keywords: ["Contacto Persistec", "Suporte IT Angola", "Morada Persistec", "Telefone Persistec"],
+  keywords: ["Contacto Persistech", "Suporte IT Angola", "Morada Persistech", "Telefone Persistech"],
   openGraph: {
     title: "Contactos",
     description:
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         url: "/images/og/og-contactos.jpg",
         width: 1200,
         height: 630,
-        alt: "Persistec — Contactos",
+        alt: "Persistech — Contactos",
       },
     ],
   },
@@ -44,7 +44,7 @@ export default function ContactosPage() {
             href="https://www.facebook.com/Persistech"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Facebook Persistec"
+            aria-label="Facebook Persistech"
             className="text-text-secondary transition-colors duration-200 ease-out hover:text-accent-primary"
           >
             <FacebookIcon className="h-6 w-6" />
@@ -53,7 +53,7 @@ export default function ContactosPage() {
             href="https://www.linkedin.com/company/2090589"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LinkedIn Persistec"
+            aria-label="LinkedIn Persistech"
             className="text-text-secondary transition-colors duration-200 ease-out hover:text-accent-primary"
           >
             <LinkedinIcon className="h-6 w-6" />
@@ -62,7 +62,7 @@ export default function ContactosPage() {
             href="https://www.instagram.com/persistech.lda"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Instagram Persistec"
+            aria-label="Instagram Persistech"
             className="text-text-secondary transition-colors duration-200 ease-out hover:text-accent-primary"
           >
             <InstagramIcon className="h-6 w-6" />

@@ -30,8 +30,8 @@ function fieldClass(hasError: boolean) {
   return [
     "w-full rounded-lg border bg-background-elevated px-4 py-3 text-text-primary outline-none transition-all duration-200 ease-out",
     hasError
-      ? "border-border-accent shadow-glow-blue"
-      : "border-border-default focus:border-border-accent focus:shadow-glow-blue",
+      ? "border-border-accent shadow-glow-gold"
+      : "border-border-default focus:border-border-accent focus:shadow-glow-gold",
   ].join(" ");
 }
 
@@ -120,7 +120,7 @@ export default function ContactSection() {
             </div>
 
             <iframe
-              title="Mapa Persistec"
+              title="Mapa Persistech"
               src="https://maps.google.com/maps?q=Rua%20Major%20Kanhangulo%2C%20Luanda%2C%20Angola&z=15&output=embed"
               width="100%"
               height="250"

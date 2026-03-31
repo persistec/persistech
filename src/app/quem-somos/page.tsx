@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Quem Somos",
   description:
     "Conheça a nossa história, missão e valores. Uma empresa angolana dedicada a transformar organizações através da tecnologia.",
-  keywords: ["Empresa IT Angola", "Sobre a Persistec", "Equipa Persistec", "Tecnologia Luanda"],
+  keywords: ["Empresa IT Angola", "Sobre a Persistech", "Equipa Persistech", "Tecnologia Luanda"],
   openGraph: {
     title: "Quem Somos",
     description:
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         url: "/images/og/og-quem-somos.jpg",
         width: 1200,
         height: 630,
-        alt: "Persistec — Quem Somos",
+        alt: "Persistech — Quem Somos",
       },
     ],
   },

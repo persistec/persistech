@@ -14,17 +14,17 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://persistec.com"),
   title: {
-    default: "Persistec",
-    template: "%s | Persistec",
+    default: "Persistech",
+    template: "%s | Persistech",
   },
   description: "Soluções de excelência tecnológica e infraestrutura IT em Angola.",
   appleWebApp: {
-    title: "Persistec",
+    title: "Persistech",
     statusBarStyle: "black-translucent",
     capable: true,
   },
   openGraph: {
-    siteName: "Persistec",
+    siteName: "Persistech",
     type: "website",
     locale: "pt_AO",
   },
@@ -43,6 +43,13 @@ export default function RootLayout({
     <html lang="pt-AO" className="dark">
       <head>
         <JsonLd />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="msapplication-navbutton-color" content="#000000" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="msapplication-TileImage" content="/logo_persistech.png" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
       <body
         className={`${inter.className} ${inter.variable} bg-background-primary text-text-primary antialiased`}

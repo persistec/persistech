@@ -4,7 +4,7 @@ const milestones = [
   {
     title: "Fundação",
     description:
-      "Fundação da Persistec em Luanda com foco em suporte técnico e hardware.",
+      "Fundação da Persistech em Luanda com foco em suporte técnico e hardware.",
   },
   {
     title: "Expansão",
@@ -63,7 +63,7 @@ export default function TimelineSection() {
 
                 <div className={cn("hidden md:block", index % 2 === 0 ? "" : "md:order-1")} />
 
-                <div className="absolute left-5 top-8 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-background-primary bg-accent-primary shadow-glow-blue md:left-1/2" />
+                <div className="absolute left-5 top-8 h-4 w-4 -translate-x-1/2 rounded-full border-4 border-background-primary bg-accent-primary shadow-glow-gold md:left-1/2" />
               </div>
             ))}
           </div>
