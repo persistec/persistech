@@ -6,10 +6,17 @@ on:
       - dev
       - main
   push:
-    branches:
-      - dev
-      - main
   workflow_dispatch:
+    inputs:
+      deploy_target:
+        description: Deployment target for this manual run
+        required: true
+        default: validation
+        type: choice
+        options:
+          - validation
+          - preview
+          - production
 
 permissions:
   contents: read
@@ -62,7 +69,7 @@ jobs:
 
   deploy-preview:
     needs: build
-    if: github.event_name == 'pull_request' && (github.base_ref == 'dev' || github.base_ref == 'main')
+    if: (github.event_name == 'push' && github.ref != 'refs/heads/main') || (github.event_name == 'workflow_dispatch' && inputs.deploy_target == 'preview')
     runs-on: ubuntu-latest
 
     env:
@@ -101,7 +108,7 @@ jobs:
 
   deploy-production:
     needs: build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'workflow_dispatch' && inputs.deploy_target == 'production' && github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
 
     env:
