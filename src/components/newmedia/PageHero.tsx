@@ -22,14 +22,14 @@ export default function PageHero() {
       />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--color-accent-glow)_0%,transparent_65%)]" />
       <div className="relative z-10 mx-auto max-w-4xl">
-        <Badge>Comunicação Digital</Badge>
+        <Badge>Serviços NewMedia</Badge>
         <div className="mt-8 space-y-4">
           <h1 className="gradient-text text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
-            Newmedia
+            Serviços NewMedia
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-text-secondary md:text-xl">
-            Criamos experiências digitais que representam a identidade da sua marca e
-            impulsionam o seu negócio online.
+            Desenvolvemos plataformas web, plataformas de gestão e soluções digitais
+            personalizadas para apoiar processos e presença digital.
           </p>
         </div>
       </div>

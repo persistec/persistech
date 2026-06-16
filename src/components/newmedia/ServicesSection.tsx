@@ -1,39 +1,38 @@
-import { Code, Layout, Lightbulb, Palette, Share2, TrendingUp } from "lucide-react";
+import { Building2, ClipboardList, Eye, FileCheck2, Globe2 } from "lucide-react";
 
 import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const services = [
   {
-    title: "Web Design",
-    description: "Websites modernos, responsivos e otimizados para conversão.",
-    icon: Layout,
-  },
-  {
-    title: "Desenvolvimento Web",
-    description: "Plataformas e aplicações web construídas com tecnologias modernas.",
-    icon: Code,
-  },
-  {
-    title: "SEO & Performance",
-    description: "Otimização para motores de busca e performance técnica.",
-    icon: TrendingUp,
-  },
-  {
-    title: "Identidade Visual",
-    description: "Branding, logotipos e sistemas de identidade visual para a sua marca.",
-    icon: Palette,
-  },
-  {
-    title: "Gestão de Redes Sociais",
+    title: "Plataforma de Gestão",
     description:
-      "Estratégia, criação de conteúdo e gestão de presença nas redes sociais.",
-    icon: Share2,
+      "Soluções de software personalizadas para apoiar processos internos, gestão de equipas, finanças e operações.",
+    icon: ClipboardList,
   },
   {
-    title: "Consultoria Digital",
-    description: "Estratégia digital alinhada aos objetivos do seu negócio.",
-    icon: Lightbulb,
+    title: "Plataforma de gestão de obras",
+    description:
+      "Plataformas digitais orientadas para o acompanhamento de obras, documentação, equipas e etapas de execução.",
+    icon: Building2,
+  },
+  {
+    title: "Plataforma de gestão das candidaturas dos projectos a financiar",
+    description:
+      "Soluções para organizar a submissão, avaliação e acompanhamento de candidaturas de projectos a financiar.",
+    icon: FileCheck2,
+  },
+  {
+    title: "Plataforma Ótica",
+    description:
+      "Serviço de plataforma ótica apresentado por consulta, sem subtemas publicados nesta fase.",
+    icon: Eye,
+  },
+  {
+    title: "Criação de Websites",
+    description:
+      "Criação de websites personalizados, responsivos e alinhados às necessidades de comunicação de cada negócio.",
+    icon: Globe2,
   },
 ];
 
@@ -42,8 +41,9 @@ export default function ServicesSection() {
     <section className="grid-bg bg-background-primary py-24">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
-          eyebrow="O que criamos"
-          title="Soluções Digitais"
+          eyebrow="O que desenvolvemos"
+          title="Soluções digitais e plataformas"
+          description="Serviços NewMedia focados em plataformas de gestão, aplicações web e presença digital."
           align="center"
         />
 
