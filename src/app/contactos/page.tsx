@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Contactos",
   description:
     "Fale connosco. Estamos em Luanda, prontos para analisar as necessidades da sua empresa e apresentar a solução ideal.",
-  keywords: ["Contacto Persistech", "Suporte IT Angola", "Morada Persistech", "Telefone Persistech"],
+  keywords: ["Contacto Persistech", "Suporte IT Angola", "Morada Persistech"],
   openGraph: {
     title: "Contactos",
     description:

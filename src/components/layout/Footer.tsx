@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin } from "lucide-react";
+import { Globe, Mail, MapPin } from "lucide-react";
 
 import {
   FacebookIcon,
@@ -124,25 +124,29 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-accent-primary" />
                 <p className="text-sm leading-6 text-text-secondary">
-                  Rua Major Kanhangulo, Prédio Ambriz, 3º Andar, Luanda, Angola
+                  Rua da Índia nº 12, 1º Andar, Zona 8, Bairro do Cruzeiro,
+                  Município das Ingombotas, Luanda – Angola
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <Mail className="mt-0.5 h-5 w-5 shrink-0 text-accent-primary" />
                 <Link
-                  href="mailto:contacto@persistec.com"
+                  href="mailto:info@persistec.com"
                   className="text-sm text-text-secondary transition-colors duration-200 ease-out hover:text-accent-light"
                 >
-                  contacto@persistec.com
+                  info@persistec.com
                 </Link>
               </div>
-              <div className="pt-2">
-                <p className="text-xs font-semibold uppercase tracking-wider text-text-muted">
-                  Horário
-                </p>
-                <p className="mt-1 text-sm text-text-secondary">
-                  Seg — Sex: 08:00 – 16:30
-                </p>
+              <div className="flex items-start gap-3">
+                <Globe className="mt-0.5 h-5 w-5 shrink-0 text-accent-primary" />
+                <Link
+                  href="https://www.persistec.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-text-secondary transition-colors duration-200 ease-out hover:text-accent-light"
+                >
+                  www.persistec.com
+                </Link>
               </div>
             </div>
           </div>

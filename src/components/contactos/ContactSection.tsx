@@ -1,7 +1,7 @@
 "use client";
 
 import { ChangeEvent, FormEvent, useState } from "react";
-import { CheckCircle, Mail, MapPin, Phone, Send } from "lucide-react";
+import { CheckCircle, Globe, Mail, MapPin, Send } from "lucide-react";
 
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
@@ -89,44 +89,33 @@ export default function ContactSection() {
               <div className="flex items-start gap-4">
                 <MapPin className="mt-1 h-6 w-6 shrink-0 text-accent-primary" />
                 <p className="text-base text-text-secondary">
-                  Rua Major Kanhangulo, Prédio Ambriz, 3º Andar, Luanda, Angola
+                  Rua da Índia nº 12, 1º Andar, Zona 8, Bairro do Cruzeiro,
+                  Município das Ingombotas, Luanda – Angola
                 </p>
               </div>
 
               <div className="flex items-start gap-4">
                 <Mail className="mt-1 h-6 w-6 shrink-0 text-accent-primary" />
                 <a
-                  href="mailto:contacto@persistec.com"
+                  href="mailto:info@persistec.com"
                   className="text-base text-text-secondary transition-colors duration-200 ease-out hover:text-accent-light"
                 >
-                  contacto@persistec.com
+                  info@persistec.com
                 </a>
               </div>
 
               <div className="flex items-start gap-4">
-                <Phone className="mt-1 h-6 w-6 shrink-0 text-accent-primary" />
-                <div className="space-y-1">
-                  <a
-                    href="tel:+244923000000"
-                    className="block text-base text-text-secondary transition-colors duration-200 ease-out hover:text-accent-light"
-                  >
-                    (+244) 923 000 000
-                  </a>
-                  <p className="text-sm text-text-muted">
-                    Segunda a sexta: 08:00 – 16:30
-                  </p>
-                </div>
+                <Globe className="mt-1 h-6 w-6 shrink-0 text-accent-primary" />
+                <a
+                  href="https://www.persistec.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base text-text-secondary transition-colors duration-200 ease-out hover:text-accent-light"
+                >
+                  www.persistec.com
+                </a>
               </div>
             </div>
-
-            <iframe
-              title="Mapa Persistech"
-              src="https://maps.google.com/maps?q=Rua%20Major%20Kanhangulo%2C%20Luanda%2C%20Angola&z=15&output=embed"
-              width="100%"
-              height="250"
-              loading="lazy"
-              className="rounded-xl border border-border-default"
-            />
           </div>
 
           <Reveal className="delay-[100ms]">
