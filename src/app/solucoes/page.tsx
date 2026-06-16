@@ -4,13 +4,13 @@ import PageHero from "@/components/solucoes/PageHero";
 import ServicesGrid from "@/components/solucoes/ServicesGrid";
 
 export const metadata: Metadata = {
-  title: "Soluções",
+  title: "Soluções Técnicas",
   description:
-    "Infraestrutura de rede, cibersegurança e cloud para empresas que exigem robustez, segurança e continuidade operacional.",
+    "Soluções técnicas para produtividade, nuvem, Microsoft 365, infraestrutura, suporte e serviços de tecnologia empresarial.",
   openGraph: {
-    title: "Soluções",
+    title: "Soluções Técnicas",
     description:
-      "Infraestrutura de rede, cibersegurança e cloud para empresas que exigem robustez, segurança e continuidade operacional.",
+      "Soluções técnicas para produtividade, nuvem, Microsoft 365, infraestrutura, suporte e serviços de tecnologia empresarial.",
     type: "website",
     locale: "pt_AO",
     images: [
@@ -28,9 +28,9 @@ export default function SolucoesPage() {
   return (
     <>
       <PageHero
-        badge="Soluções Tecnológicas"
-        title="Soluções"
-        subtitle="Infraestrutura robusta, cibersegurança e cloud para empresas que exigem o melhor."
+        badge="Soluções Técnicas"
+        title="Soluções Técnicas"
+        subtitle="Produtividade, nuvem, Microsoft 365, infraestrutura e suporte técnico para empresas."
       />
       <ServicesGrid />
     </>
