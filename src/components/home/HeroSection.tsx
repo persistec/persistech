@@ -31,24 +31,24 @@ export default function HeroSection() {
       />
 
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center text-center">
-        <Badge>Soluções Tecnológicas</Badge>
+        <Badge>Persistech</Badge>
         <div className="mt-8 space-y-4">
           <h1 className="text-5xl font-bold tracking-tight text-text-primary md:text-7xl lg:text-8xl">
-            <span className="block">Expandimos</span>
-            <span className="gradient-text glow-text block">Limites</span>
+            <span className="block">Soluções tecnológicas</span>
+            <span className="gradient-text glow-text block">para empresas</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-text-secondary md:text-xl">
-            Infraestrutura robusta, cibersegurança e soluções digitais para empresas que
-            não param.
+            A Persistech capacita empresas com soluções tecnológicas seguras,
+            produtivas e alinhadas às necessidades do negócio.
           </p>
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-          <Button variant="primary" size="lg" href="/contactos">
-            Fale Connosco
+          <Button variant="primary" size="lg" href="/solucoes">
+            Conheça as nossas soluções
           </Button>
-          <Button variant="outline" size="lg" href="/servicos">
-            Os Nossos Serviços
+          <Button variant="outline" size="lg" href="/contactos">
+            Fale connosco
           </Button>
         </div>
       </div>

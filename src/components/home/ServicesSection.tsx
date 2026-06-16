@@ -1,41 +1,44 @@
-import { Cloud, Cpu, Headphones, Monitor, Server, Shield } from "lucide-react";
+import { Cloud, FileText, Headphones, Monitor, Server } from "lucide-react";
 
+import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const services = [
   {
-    title: "Infraestrutura IT",
-    description: "Design, implementação e gestão de infraestruturas de rede e servidores.",
+    title: "Soluções Técnicas",
+    description:
+      "Produtividade, cloud, Microsoft 365, infraestrutura, redes, suporte e serviços de tecnologia empresarial.",
+    href: "/solucoes",
     icon: Server,
   },
   {
-    title: "Cibersegurança",
+    title: "Soluções de Licenciamento",
     description:
-      "Proteção avançada dos seus sistemas com soluções Kaspersky e auditorias de segurança.",
-    icon: Shield,
+      "Licenciamento de soluções empresariais para produtividade, comunicação, segurança e ambientes corporativos.",
+    href: "/licenciamento",
+    icon: FileText,
   },
   {
-    title: "Cloud & Virtualização",
+    title: "Serviços NewMedia",
+    description: "Plataformas de gestão, plataformas web e websites personalizados para necessidades digitais.",
+    href: "/newmedia",
+    icon: Monitor,
+  },
+  {
+    title: "Consultoria em TI",
     description:
-      "Migração e gestão de ambientes cloud com VMware, Microsoft Azure e Google Workspace.",
+      "Apoio técnico para avaliar necessidades, orientar decisões e alinhar tecnologia aos objetivos do negócio.",
+    href: "/solucoes",
     icon: Cloud,
   },
   {
     title: "Suporte Técnico",
-    description: "Técnicos certificados disponíveis para suporte on-site e remoto.",
+    description:
+      "Assistência remota, help desk e suporte técnico para produtos, servidores e ambientes empresariais.",
+    href: "/solucoes",
     icon: Headphones,
-  },
-  {
-    title: "Web Design & Newmedia",
-    description: "Criação de websites, plataformas e estratégias de comunicação digital.",
-    icon: Monitor,
-  },
-  {
-    title: "Hardware & Equipamento",
-    description: "Fornecimento e manutenção de equipamento HP, servidores e periféricos.",
-    icon: Cpu,
   },
 ];
 
@@ -54,22 +57,27 @@ export default function ServicesSection() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           eyebrow="O que fazemos"
-          title="Serviços de Excelência"
-          description="Soluções completas para a transformação digital da sua empresa."
+          title="Soluções alinhadas ao seu negócio"
+          description="Atuamos em consultoria em TI, produtividade e cloud, infraestrutura, licenciamento empresarial, plataformas digitais e suporte técnico."
           align="center"
         />
 
         <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map(({ title, description, icon: Icon }, index) => (
+          {services.map(({ title, description, href, icon: Icon }, index) => (
             <Reveal key={title} className={revealDelays[index]}>
-              <Card>
-                <div className="flex flex-col gap-5">
+              <Card className="h-full">
+                <div className="flex h-full flex-col gap-5">
                   <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-border-accent bg-background-elevated text-accent-primary shadow-neon">
                     <Icon className="h-8 w-8" />
                   </div>
-                  <div className="space-y-3">
+                  <div className="flex flex-1 flex-col space-y-3">
                     <h3 className="text-xl font-semibold text-text-primary">{title}</h3>
                     <p className="text-sm leading-6 text-text-secondary">{description}</p>
+                    <div className="pt-3">
+                      <Button variant="outline" size="sm" href={href}>
+                        Ver detalhes
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </Card>
