@@ -22,14 +22,20 @@ export default function PageHero() {
       />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--color-accent-glow)_0%,transparent_65%)]" />
       <div className="relative z-10 mx-auto max-w-4xl">
-        <Badge>A Nossa História</Badge>
+        <Badge>Sobre a Persistech</Badge>
         <div className="mt-8 space-y-4">
           <h1 className="gradient-text text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
             Quem Somos
           </h1>
-          <p className="mx-auto max-w-2xl text-lg text-text-secondary md:text-xl">
-            Uma empresa angolana dedicada a transformar a forma como as organizações
-            usam a tecnologia.
+          <p className="mx-auto max-w-3xl text-lg leading-8 text-text-secondary md:text-xl md:leading-9">
+            Na Persistech, acreditamos que a tecnologia tem o poder de transformar
+            negócios e impulsionar o crescimento. Nosso propósito é capacitar empresas
+            a alcançar o seu potencial máximo através de soluções tecnológicas
+            inovadoras, seguras e de alta qualidade, desenvolvidas por uma equipa
+            experiente e certificada. Com integridade, compromisso com a conformidade
+            e foco na melhoria contínua, entregamos produtos e serviços que atendem
+            aos mais altos padrões internacionais, gerando confiança, tranquilidade
+            e crescimento para nossos clientes e parceiros.
           </p>
         </div>
       </div>

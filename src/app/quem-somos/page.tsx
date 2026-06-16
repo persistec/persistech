@@ -2,18 +2,17 @@ import type { Metadata } from "next";
 
 import MissionSection from "@/components/quem-somos/MissionSection";
 import PageHero from "@/components/quem-somos/PageHero";
-import PartnersSection from "@/components/quem-somos/PartnersSection";
-import TimelineSection from "@/components/quem-somos/TimelineSection";
+
+const pageDescription =
+  "Na Persistech, acreditamos que a tecnologia tem o poder de transformar negócios e impulsionar o crescimento. Nosso propósito é capacitar empresas a alcançar o seu potencial máximo através de soluções tecnológicas inovadoras, seguras e de alta qualidade, desenvolvidas por uma equipa experiente e certificada.";
 
 export const metadata: Metadata = {
   title: "Quem Somos",
-  description:
-    "Conheça a nossa história, missão e valores. Uma empresa angolana dedicada a transformar organizações através da tecnologia.",
-  keywords: ["Empresa IT Angola", "Sobre a Persistech", "Equipa Persistech", "Tecnologia Luanda"],
+  description: pageDescription,
+  keywords: ["Empresa IT Angola", "Sobre a Persistech", "Quem Somos Persistech", "Tecnologia Luanda"],
   openGraph: {
     title: "Quem Somos",
-    description:
-      "Conheça a nossa história, missão e valores. Uma empresa angolana dedicada a transformar organizações através da tecnologia.",
+    description: pageDescription,
     type: "website",
     locale: "pt_AO",
     images: [
@@ -32,8 +31,6 @@ export default function QuemSomosPage() {
     <>
       <PageHero />
       <MissionSection />
-      <TimelineSection />
-      <PartnersSection />
     </>
   );
 }
