@@ -1,26 +1,18 @@
-import Image from "next/image";
 import { persistecClients } from "@/data/clients";
 
 export default function ClientsBanner() {
   return (
-    <section 
-      aria-label="Nossos Clientes" 
-      className="bg-persistec-light py-12"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap items-center justify-center gap-10 md:gap-14 lg:gap-16">
+    <section aria-label="Clientes" className="bg-background-secondary py-12">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {persistecClients.map((client) => (
-            <div 
+            <div
               key={client.id}
-              className="relative h-12 w-32 transition-all duration-300 grayscale opacity-70 hover:grayscale-0 hover:opacity-100"
+              className="flex min-h-20 items-center justify-center rounded-xl border border-border-default bg-background-primary/40 px-5 py-4 text-center"
             >
-              <Image
-                src={client.logoUrl}
-                alt={`Logótipo da ${client.name}`}
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 100px, 128px"
-              />
+              <span className="text-sm font-medium leading-6 text-text-secondary">
+                {client.name}
+              </span>
             </div>
           ))}
         </div>

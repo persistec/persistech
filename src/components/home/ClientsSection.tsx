@@ -1,45 +1,30 @@
-import Image from "next/image";
-
 import { persistecClients } from "@/data/clients";
-
-const marqueeClients = [...persistecClients, ...persistecClients];
 
 export default function ClientsSection() {
   return (
-    <section className="bg-background-secondary py-12">
+    <section className="bg-background-secondary py-16" aria-labelledby="clientes-title">
       <div className="mx-auto max-w-7xl px-6">
-        <p className="text-center text-sm uppercase tracking-widest text-text-muted">
-          Empresas que confiam em nós
-        </p>
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm uppercase tracking-widest text-text-muted">Clientes</p>
+          <h2
+            id="clientes-title"
+            className="mt-4 text-3xl font-semibold text-text-primary md:text-4xl"
+          >
+            Algumas organizações que confiaram na Persistech
+          </h2>
+        </div>
 
-        <div
-          className="mt-8 overflow-hidden"
-          role="region"
-          aria-label="Clientes da Persistech"
-          style={{
-            maskImage:
-              "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
-          }}
-        >
-          <div className="marquee-track flex w-max items-center gap-6">
-            {marqueeClients.map((client, index) => (
-              <div
-                key={`${client.id}-${index}`}
-                className="flex h-24 w-40 shrink-0 items-center justify-center rounded-xl border border-border-default bg-background-primary/40 px-5 transition-all duration-300 ease-out hover:border-border-accent"
-              >
-                <Image
-                  src={client.logoUrl}
-                  alt={client.name}
-                  width={140}
-                  height={64}
-                  loading={index < 4 ? "eager" : "lazy"}
-                  className="h-12 w-auto opacity-50 grayscale transition-all duration-300 ease-out hover:opacity-100 hover:grayscale-0"
-                />
-              </div>
-            ))}
-          </div>
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {persistecClients.map((client) => (
+            <div
+              key={client.id}
+              className="flex min-h-24 items-center rounded-xl border border-border-default bg-background-primary/40 px-5 py-5 text-center transition-colors duration-200 ease-out hover:border-border-accent"
+            >
+              <p className="w-full text-sm font-medium leading-6 text-text-secondary">
+                {client.name}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
