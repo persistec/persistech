@@ -4,56 +4,63 @@ import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
-const differentiators = [
-  "Parceiros certificados HP, Microsoft e Google",
-  "Técnicos especializados e certificados",
-  "Suporte rápido e personalizado",
-  "Soluções escaláveis para qualquer dimensão de empresa",
+const values = [
+  {
+    title: "Integridade",
+    description: "Agimos com ética e transparência, criando confiança duradoura.",
+  },
+  {
+    title: "Compromisso",
+    description:
+      "Trabalhamos lado a lado com clientes e parceiros, procurando superar expectativas.",
+  },
+  {
+    title: "Inovação Segura",
+    description:
+      "Implementamos soluções tecnológicas criativas, seguras e orientadas para resultados reais.",
+  },
+  {
+    title: "Qualidade e Conformidade",
+    description:
+      "Cumprimos padrões de excelência e boas práticas aplicáveis aos serviços prestados.",
+  },
+  {
+    title: "Melhoria Contínua",
+    description: "Aprimoramos processos, competências e soluções de forma permanente.",
+  },
 ];
 
-const stats = [
-  { value: "+10", label: "Anos de experiência" },
-  { value: "+50", label: "Clientes ativos" },
-  { value: "24/7", label: "Suporte disponível" },
-  { value: "100%", label: "Compromisso com qualidade" },
+const revealDelays = [
+  "delay-[0ms]",
+  "delay-[100ms]",
+  "delay-[200ms]",
+  "delay-[300ms]",
+  "delay-[400ms]",
 ];
-
-const revealDelays = ["delay-[0ms]", "delay-[100ms]", "delay-[200ms]", "delay-[300ms]"];
 
 export default function WhyUsSection() {
   return (
     <section className="bg-background-secondary py-24">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
-        <div className="space-y-8">
-          <SectionHeading
-            eyebrow="Porquê nós"
-            title="Tecnologia que move negócios"
-            description="Há mais de uma década a servir empresas em Angola com soluções IT de referência."
-            align="left"
-          />
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionHeading
+          eyebrow="Como trabalhamos"
+          title="Valores que orientam cada solução"
+          description="Atuamos com integridade, compromisso com a conformidade e foco na melhoria contínua."
+          align="center"
+        />
 
-          <div className="space-y-4">
-            {differentiators.map((item) => (
-              <div key={item} className="flex items-start gap-3">
-                <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border-accent bg-background-elevated text-accent-primary">
-                  <Check className="h-4 w-4" />
-                </div>
-                <p className="text-base text-text-secondary">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
-          {stats.map((stat, index) => (
-            <Reveal key={stat.label} className={revealDelays[index]}>
-              <Card
-                hover={false}
-                className="flex min-h-40 items-center justify-center bg-background-card"
-              >
-                <div className="text-center">
-                  <p className="gradient-text text-4xl font-bold">{stat.value}</p>
-                  <p className="mt-3 text-sm text-text-secondary">{stat.label}</p>
+        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {values.map(({ title, description }, index) => (
+            <Reveal key={title} className={revealDelays[index]}>
+              <Card hover={false} className="h-full bg-background-card">
+                <div className="flex h-full items-start gap-4">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border-accent bg-background-elevated text-accent-primary">
+                    <Check className="h-5 w-5" />
+                  </div>
+                  <div className="space-y-3">
+                    <h3 className="text-lg font-semibold text-text-primary">{title}</h3>
+                    <p className="text-sm leading-6 text-text-secondary">{description}</p>
+                  </div>
                 </div>
               </Card>
             </Reveal>

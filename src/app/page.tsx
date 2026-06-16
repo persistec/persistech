@@ -9,26 +9,23 @@ import {
 } from "@/components/home";
 
 export const metadata: Metadata = {
-  title: "Soluções Tecnológicas de Confiança",
+  title: "Soluções tecnológicas para empresas",
   description:
-    "Infraestrutura IT, cibersegurança, cloud e soluções digitais para empresas em Angola. Mais de uma década de excelência tecnológica.",
+    "A Persistech capacita empresas com soluções tecnológicas seguras, produtivas e alinhadas às necessidades do negócio.",
   keywords: [
     "Persistech",
-    "Tecnologia",
+    "tecnologia",
     "Angola",
-    "Google Workspace",
     "Microsoft 365",
-    "Cibersegurança",
-    "Infraestrutura IT",
-    "Cloud",
-    "Virtualização",
-    "Revendedor Google Workspace",
-    "Suporte Técnico Luanda",
+    "soluções técnicas",
+    "licenciamento empresarial",
+    "Serviços NewMedia",
+    "consultoria em TI",
   ],
   openGraph: {
-    title: "Soluções Tecnológicas de Confiança",
+    title: "Soluções tecnológicas para empresas",
     description:
-      "Infraestrutura IT, cibersegurança, cloud e soluções digitais para empresas em Angola. Mais de uma década de excelência tecnológica.",
+      "A Persistech capacita empresas com soluções tecnológicas seguras, produtivas e alinhadas às necessidades do negócio.",
     type: "website",
     locale: "pt_AO",
     images: [
@@ -36,7 +33,7 @@ export const metadata: Metadata = {
         url: "/images/og/og-home.jpg",
         width: 1200,
         height: 630,
-        alt: "Persistech — Expandimos limites",
+        alt: "Persistech — Soluções tecnológicas para empresas",
       },
     ],
   },
