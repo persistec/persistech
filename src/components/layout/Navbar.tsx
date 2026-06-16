@@ -12,6 +12,7 @@ const navLinks = [
   { label: "Início", href: "/" },
   { label: "Quem Somos", href: "/quem-somos" },
   { label: "Soluções", href: "/solucoes" },
+  { label: "Licenciamento", href: "/licenciamento" },
   { label: "Serviços", href: "/servicos" },
   { label: "Newmedia", href: "/newmedia" },
   { label: "Contactos", href: "/contactos" },
