@@ -1,7 +1,7 @@
 "use client";
 
 import { ChangeEvent, FormEvent, useState } from "react";
-import { CheckCircle, Globe, Mail, MapPin, Send } from "lucide-react";
+import { CheckCircle, Clock, Globe, Mail, MapPin, Send } from "lucide-react";
 
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
@@ -26,14 +26,33 @@ const initialValues: FormValues = {
   message: "",
 };
 
-function fieldClass(hasError: boolean) {
-  return [
-    "w-full rounded-lg border bg-background-elevated px-4 py-3 text-text-primary outline-none transition-all duration-200 ease-out",
-    hasError
-      ? "border-border-accent shadow-glow-gold"
-      : "border-border-default focus:border-border-accent focus:shadow-glow-gold",
-  ].join(" ");
-}
+const contactDetails = [
+  {
+    label: "Escritório",
+    value:
+      "Rua da Índia nº 12, 1º Andar, Zona 8, Bairro do Cruzeiro, Município das Ingombotas, Luanda – Angola",
+    icon: MapPin,
+    href: undefined,
+  },
+  {
+    label: "Email",
+    value: "info@persistec.com",
+    icon: Mail,
+    href: "mailto:info@persistec.com",
+  },
+  {
+    label: "Horário",
+    value: "Segunda a sexta, horário de expediente",
+    icon: Clock,
+    href: undefined,
+  },
+  {
+    label: "Website",
+    value: "www.persistec.com",
+    icon: Globe,
+    href: "https://www.persistec.com",
+  },
+];
 
 export default function ContactSection() {
   const [values, setValues] = useState<FormValues>(initialValues);
@@ -75,138 +94,180 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="grid-bg bg-background-primary py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
-          <div className="space-y-8">
+    <section id="formulario" className="border-y border-hairline bg-sand">
+      <div className="container-aurum section-rhythm">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-5">
             <SectionHeading
               eyebrow="Localização"
               title="Como nos encontrar"
-              align="left"
+              description="Estamos em Luanda, disponíveis para analisar as necessidades da sua empresa e apresentar a solução adequada."
             />
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <MapPin className="mt-1 h-6 w-6 shrink-0 text-accent-primary" />
-                <p className="text-base text-text-secondary">
-                  Rua da Índia nº 12, 1º Andar, Zona 8, Bairro do Cruzeiro,
-                  Município das Ingombotas, Luanda – Angola
-                </p>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <Mail className="mt-1 h-6 w-6 shrink-0 text-accent-primary" />
-                <a
-                  href="mailto:info@persistec.com"
-                  className="text-base text-text-secondary transition-colors duration-200 ease-out hover:text-accent-light"
+            <div className="mt-10 border-t border-hairline">
+              {contactDetails.map(({ label, value, icon: Icon, href }) => (
+                <div
+                  key={label}
+                  className="flex items-start gap-4 border-b border-hairline py-5"
                 >
-                  info@persistec.com
-                </a>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <Globe className="mt-1 h-6 w-6 shrink-0 text-accent-primary" />
-                <a
-                  href="https://www.persistec.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-base text-text-secondary transition-colors duration-200 ease-out hover:text-accent-light"
-                >
-                  www.persistec.com
-                </a>
-              </div>
+                  <Icon
+                    className="mt-0.5 h-4 w-4 shrink-0 text-gold-deep"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                  <div>
+                    <p className="type-label text-muted">{label}</p>
+                    {href ? (
+                      <a
+                        href={href}
+                        target={href.startsWith("http") ? "_blank" : undefined}
+                        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                        className="mt-2 block type-body-sm text-graphite transition-colors hover:text-gold-deep"
+                      >
+                        {value}
+                      </a>
+                    ) : (
+                      <p className="mt-2 max-w-[46ch] type-body-sm text-graphite">
+                        {value}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          <Reveal className="delay-[100ms]">
-            <Card className="p-8">
+          <Reveal className="delay-[100ms] lg:col-span-7">
+            <Card className="p-6 md:p-8">
               {submitted ? (
-                <div className="flex min-h-[26rem] flex-col items-center justify-center text-center">
-                  <CheckCircle className="h-14 w-14 text-accent-primary" />
-                  <h2 className="mt-6 text-2xl font-semibold text-text-primary">
-                    Mensagem enviada!
+                <div className="flex min-h-[28rem] flex-col items-center justify-center text-center">
+                  <CheckCircle
+                    className="h-12 w-12 text-gold-deep"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                  <h2 className="mt-6 type-headline-md text-ink">
+                    Mensagem enviada
                   </h2>
-                  <p className="mt-3 max-w-sm text-text-secondary">
-                    Entraremos em contacto brevemente.
+                  <p className="mt-3 max-w-sm type-body-sm text-graphite">
+                    Obrigado pelo contacto. Entraremos em contacto brevemente.
                   </p>
                 </div>
               ) : (
                 <div>
-                  <h2 className="text-xl font-semibold text-text-primary">
+                  <h2 className="type-headline-md text-ink">
                     Envie-nos uma mensagem
                   </h2>
+                  <p className="mt-2 type-body-sm text-graphite">
+                    Preencha os campos abaixo e respondemos com a informação
+                    necessária.
+                  </p>
 
-                  <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm text-text-secondary">
-                        Nome completo
-                      </label>
-                      <input
-                        id="name"
-                        name="name"
-                        type="text"
-                        value={values.name}
-                        onChange={handleChange}
-                        className={fieldClass(Boolean(errors.name))}
-                      />
-                      {errors.name ? (
-                        <p className="text-sm text-accent-light">{errors.name}</p>
-                      ) : null}
+                  <form className="mt-8 space-y-5" onSubmit={handleSubmit} noValidate>
+                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                      <div className="space-y-2">
+                        <label
+                          htmlFor="name"
+                          className="block text-[13px] font-medium text-graphite"
+                        >
+                          Nome completo
+                        </label>
+                        <input
+                          id="name"
+                          name="name"
+                          type="text"
+                          autoComplete="name"
+                          value={values.name}
+                          onChange={handleChange}
+                          aria-invalid={Boolean(errors.name)}
+                          aria-describedby={errors.name ? "name-error" : undefined}
+                          className="field"
+                        />
+                        {errors.name ? (
+                          <p id="name-error" className="text-[13px] text-error">
+                            {errors.name}
+                          </p>
+                        ) : null}
+                      </div>
+
+                      <div className="space-y-2">
+                        <label
+                          htmlFor="email"
+                          className="block text-[13px] font-medium text-graphite"
+                        >
+                          Email
+                        </label>
+                        <input
+                          id="email"
+                          name="email"
+                          type="email"
+                          autoComplete="email"
+                          value={values.email}
+                          onChange={handleChange}
+                          aria-invalid={Boolean(errors.email)}
+                          aria-describedby={errors.email ? "email-error" : undefined}
+                          className="field"
+                        />
+                        {errors.email ? (
+                          <p id="email-error" className="text-[13px] text-error">
+                            {errors.email}
+                          </p>
+                        ) : null}
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                      <div className="space-y-2">
+                        <label
+                          htmlFor="company"
+                          className="block text-[13px] font-medium text-graphite"
+                        >
+                          Empresa
+                        </label>
+                        <input
+                          id="company"
+                          name="company"
+                          type="text"
+                          autoComplete="organization"
+                          value={values.company}
+                          onChange={handleChange}
+                          className="field"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <label
+                          htmlFor="subject"
+                          className="block text-[13px] font-medium text-graphite"
+                        >
+                          Assunto
+                        </label>
+                        <select
+                          id="subject"
+                          name="subject"
+                          value={values.subject}
+                          onChange={handleChange}
+                          className="field"
+                        >
+                          <option value="Infraestrutura IT">Infraestrutura IT</option>
+                          <option value="Cibersegurança">Cibersegurança</option>
+                          <option value="Cloud & Virtualização">
+                            Cloud & Virtualização
+                          </option>
+                          <option value="Web Design & Newmedia">
+                            Web Design & Newmedia
+                          </option>
+                          <option value="Suporte Técnico">Suporte Técnico</option>
+                          <option value="Outro">Outro</option>
+                        </select>
+                      </div>
                     </div>
 
                     <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm text-text-secondary">
-                        Email
-                      </label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={values.email}
-                        onChange={handleChange}
-                        className={fieldClass(Boolean(errors.email))}
-                      />
-                      {errors.email ? (
-                        <p className="text-sm text-accent-light">{errors.email}</p>
-                      ) : null}
-                    </div>
-
-                    <div className="space-y-2">
-                      <label htmlFor="company" className="text-sm text-text-secondary">
-                        Empresa
-                      </label>
-                      <input
-                        id="company"
-                        name="company"
-                        type="text"
-                        value={values.company}
-                        onChange={handleChange}
-                        className={fieldClass(false)}
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label htmlFor="subject" className="text-sm text-text-secondary">
-                        Assunto
-                      </label>
-                      <select
-                        id="subject"
-                        name="subject"
-                        value={values.subject}
-                        onChange={handleChange}
-                        className={fieldClass(false)}
+                      <label
+                        htmlFor="message"
+                        className="block text-[13px] font-medium text-graphite"
                       >
-                        <option value="Infraestrutura IT">Infraestrutura IT</option>
-                        <option value="Cibersegurança">Cibersegurança</option>
-                        <option value="Cloud & Virtualização">Cloud & Virtualização</option>
-                        <option value="Web Design & Newmedia">Web Design & Newmedia</option>
-                        <option value="Suporte Técnico">Suporte Técnico</option>
-                        <option value="Outro">Outro</option>
-                      </select>
-                    </div>
-
-                    <div className="space-y-2">
-                      <label htmlFor="message" className="text-sm text-text-secondary">
                         Mensagem
                       </label>
                       <textarea
@@ -215,17 +276,21 @@ export default function ContactSection() {
                         rows={5}
                         value={values.message}
                         onChange={handleChange}
-                        className={fieldClass(Boolean(errors.message))}
+                        aria-invalid={Boolean(errors.message)}
+                        aria-describedby={errors.message ? "message-error" : undefined}
+                        className="field"
                       />
                       {errors.message ? (
-                        <p className="text-sm text-accent-light">{errors.message}</p>
+                        <p id="message-error" className="text-[13px] text-error">
+                          {errors.message}
+                        </p>
                       ) : null}
                     </div>
 
                     <Button variant="primary" size="lg" className="w-full" type="submit">
                       <span className="flex items-center justify-center gap-2">
-                        Enviar Mensagem
-                        <Send className="h-4 w-4" />
+                        Enviar mensagem
+                        <Send className="h-4 w-4" aria-hidden="true" />
                       </span>
                     </Button>
                   </form>

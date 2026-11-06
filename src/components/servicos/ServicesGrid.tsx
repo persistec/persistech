@@ -1,7 +1,7 @@
 import { Check, Cpu, Headphones, Monitor } from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
-import Button from "@/components/ui/Button";
+import CTABand from "@/components/ui/CTABand";
 import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -53,65 +53,64 @@ const revealDelays = ["delay-[0ms]", "delay-[100ms]", "delay-[200ms]"];
 export default function ServicesGrid() {
   return (
     <>
-      <section className="grid-bg bg-background-primary py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-canvas">
+        <div className="container-aurum section-rhythm">
           <SectionHeading
             eyebrow="Portfólio"
             title="Os Nossos Serviços"
-            align="center"
+            description="Suporte, presença digital e equipamento para manter a operação da sua empresa estável e produtiva."
           />
 
-          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
-            {services.map(({ title, category, description, icon: Icon, bullets }, index) => (
-              <Reveal key={title} className={revealDelays[index]}>
-                <Card className="h-full">
-                  <div className="flex flex-col gap-6">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-border-accent bg-background-elevated text-accent-primary">
-                        <Icon className="h-10 w-10" />
+          <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
+            {services.map(
+              ({ title, category, description, icon: Icon, bullets }, index) => (
+                <Reveal key={title} className={revealDelays[index]}>
+                  <Card featured={index === 0} className="h-full">
+                    <div className="flex h-full flex-col">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-[4px] bg-parchment text-gold-deep">
+                          <Icon
+                            className="h-6 w-6"
+                            strokeWidth={1.5}
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <Badge>{category}</Badge>
                       </div>
-                      <Badge>{category}</Badge>
-                    </div>
 
-                    <div className="space-y-3">
-                      <h2 className="text-xl font-semibold text-text-primary">{title}</h2>
-                      <p className="text-sm leading-7 text-text-secondary">{description}</p>
-                    </div>
+                      <h2 className="mt-6 type-headline-md text-ink">{title}</h2>
+                      <p className="mt-3 max-w-[54ch] type-body-md text-graphite">
+                        {description}
+                      </p>
 
-                    <ul className="space-y-3">
-                      {bullets.map((bullet) => (
-                        <li key={bullet} className="flex items-start gap-3">
-                          <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-primary" />
-                          <span className="text-sm text-text-secondary">{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Card>
-              </Reveal>
-            ))}
+                      <ul className="mt-6 space-y-2.5 border-t border-hairline pt-5">
+                        {bullets.map((bullet) => (
+                          <li key={bullet} className="flex items-start gap-3">
+                            <Check
+                              className="mt-0.5 h-4 w-4 shrink-0 text-gold-deep"
+                              strokeWidth={2}
+                              aria-hidden="true"
+                            />
+                            <span className="type-body-sm text-graphite">{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </Card>
+                </Reveal>
+              ),
+            )}
           </div>
         </div>
       </section>
 
-      <section className="bg-background-primary py-24">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="glass-blue rounded-[2rem] px-6 py-16 shadow-glow-gold md:px-12">
-            <SectionHeading
-              eyebrow="Pronto para avançar"
-              title="Encontre a solução certa para si"
-              description="A nossa equipa está pronta para analisar as necessidades da sua empresa e propor a melhor solução."
-              align="center"
-            />
-
-            <div className="mt-10 flex justify-center">
-              <Button variant="primary" size="lg" href="/contactos">
-                Solicitar Proposta
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTABand
+        eyebrow="Pronto para avançar"
+        title="Encontre a solução certa para si"
+        description="A nossa equipa está pronta para analisar as necessidades da sua empresa e propor a melhor solução."
+        primary={{ label: "Solicitar proposta", href: "/contactos" }}
+        secondary={{ label: "Explorar soluções", href: "/solucoes" }}
+      />
     </>
   );
 }

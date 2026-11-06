@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
-import Button from "@/components/ui/Button";
+import CTABand from "@/components/ui/CTABand";
 import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -27,8 +27,7 @@ const microsoftHighlights = [
   },
   {
     title: "Suporte Técnico Especializado",
-    description:
-      "Atendimento dedicado e suporte contínuo para produtos Microsoft.",
+    description: "Atendimento dedicado e suporte contínuo para produtos Microsoft.",
     icon: Headphones,
   },
   {
@@ -112,47 +111,46 @@ const serviceDelays = [
 export default function ServicesGrid() {
   return (
     <>
-      <section className="grid-bg bg-background-primary py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-canvas">
+        <div className="container-aurum section-rhythm">
           <SectionHeading
             eyebrow="Produtividade e Nuvem"
             title="Microsoft 365 para empresas"
             description="Somos uma empresa parceira da Microsoft, com expertise em soluções de produtividade e nuvem para empresas de todos os tamanhos. Atuamos na implantação, configuração e suporte completo das soluções Microsoft 365."
-            align="center"
           />
 
-          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {microsoftHighlights.map(({ title, description, icon: Icon }, index) => (
               <Reveal key={title} className={microsoftDelays[index]}>
-                <Card className="h-full">
-                  <div className="flex h-full flex-col gap-6">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-border-accent bg-background-elevated text-accent-primary">
-                      <Icon className="h-10 w-10" />
-                    </div>
-                    <div className="space-y-3">
-                      <h2 className="text-xl font-semibold text-text-primary">{title}</h2>
-                      <p className="text-sm leading-7 text-text-secondary">{description}</p>
-                    </div>
+                <Card featured={index === 0} className="h-full">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-[4px] bg-parchment text-gold-deep">
+                    <Icon className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
                   </div>
+                  <h2 className="mt-6 type-headline-sm text-ink">{title}</h2>
+                  <p className="mt-3 type-body-sm text-graphite">{description}</p>
                 </Card>
               </Reveal>
             ))}
           </div>
 
-          <div className="mt-12 rounded-2xl border border-border-default bg-background-card p-6 md:p-8">
-            <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-              <div className="max-w-2xl space-y-3">
+          <div className="mt-6 rounded-[4px] border border-hairline bg-paper p-6 md:p-8">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:items-start">
+              <div className="md:col-span-5">
                 <Badge>Microsoft 365</Badge>
-                <h3 className="text-2xl font-semibold text-text-primary">
+                <h3 className="mt-4 type-headline-md text-ink">
                   Ferramentas para colaboração, comunicação e segurança
                 </h3>
               </div>
 
-              <ul className="grid flex-1 grid-cols-1 gap-3 sm:grid-cols-2">
+              <ul className="grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2 md:col-span-7">
                 {microsoftCapabilities.map((capability) => (
                   <li key={capability} className="flex items-start gap-3">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-primary" />
-                    <span className="text-sm text-text-secondary">{capability}</span>
+                    <Check
+                      className="mt-0.5 h-4 w-4 shrink-0 text-gold-deep"
+                      strokeWidth={2}
+                      aria-hidden="true"
+                    />
+                    <span className="type-body-sm text-graphite">{capability}</span>
                   </li>
                 ))}
               </ul>
@@ -161,26 +159,27 @@ export default function ServicesGrid() {
         </div>
       </section>
 
-      <section className="bg-background-secondary py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="border-y border-hairline bg-sand">
+        <div className="container-aurum section-rhythm">
           <SectionHeading
             eyebrow="Serviços Técnicos"
             title="Áreas de atuação"
             description="Serviços técnicos para implementação, suporte e gestão de tecnologia empresarial."
-            align="center"
           />
 
-          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {technicalServices.map(({ title, description, icon: Icon }, index) => (
               <Reveal key={title} className={serviceDelays[index]}>
-                <Card className="h-full">
-                  <div className="flex h-full flex-col gap-5">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-border-accent bg-background-elevated text-accent-primary">
-                      <Icon className="h-8 w-8" />
+                <Card className="h-full p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[4px] bg-parchment text-gold-deep">
+                      <Icon className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
                     </div>
-                    <div className="space-y-3">
-                      <h3 className="text-xl font-semibold text-text-primary">{title}</h3>
-                      <p className="text-sm leading-7 text-text-secondary">{description}</p>
+                    <div>
+                      <h3 className="font-display text-lg font-semibold text-ink">
+                        {title}
+                      </h3>
+                      <p className="mt-2 type-body-sm text-graphite">{description}</p>
                     </div>
                   </div>
                 </Card>
@@ -190,24 +189,13 @@ export default function ServicesGrid() {
         </div>
       </section>
 
-      <section className="bg-background-primary py-24">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="glass-blue rounded-[2rem] px-6 py-16 shadow-glow-gold md:px-12">
-            <SectionHeading
-              eyebrow="Pronto para avançar"
-              title="Encontre a solução técnica certa para si"
-              description="A nossa equipa está pronta para analisar as necessidades da sua empresa e propor a melhor solução."
-              align="center"
-            />
-
-            <div className="mt-10 flex justify-center">
-              <Button variant="primary" size="lg" href="/contactos">
-                Solicitar Proposta
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTABand
+        eyebrow="Pronto para avançar"
+        title="Encontre a solução técnica certa para si"
+        description="A nossa equipa está pronta para analisar as necessidades da sua empresa e propor a melhor solução."
+        primary={{ label: "Solicitar proposta", href: "/contactos" }}
+        secondary={{ label: "Ver licenciamento", href: "/licenciamento" }}
+      />
     </>
   );
 }

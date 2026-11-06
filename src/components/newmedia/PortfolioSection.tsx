@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import Badge from "@/components/ui/Badge";
 import Card from "@/components/ui/Card";
+import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const projects = [
@@ -28,31 +29,49 @@ const projects = [
   },
 ];
 
+const revealDelays = [
+  "delay-[0ms]",
+  "delay-[100ms]",
+  "delay-[200ms]",
+  "delay-[300ms]",
+];
+
 export default function PortfolioSection() {
   return (
-    <section className="bg-background-secondary py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="projetos" className="border-y border-hairline bg-sand">
+      <div className="container-aurum section-rhythm">
         <SectionHeading
           eyebrow="Trabalhos"
           title="Projetos Recentes"
           description="Uma seleção dos projetos que desenvolvemos para os nossos clientes."
-          align="center"
         />
 
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <Card key={project.name}>
-              <div className="space-y-5">
-                <div className="glass-blue aspect-video rounded-xl">
-                  <div className="flex h-full items-center justify-center text-accent-primary">
-                    <Globe className="h-10 w-10" />
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
+          {projects.map((project, index) => (
+            <Reveal key={project.name} className={revealDelays[index]}>
+              <Card featured={index === 0} className="h-full p-6">
+                <div className="overflow-hidden rounded-[2px] border border-hairline bg-parchment">
+                  <div className="flex items-center gap-2 border-b border-hairline px-4 py-2.5">
+                    <span className="h-1.5 w-1.5 rounded-full bg-stone" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-stone" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-stone" />
+                    <span className="ml-2 truncate font-mono text-[9px] uppercase tracking-[0.12em] text-muted">
+                      {project.href.replace(/^https?:\/\//, "")}
+                    </span>
+                  </div>
+                  <div className="flex aspect-[16/8] items-center justify-center">
+                    <Globe
+                      className="h-9 w-9 text-gold-deep"
+                      strokeWidth={1.25}
+                      aria-hidden="true"
+                    />
                   </div>
                 </div>
 
-                <div className="flex items-start justify-between gap-4">
-                  <div className="space-y-3">
+                <div className="mt-5 flex items-start justify-between gap-4">
+                  <div>
                     <Badge>{project.category}</Badge>
-                    <h2 className="text-xl font-semibold text-text-primary">{project.name}</h2>
+                    <h2 className="mt-3 type-headline-sm text-ink">{project.name}</h2>
                   </div>
 
                   <Link
@@ -60,13 +79,13 @@ export default function PortfolioSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Abrir projeto ${project.name}`}
-                    className="text-text-muted transition-colors duration-200 ease-out hover:text-accent-light"
+                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[4px] border border-hairline text-graphite transition-colors hover:border-gold/60 hover:text-gold-deep"
                   >
-                    <ExternalLink className="h-5 w-5" />
+                    <ExternalLink className="h-4 w-4" aria-hidden="true" />
                   </Link>
                 </div>
-              </div>
-            </Card>
+              </Card>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 import MissionSection from "@/components/quem-somos/MissionSection";
 import PageHero from "@/components/quem-somos/PageHero";
+import PartnersSection from "@/components/quem-somos/PartnersSection";
+import TimelineSection from "@/components/quem-somos/TimelineSection";
 
 const pageDescription =
   "Na Persistech, acreditamos que a tecnologia tem o poder de transformar negócios e impulsionar o crescimento. Nosso propósito é capacitar empresas a alcançar o seu potencial máximo através de soluções tecnológicas inovadoras, seguras e de alta qualidade, desenvolvidas por uma equipa experiente e certificada.";
@@ -31,6 +33,8 @@ export default function QuemSomosPage() {
     <>
       <PageHero />
       <MissionSection />
+      <TimelineSection />
+      <PartnersSection />
     </>
   );
 }

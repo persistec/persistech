@@ -1,6 +1,7 @@
 import { Building2, ClipboardList, Eye, FileCheck2, Globe2 } from "lucide-react";
 
 import Card from "@/components/ui/Card";
+import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const services = [
@@ -36,30 +37,35 @@ const services = [
   },
 ];
 
+const revealDelays = [
+  "delay-[0ms]",
+  "delay-[100ms]",
+  "delay-[200ms]",
+  "delay-[300ms]",
+  "delay-[400ms]",
+];
+
 export default function ServicesSection() {
   return (
-    <section className="grid-bg bg-background-primary py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="bg-canvas">
+      <div className="container-aurum section-rhythm">
         <SectionHeading
           eyebrow="O que desenvolvemos"
           title="Soluções digitais e plataformas"
           description="Serviços NewMedia focados em plataformas de gestão, aplicações web e presença digital."
-          align="center"
         />
 
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {services.map(({ title, description, icon: Icon }) => (
-            <Card key={title}>
-              <div className="flex flex-col gap-5">
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-border-accent bg-background-elevated text-accent-primary shadow-neon">
-                  <Icon className="h-8 w-8" />
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {services.map(({ title, description, icon: Icon }, index) => (
+            <Reveal key={title} className={revealDelays[index]}>
+              <Card featured={index === 0} className="h-full">
+                <div className="flex h-12 w-12 items-center justify-center rounded-[4px] bg-parchment text-gold-deep">
+                  <Icon className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
                 </div>
-                <div className="space-y-3">
-                  <h2 className="text-xl font-semibold text-text-primary">{title}</h2>
-                  <p className="text-sm leading-6 text-text-secondary">{description}</p>
-                </div>
-              </div>
-            </Card>
+                <h2 className="mt-6 type-headline-sm text-ink">{title}</h2>
+                <p className="mt-3 type-body-sm text-graphite">{description}</p>
+              </Card>
+            </Reveal>
           ))}
         </div>
       </div>

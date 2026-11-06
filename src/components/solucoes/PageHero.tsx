@@ -1,43 +1,31 @@
-import Image from "next/image";
-
-import Badge from "@/components/ui/Badge";
+import SharedPageHero from "@/components/ui/PageHero";
 
 type PageHeroProps = {
   badge: string;
   title: string;
   subtitle: string;
+  proof?: {
+    value: string;
+    label: string;
+  };
 };
 
-export default function PageHero({ badge, title, subtitle }: PageHeroProps) {
+export default function PageHero({ badge, title, subtitle, proof }: PageHeroProps) {
   return (
-    <section className="circuit-bg relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-background-primary px-6 py-20 text-center">
-      <Image
-        src="/images/heroes/hero-solucoes.jpg"
-        alt=""
-        role="presentation"
-        fill
-        priority
-        className="object-cover object-center"
-      />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.75) 100%)",
-        }}
-      />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--color-accent-glow)_0%,transparent_65%)]" />
-      <div className="relative z-10 mx-auto max-w-4xl">
-        <Badge>{badge}</Badge>
-        <div className="mt-8 space-y-4">
-          <h1 className="gradient-text text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
-            {title}
-          </h1>
-          <p className="mx-auto max-w-2xl text-lg text-text-secondary md:text-xl">
-            {subtitle}
-          </p>
-        </div>
-      </div>
-    </section>
+    <SharedPageHero
+      eyebrow={badge}
+      title={title}
+      lead={subtitle}
+      image={{
+        src: "/images/heroes/hero-solucoes.jpg",
+        alt: "Infraestrutura tecnológica e soluções empresariais",
+        priority: true,
+      }}
+      proof={proof ?? { value: "5", label: "Áreas de serviço" }}
+      actions={[
+        { label: "Solicitar proposta", href: "/contactos" },
+        { label: "Ver serviços", href: "/servicos", variant: "outline" },
+      ]}
+    />
   );
 }

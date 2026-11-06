@@ -31,42 +31,47 @@ export const metadata: Metadata = {
   },
 };
 
+const socialLinks = [
+  {
+    label: "Facebook Persistech",
+    href: "https://www.facebook.com/Persistech",
+    icon: FacebookIcon,
+  },
+  {
+    label: "LinkedIn Persistech",
+    href: "https://www.linkedin.com/company/2090589",
+    icon: LinkedinIcon,
+  },
+  {
+    label: "Instagram Persistech",
+    href: "https://www.instagram.com/persistech.lda",
+    icon: InstagramIcon,
+  },
+];
+
 export default function ContactosPage() {
   return (
     <>
       <PageHero />
       <ContactSection />
 
-      <section className="bg-background-secondary py-12">
-        <div className="mx-auto flex max-w-7xl items-center justify-center gap-5 px-6">
-          <p className="text-text-muted">Siga-nos:</p>
-          <Link
-            href="https://www.facebook.com/Persistech"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook Persistech"
-            className="text-text-secondary transition-colors duration-200 ease-out hover:text-accent-primary"
-          >
-            <FacebookIcon className="h-6 w-6" />
-          </Link>
-          <Link
-            href="https://www.linkedin.com/company/2090589"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn Persistech"
-            className="text-text-secondary transition-colors duration-200 ease-out hover:text-accent-primary"
-          >
-            <LinkedinIcon className="h-6 w-6" />
-          </Link>
-          <Link
-            href="https://www.instagram.com/persistech.lda"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram Persistech"
-            className="text-text-secondary transition-colors duration-200 ease-out hover:text-accent-primary"
-          >
-            <InstagramIcon className="h-6 w-6" />
-          </Link>
+      <section className="bg-canvas py-10">
+        <div className="container-aurum flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <p className="type-label text-muted">Siga-nos</p>
+          <div className="flex items-center gap-2">
+            {socialLinks.map(({ label, href, icon: Icon }) => (
+              <Link
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="flex h-10 w-10 items-center justify-center rounded-[4px] border border-hairline text-graphite transition-colors hover:border-gold/60 hover:text-gold-deep"
+              >
+                <Icon className="h-4 w-4" />
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </>

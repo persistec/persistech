@@ -1,6 +1,14 @@
-import { Cloud, FileText, Headphones, Monitor, Server } from "lucide-react";
+import {
+  ArrowUpRight,
+  Cloud,
+  FileText,
+  Handshake,
+  Headphones,
+  Monitor,
+  Server,
+} from "lucide-react";
+import Link from "next/link";
 
-import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -22,7 +30,8 @@ const services = [
   },
   {
     title: "Serviços NewMedia",
-    description: "Plataformas de gestão, plataformas web e websites personalizados para necessidades digitais.",
+    description:
+      "Plataformas de gestão, plataformas web e websites personalizados para necessidades digitais.",
     href: "/newmedia",
     icon: Monitor,
   },
@@ -40,6 +49,13 @@ const services = [
     href: "/solucoes",
     icon: Headphones,
   },
+  {
+    title: "Parceiros certificados",
+    description:
+      "Tecnologia suportada por parcerias e certificações com Microsoft, HP, Kaspersky, Veeam e Google Workspace.",
+    href: "/quem-somos",
+    icon: Handshake,
+  },
 ];
 
 const revealDelays = [
@@ -53,32 +69,42 @@ const revealDelays = [
 
 export default function ServicesSection() {
   return (
-    <section className="grid-bg bg-background-primary py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <SectionHeading
-          eyebrow="O que fazemos"
-          title="Soluções alinhadas ao seu negócio"
-          description="Atuamos em consultoria em TI, produtividade e cloud, infraestrutura, licenciamento empresarial, plataformas digitais e suporte técnico."
-          align="center"
-        />
+    <section className="bg-sand">
+      <div className="container-aurum section-rhythm">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <SectionHeading
+            eyebrow="O que fazemos"
+            title="Soluções alinhadas ao seu negócio"
+            description="Atuamos em consultoria em TI, produtividade e cloud, infraestrutura, licenciamento empresarial, plataformas digitais e suporte técnico."
+          />
+          <Link
+            href="/solucoes"
+            className="inline-flex shrink-0 items-center gap-2 border-b border-gold pb-1 text-sm font-medium text-ink transition-colors hover:text-gold-deep"
+          >
+            Ver todas as soluções
+            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map(({ title, description, href, icon: Icon }, index) => (
             <Reveal key={title} className={revealDelays[index]}>
-              <Card className="h-full">
-                <div className="flex h-full flex-col gap-5">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-border-accent bg-background-elevated text-accent-primary shadow-neon">
-                    <Icon className="h-8 w-8" />
+              <Card featured={index === 0} className="h-full">
+                <div className="flex h-full flex-col">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-[4px] bg-parchment text-gold-deep">
+                    <Icon className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
                   </div>
-                  <div className="flex flex-1 flex-col space-y-3">
-                    <h3 className="text-xl font-semibold text-text-primary">{title}</h3>
-                    <p className="text-sm leading-6 text-text-secondary">{description}</p>
-                    <div className="pt-3">
-                      <Button variant="outline" size="sm" href={href}>
-                        Ver detalhes
-                      </Button>
-                    </div>
-                  </div>
+
+                  <h3 className="mt-6 type-headline-sm text-ink">{title}</h3>
+                  <p className="mt-3 type-body-sm text-graphite">{description}</p>
+
+                  <Link
+                    href={href}
+                    className="mt-6 inline-flex items-center gap-2 pt-1 text-sm font-medium text-gold-deep transition-colors hover:text-ink"
+                  >
+                    Explorar
+                    <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  </Link>
                 </div>
               </Card>
             </Reveal>

@@ -1,6 +1,5 @@
 import { Check } from "lucide-react";
 
-import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
@@ -40,31 +39,43 @@ const revealDelays = [
 
 export default function WhyUsSection() {
   return (
-    <section className="bg-background-secondary py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <SectionHeading
-          eyebrow="Como trabalhamos"
-          title="Valores que orientam cada solução"
-          description="Atuamos com integridade, compromisso com a conformidade e foco na melhoria contínua."
-          align="center"
-        />
+    <section className="bg-canvas">
+      <div className="container-aurum section-rhythm">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-5">
+            <div className="lg:sticky lg:top-28">
+              <SectionHeading
+                eyebrow="Como trabalhamos"
+                title="Valores que orientam cada solução"
+                description="Atuamos com integridade, compromisso com a conformidade e foco na melhoria contínua."
+              />
+            </div>
+          </div>
 
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {values.map(({ title, description }, index) => (
-            <Reveal key={title} className={revealDelays[index]}>
-              <Card hover={false} className="h-full bg-background-card">
-                <div className="flex h-full items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border-accent bg-background-elevated text-accent-primary">
-                    <Check className="h-5 w-5" />
+          <div className="lg:col-span-7">
+            <div>
+              {values.map(({ title, description }, index) => (
+                <Reveal key={title} className={revealDelays[index]}>
+                  <div className="grid grid-cols-[auto_1fr_auto] items-start gap-5 border-t border-hairline py-6">
+                    <span className="font-mono text-[11px] leading-6 tracking-[0.14em] text-gold-deep">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h3 className="type-headline-sm text-ink">{title}</h3>
+                      <p className="mt-2 max-w-[52ch] type-body-sm text-graphite">
+                        {description}
+                      </p>
+                    </div>
+                    <Check
+                      className="mt-1 h-4 w-4 text-gold"
+                      strokeWidth={2}
+                      aria-hidden="true"
+                    />
                   </div>
-                  <div className="space-y-3">
-                    <h3 className="text-lg font-semibold text-text-primary">{title}</h3>
-                    <p className="text-sm leading-6 text-text-secondary">{description}</p>
-                  </div>
-                </div>
-              </Card>
-            </Reveal>
-          ))}
+                </Reveal>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

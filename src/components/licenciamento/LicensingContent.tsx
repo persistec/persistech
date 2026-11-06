@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 import Badge from "@/components/ui/Badge";
-import Button from "@/components/ui/Button";
+import CTABand from "@/components/ui/CTABand";
 import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -112,11 +112,17 @@ const revealDelays = ["delay-[0ms]", "delay-[100ms]", "delay-[200ms]"];
 
 function ProductList({ products }: { products: string[] }) {
   return (
-    <ul className="space-y-3">
+    <ul className="space-y-2.5">
       {products.map((product) => (
         <li key={product} className="flex items-start gap-3">
-          <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent-primary" />
-          <span className="text-sm text-text-secondary">{product}</span>
+          <Check
+            className="mt-0.5 h-4 w-4 shrink-0 text-gold-deep"
+            strokeWidth={2}
+            aria-hidden="true"
+          />
+          <span className="text-[15px] font-medium leading-6 text-graphite">
+            {product}
+          </span>
         </li>
       ))}
     </ul>
@@ -126,33 +132,32 @@ function ProductList({ products }: { products: string[] }) {
 export default function LicensingContent() {
   return (
     <>
-      <section className="grid-bg bg-background-primary py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-canvas">
+        <div className="container-aurum section-rhythm">
           <SectionHeading
             eyebrow="Portfólio"
             title="Licenciamento de soluções empresariais"
             description="Venda, recomendação e suporte técnico para ferramentas de produtividade, comunicação, segurança e gestão cloud."
-            align="center"
           />
 
-          <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
             {quickGroups.map(({ title, description, products, icon: Icon }, index) => (
               <Reveal key={title} className={revealDelays[index]}>
-                <Card className="h-full">
-                  <div className="flex h-full flex-col gap-6">
+                <Card featured={index === 0} className="h-full">
+                  <div className="flex h-full flex-col">
                     <div className="flex items-start justify-between gap-4">
-                      <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-border-accent bg-background-elevated text-accent-primary">
-                        <Icon className="h-10 w-10" />
+                      <div className="flex h-12 w-12 items-center justify-center rounded-[4px] bg-parchment text-gold-deep">
+                        <Icon className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
                       </div>
                       <Badge>{title}</Badge>
                     </div>
 
-                    <div className="space-y-3">
-                      <h2 className="text-xl font-semibold text-text-primary">{title}</h2>
-                      <p className="text-sm leading-7 text-text-secondary">{description}</p>
-                    </div>
+                    <h2 className="mt-6 type-headline-sm text-ink">{title}</h2>
+                    <p className="mt-3 type-body-sm text-graphite">{description}</p>
 
-                    <ProductList products={products} />
+                    <div className="mt-6 border-t border-hairline pt-5">
+                      <ProductList products={products} />
+                    </div>
                   </div>
                 </Card>
               </Reveal>
@@ -161,30 +166,36 @@ export default function LicensingContent() {
         </div>
       </section>
 
-      <section className="bg-background-secondary py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <div className="space-y-6">
+      <section className="border-y border-hairline bg-sand">
+        <div className="container-aurum section-rhythm">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
               <Badge>Malwarebytes</Badge>
-              <h2 className="gradient-text text-3xl font-semibold md:text-4xl">
+              <h2 className="mt-5 type-headline-lg text-ink">
                 Proteção avançada com gestão centralizada
               </h2>
-              <p className="text-sm leading-7 text-text-secondary">
+              <p className="mt-4 max-w-[54ch] type-body-md text-graphite">
                 A Persistech disponibiliza licenciamento para soluções Malwarebytes
                 for Business, focadas na proteção contra ameaças digitais avançadas
                 com gestão centralizada.
               </p>
-              <ProductList products={malwarebytesProducts} />
+              <div className="mt-8 border-t border-hairline pt-6">
+                <ProductList products={malwarebytesProducts} />
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:col-span-7">
               {malwarebytesPoints.map(({ title, description }) => (
-                <Card key={title} hover={false} className="h-full">
-                  <div className="flex h-full flex-col gap-4">
-                    <ShieldCheck className="h-8 w-8 text-accent-primary" />
-                    <h3 className="text-lg font-semibold text-text-primary">{title}</h3>
-                    <p className="text-sm leading-7 text-text-secondary">{description}</p>
-                  </div>
+                <Card key={title} hover={false} className="h-full p-6">
+                  <ShieldCheck
+                    className="h-6 w-6 text-gold-deep"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                  <h3 className="mt-4 font-display text-lg font-semibold text-ink">
+                    {title}
+                  </h3>
+                  <p className="mt-2 type-body-sm text-graphite">{description}</p>
                 </Card>
               ))}
             </div>
@@ -192,47 +203,39 @@ export default function LicensingContent() {
         </div>
       </section>
 
-      <section className="bg-background-primary py-24">
-        <div className="mx-auto max-w-7xl px-6">
+      <section className="bg-canvas">
+        <div className="container-aurum section-rhythm">
           <SectionHeading
             eyebrow="Kaspersky"
             title="Segurança empresarial e profissional"
             description="Licenciamento, venda, recomendação e suporte técnico para soluções Kaspersky orientadas à proteção de endpoints, servidores e dados corporativos."
-            align="center"
           />
 
-          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-5">
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {kasperskySolutions.map(({ title, description }) => (
-              <Card key={title} hover={false} className="h-full">
-                <div className="flex h-full flex-col gap-4">
-                  <MonitorCog className="h-8 w-8 text-accent-primary" />
-                  <h3 className="text-base font-semibold text-text-primary">{title}</h3>
-                  <p className="text-sm leading-7 text-text-secondary">{description}</p>
-                </div>
+              <Card key={title} hover={false} className="h-full p-6">
+                <MonitorCog
+                  className="h-6 w-6 text-gold-deep"
+                  strokeWidth={1.5}
+                  aria-hidden="true"
+                />
+                <h3 className="mt-4 font-display text-base font-semibold leading-6 text-ink">
+                  {title}
+                </h3>
+                <p className="mt-2 type-body-sm text-graphite">{description}</p>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-background-primary py-24">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="glass-blue rounded-[2rem] px-6 py-16 shadow-glow-gold md:px-12">
-            <SectionHeading
-              eyebrow="Pronto para avançar"
-              title="Encontre a licença certa para a sua empresa"
-              description="A nossa equipa está pronta para orientar a escolha das soluções de licenciamento adequadas às necessidades do seu negócio."
-              align="center"
-            />
-
-            <div className="mt-10 flex justify-center">
-              <Button variant="primary" size="lg" href="/contactos">
-                Solicitar Proposta
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTABand
+        eyebrow="Pronto para avançar"
+        title="Encontre a licença certa para a sua empresa"
+        description="A nossa equipa está pronta para orientar a escolha das soluções de licenciamento adequadas às necessidades do seu negócio."
+        primary={{ label: "Solicitar proposta", href: "/contactos" }}
+        secondary={{ label: "Ver soluções técnicas", href: "/solucoes" }}
+      />
     </>
   );
 }

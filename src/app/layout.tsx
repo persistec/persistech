@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, JetBrains_Mono, Sora } from "next/font/google";
 
 import { Footer, JsonLd, Navbar } from "@/components/layout";
 
@@ -11,6 +11,20 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+const sora = Sora({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sora",
+  weight: ["400", "500", "600"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-jetbrains",
+  weight: ["400", "500"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://persistec.com"),
   title: {
@@ -20,7 +34,7 @@ export const metadata: Metadata = {
   description: "Soluções de excelência tecnológica e infraestrutura IT em Angola.",
   appleWebApp: {
     title: "Persistech",
-    statusBarStyle: "black-translucent",
+    statusBarStyle: "default",
     capable: true,
   },
   openGraph: {
@@ -34,29 +48,34 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#F7F4EC",
+  colorScheme: "light",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-AO" className="dark">
+    <html lang="pt-AO">
       <head>
         <JsonLd />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="msapplication-navbutton-color" content="#000000" />
-        <meta name="msapplication-TileColor" content="#000000" />
-        <meta name="msapplication-TileImage" content="/logo_persistech.png" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="theme-color" content="#F7F4EC" />
+        <meta name="msapplication-navbutton-color" content="#F7F4EC" />
+        <meta name="msapplication-TileColor" content="#F7F4EC" />
+        <meta name="msapplication-TileImage" content="/brand/persistech-logo.png" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
       <body
-        className={`${inter.className} ${inter.variable} bg-background-primary text-text-primary antialiased`}
+        className={`${inter.variable} ${sora.variable} ${jetbrainsMono.variable} font-sans antialiased`}
       >
         <div className="flex min-h-screen flex-col">
           <Navbar />
-          <main className="flex-grow pt-20">{children}</main>
+          <main className="flex-grow">{children}</main>
           <Footer />
         </div>
       </body>

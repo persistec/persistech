@@ -1,5 +1,3 @@
-import Badge from "@/components/ui/Badge";
-import Card from "@/components/ui/Card";
 import SectionHeading from "@/components/ui/SectionHeading";
 
 const partners = [
@@ -13,26 +11,29 @@ const partners = [
 
 export default function PartnersSection() {
   return (
-    <section className="bg-background-secondary py-16">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="relative overflow-hidden bg-executive">
+      <div className="executive-rule" aria-hidden="true" />
+
+      <div className="container-aurum section-rhythm">
         <SectionHeading
           eyebrow="Tecnologia"
           title="Parceiros & Certificações"
+          description="Trabalhamos com fabricantes e plataformas reconhecidas para entregar soluções suportadas e conformes."
           align="center"
+          tone="dark"
         />
 
-        <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 border-l border-t border-white/10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
           {partners.map((partner) => (
-            <Card
+            <div
               key={partner}
-              hover={false}
-              className="flex min-h-48 items-center justify-center"
+              className="flex min-h-[140px] flex-col justify-between border-b border-r border-white/10 p-5"
             >
-              <div className="flex flex-col items-center gap-4 text-center">
-                <Badge>Parceiro Certificado</Badge>
-                <p className="text-base font-medium text-text-secondary">{partner}</p>
-              </div>
-            </Card>
+              <span className="type-label text-gold-pale">Parceiro</span>
+              <p className="mt-6 font-display text-lg font-semibold leading-tight text-ivory">
+                {partner}
+              </p>
+            </div>
           ))}
         </div>
       </div>

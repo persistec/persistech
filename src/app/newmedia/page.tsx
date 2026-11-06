@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 import PageHero from "@/components/newmedia/PageHero";
+import PortfolioSection from "@/components/newmedia/PortfolioSection";
 import ServicesSection from "@/components/newmedia/ServicesSection";
-import Button from "@/components/ui/Button";
-import SectionHeading from "@/components/ui/SectionHeading";
+import CTABand from "@/components/ui/CTABand";
 
 const description =
   "Serviços NewMedia da Persistech para plataformas web, plataformas de gestão e soluções digitais personalizadas.";
@@ -39,25 +39,14 @@ export default function NewmediaPage() {
     <>
       <PageHero />
       <ServicesSection />
-
-      <section className="bg-background-primary py-24">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="glass-blue rounded-[2rem] px-6 py-16 shadow-glow-gold md:px-12">
-            <SectionHeading
-              eyebrow="Vamos conversar"
-              title="Tem uma solução digital em mente?"
-              description="Conte-nos a sua necessidade e avaliamos a melhor abordagem para o seu projeto."
-              align="center"
-            />
-
-            <div className="mt-10 flex justify-center">
-              <Button variant="primary" size="lg" href="/contactos">
-                Falar com a Equipa
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PortfolioSection />
+      <CTABand
+        eyebrow="Vamos conversar"
+        title="Tem uma solução digital em mente?"
+        description="Conte-nos a sua necessidade e avaliamos a melhor abordagem para o seu projeto."
+        primary={{ label: "Falar com a equipa", href: "/contactos" }}
+        secondary={{ label: "Ver serviços", href: "/servicos" }}
+      />
     </>
   );
 }

@@ -4,18 +4,25 @@ type CardProps = {
   children: ReactNode;
   className?: string;
   hover?: boolean;
+  featured?: boolean;
 };
 
 function cn(...classes: Array<string | false | null | undefined>) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Card({ children, className, hover = true }: CardProps) {
+export default function Card({
+  children,
+  className,
+  hover = true,
+  featured = false,
+}: CardProps) {
   return (
     <div
       className={cn(
-        "glass rounded-xl border border-border-default bg-background-card p-6 shadow-card transition-all duration-300 ease-out",
-        hover && "hover:-translate-y-[3px] hover:border-[rgba(212,175,55,0.3)] hover:shadow-glow-gold",
+        "relative overflow-hidden rounded-[4px] border border-hairline bg-paper p-8 transition-colors duration-200 ease-out before:absolute before:inset-x-0 before:top-0 before:h-0.5 before:bg-gold before:opacity-0 before:transition-opacity before:content-['']",
+        featured && "before:opacity-100",
+        hover && "hover:border-gold-bright/60 hover:before:opacity-100",
         className,
       )}
     >
