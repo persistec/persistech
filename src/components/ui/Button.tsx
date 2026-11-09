@@ -16,6 +16,7 @@ type BaseButtonProps = {
   rel?: string;
   type?: "button" | "submit" | "reset";
   arrow?: boolean;
+  disabled?: boolean;
 };
 
 function cn(...classes: Array<string | false | null | undefined>) {
@@ -52,6 +53,7 @@ export default function Button({
   rel,
   type = "button",
   arrow = false,
+  disabled = false,
 }: BaseButtonProps) {
   const classes = cn(sharedClasses, variantClasses[variant], sizeClasses[size], className);
   const content = (
@@ -70,7 +72,7 @@ export default function Button({
   }
 
   return (
-    <button type={type} className={classes} onClick={onClick}>
+    <button type={type} className={classes} onClick={onClick} disabled={disabled}>
       {content}
     </button>
   );

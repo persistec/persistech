@@ -3,7 +3,6 @@ import SharedPageHero from "@/components/ui/PageHero";
 export default function NewmediaHero() {
   return (
     <SharedPageHero
-      eyebrow="Serviços NewMedia"
       title="Serviços NewMedia"
       lead="Desenvolvemos plataformas web, plataformas de gestão e soluções digitais personalizadas para apoiar processos e presença digital."
       image={{

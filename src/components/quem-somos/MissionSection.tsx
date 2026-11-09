@@ -55,7 +55,6 @@ export default function MissionSection() {
     <section className="bg-canvas">
       <div className="container-aurum section-rhythm">
         <SectionHeading
-          eyebrow="Propósito"
           title="Missão, visão e valores"
           description="A forma como trabalhamos é tão importante quanto a tecnologia que entregamos."
         />

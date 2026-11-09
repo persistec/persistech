@@ -28,7 +28,6 @@ export default function SolucoesPage() {
   return (
     <>
       <PageHero
-        badge="Soluções Técnicas"
         title="Soluções Técnicas"
         subtitle="Produtividade, nuvem, Microsoft 365, infraestrutura e suporte técnico para empresas."
       />

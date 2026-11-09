@@ -56,7 +56,6 @@ export default function ServicesGrid() {
       <section className="bg-canvas">
         <div className="container-aurum section-rhythm">
           <SectionHeading
-            eyebrow="Portfólio"
             title="Os Nossos Serviços"
             description="Suporte, presença digital e equipamento para manter a operação da sua empresa estável e produtiva."
           />
@@ -105,7 +104,6 @@ export default function ServicesGrid() {
       </section>
 
       <CTABand
-        eyebrow="Pronto para avançar"
         title="Encontre a solução certa para si"
         description="A nossa equipa está pronta para analisar as necessidades da sua empresa e propor a melhor solução."
         primary={{ label: "Solicitar proposta", href: "/contactos" }}

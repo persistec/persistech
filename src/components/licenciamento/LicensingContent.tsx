@@ -1,4 +1,5 @@
 import {
+  ArrowUpRight,
   Check,
   Cloud,
   FileText,
@@ -6,6 +7,7 @@ import {
   PhoneCall,
   ShieldCheck,
 } from "lucide-react";
+import Link from "next/link";
 
 import Badge from "@/components/ui/Badge";
 import CTABand from "@/components/ui/CTABand";
@@ -108,6 +110,12 @@ const quickGroups = [
   },
 ];
 
+const licensingSections = [
+  { label: "Microsoft · 3CX · Google", href: "#licencas" },
+  { label: "Malwarebytes", href: "#malwarebytes" },
+  { label: "Kaspersky", href: "#kaspersky" },
+];
+
 const revealDelays = ["delay-[0ms]", "delay-[100ms]", "delay-[200ms]"];
 
 function ProductList({ products }: { products: string[] }) {
@@ -132,13 +140,27 @@ function ProductList({ products }: { products: string[] }) {
 export default function LicensingContent() {
   return (
     <>
-      <section className="bg-canvas">
+      <section id="licencas" className="bg-canvas">
         <div className="container-aurum section-rhythm">
           <SectionHeading
-            eyebrow="Portfólio"
             title="Licenciamento de soluções empresariais"
             description="Venda, recomendação e suporte técnico para ferramentas de produtividade, comunicação, segurança e gestão cloud."
           />
+
+          <nav
+            aria-label="Secções de licenciamento"
+            className="mt-8 flex flex-wrap gap-2"
+          >
+            {licensingSections.map((section) => (
+              <a
+                key={section.href}
+                href={section.href}
+                className="rounded-[2px] border border-hairline bg-paper px-3 py-2 font-mono text-[10px] font-medium uppercase leading-none tracking-[0.16em] text-graphite transition-colors hover:border-gold/60 hover:text-gold-deep"
+              >
+                {section.label}
+              </a>
+            ))}
+          </nav>
 
           <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
             {quickGroups.map(({ title, description, products, icon: Icon }, index) => (
@@ -166,7 +188,7 @@ export default function LicensingContent() {
         </div>
       </section>
 
-      <section className="border-y border-hairline bg-sand">
+      <section id="malwarebytes" className="border-y border-hairline bg-sand">
         <div className="container-aurum section-rhythm">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
@@ -203,26 +225,35 @@ export default function LicensingContent() {
         </div>
       </section>
 
-      <section className="bg-canvas">
+      <section id="kaspersky" className="bg-canvas">
         <div className="container-aurum section-rhythm">
           <SectionHeading
-            eyebrow="Kaspersky"
             title="Segurança empresarial e profissional"
             description="Licenciamento, venda, recomendação e suporte técnico para soluções Kaspersky orientadas à proteção de endpoints, servidores e dados corporativos."
           />
 
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {kasperskySolutions.map(({ title, description }) => (
-              <Card key={title} hover={false} className="h-full p-6">
-                <MonitorCog
-                  className="h-6 w-6 text-gold-deep"
-                  strokeWidth={1.5}
-                  aria-hidden="true"
-                />
-                <h3 className="mt-4 font-display text-base font-semibold leading-6 text-ink">
-                  {title}
-                </h3>
-                <p className="mt-2 type-body-sm text-graphite">{description}</p>
+              <Card key={title} hover={false} className="h-full">
+                <div className="flex h-full flex-col">
+                  <MonitorCog
+                    className="h-6 w-6 text-gold-deep"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                  <h3 className="mt-4 font-display text-base font-semibold leading-6 text-ink">
+                    {title}
+                  </h3>
+                  <p className="mt-2 type-body-sm text-graphite">{description}</p>
+
+                  <Link
+                    href="/contactos"
+                    className="link-underline link-arrow-group mt-4 inline-flex items-center gap-2 pb-1 pt-2 text-sm font-medium text-gold-deep transition-colors hover:text-ink"
+                  >
+                    Explorar
+                    <ArrowUpRight className="link-arrow h-4 w-4" aria-hidden="true" />
+                  </Link>
+                </div>
               </Card>
             ))}
           </div>
@@ -230,7 +261,6 @@ export default function LicensingContent() {
       </section>
 
       <CTABand
-        eyebrow="Pronto para avançar"
         title="Encontre a licença certa para a sua empresa"
         description="A nossa equipa está pronta para orientar a escolha das soluções de licenciamento adequadas às necessidades do seu negócio."
         primary={{ label: "Solicitar proposta", href: "/contactos" }}

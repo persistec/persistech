@@ -1,97 +1,254 @@
 "use client";
 
-import { ChangeEvent, FormEvent, useState } from "react";
-import { CheckCircle, Clock, Globe, Mail, MapPin, Send } from "lucide-react";
+import { useActionState, useState } from "react";
+import {
+  CheckCircle,
+  Clock,
+  Globe,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Send,
+} from "lucide-react";
 
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { sendContactMessage } from "@/app/contactos/actions";
+import { CONTACT } from "@/data/site";
+import { initialContactState, type ContactState } from "@/app/contactos/contact-form";
 
-type FormValues = {
-  name: string;
-  email: string;
-  company: string;
-  subject: string;
-  message: string;
-};
-
-type FormErrors = Partial<Record<keyof FormValues, string>>;
-
-const initialValues: FormValues = {
-  name: "",
-  email: "",
-  company: "",
-  subject: "Infraestrutura IT",
-  message: "",
-};
-
-const contactDetails = [
+const contactChannels = [
   {
     label: "Escritório",
-    value:
-      "Rua da Índia nº 12, 1º Andar, Zona 8, Bairro do Cruzeiro, Município das Ingombotas, Luanda – Angola",
+    value: CONTACT.address,
     icon: MapPin,
-    href: undefined,
+    href: undefined as string | undefined,
+  },
+  {
+    label: "Telefone",
+    value: CONTACT.phoneDisplay,
+    icon: Phone,
+    href: CONTACT.telHref,
+  },
+  {
+    label: "WhatsApp",
+    value: "Fale connosco por mensagem",
+    icon: MessageCircle,
+    href: CONTACT.whatsappHref,
   },
   {
     label: "Email",
-    value: "info@persistec.com",
+    value: CONTACT.email,
     icon: Mail,
-    href: "mailto:info@persistec.com",
+    href: `mailto:${CONTACT.email}`,
   },
   {
     label: "Horário",
     value: "Segunda a sexta, horário de expediente",
     icon: Clock,
-    href: undefined,
+    href: undefined as string | undefined,
   },
   {
     label: "Website",
-    value: "www.persistec.com",
+    value: CONTACT.website,
     icon: Globe,
-    href: "https://www.persistec.com",
+    href: CONTACT.websiteHref,
   },
 ];
 
+function FieldError({ id, message }: { id: string; message?: string }) {
+  if (!message) {
+    return null;
+  }
+
+  return (
+    <p id={id} className="text-[13px] text-error">
+      {message}
+    </p>
+  );
+}
+
+function ContactForm({ onSentAgain }: { onSentAgain: () => void }) {
+  const [state, formAction, isPending] = useActionState<ContactState, FormData>(
+    sendContactMessage,
+    initialContactState,
+  );
+
+  if (state.status === "success") {
+    return (
+      <Card className="p-6 md:p-8">
+        <div className="flex min-h-[28rem] flex-col items-center justify-center text-center">
+          <CheckCircle
+            className="h-12 w-12 text-gold-deep"
+            strokeWidth={1.5}
+            aria-hidden="true"
+          />
+          <h2 className="mt-6 type-headline-md text-ink">Mensagem enviada</h2>
+          <p className="mt-3 max-w-sm type-body-sm text-graphite">
+            Obrigado pelo contacto. Recebemos a sua mensagem e entraremos em
+            contacto brevemente.
+          </p>
+          <button
+            type="button"
+            onClick={onSentAgain}
+            className="link-underline mt-6 pb-1 text-sm font-medium text-gold-deep transition-colors hover:text-ink"
+          >
+            Enviar outra mensagem
+          </button>
+        </div>
+      </Card>
+    );
+  }
+
+  return (
+    <Card className="p-6 md:p-8">
+      <h2 className="type-headline-md text-ink">Envie-nos uma mensagem</h2>
+      <p className="mt-2 type-body-sm text-graphite">
+        Preencha os campos abaixo e respondemos com a informação necessária.
+      </p>
+
+      {state.status === "error" && state.message ? (
+        <div
+          role="alert"
+          className="mt-6 rounded-[4px] border border-error/30 bg-[#f7e6e2] px-4 py-3 type-body-sm text-error"
+        >
+          {state.message}
+        </div>
+      ) : null}
+
+      <form className="mt-8 space-y-5" action={formAction} noValidate>
+        {/* Honeypot: hidden from humans, filled by bots */}
+        <div className="hidden" aria-hidden="true">
+          <label>
+            Website
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </label>
+        </div>
+
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div className="space-y-2">
+            <label
+              htmlFor="name"
+              className="block text-[13px] font-medium text-graphite"
+            >
+              Nome completo
+            </label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              autoComplete="name"
+              required
+              aria-invalid={Boolean(state.errors.name)}
+              aria-describedby={state.errors.name ? "name-error" : undefined}
+              className="field"
+            />
+            <FieldError id="name-error" message={state.errors.name} />
+          </div>
+
+          <div className="space-y-2">
+            <label
+              htmlFor="email"
+              className="block text-[13px] font-medium text-graphite"
+            >
+              Email
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autoComplete="email"
+              required
+              aria-invalid={Boolean(state.errors.email)}
+              aria-describedby={state.errors.email ? "email-error" : undefined}
+              className="field"
+            />
+            <FieldError id="email-error" message={state.errors.email} />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div className="space-y-2">
+            <label
+              htmlFor="company"
+              className="block text-[13px] font-medium text-graphite"
+            >
+              Empresa
+            </label>
+            <input
+              id="company"
+              name="company"
+              type="text"
+              autoComplete="organization"
+              className="field"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label
+              htmlFor="subject"
+              className="block text-[13px] font-medium text-graphite"
+            >
+              Assunto
+            </label>
+            <select id="subject" name="subject" defaultValue="Infraestrutura IT" className="field">
+              <option value="Infraestrutura IT">Infraestrutura IT</option>
+              <option value="Cibersegurança">Cibersegurança</option>
+              <option value="Cloud & Virtualização">
+                Cloud & Virtualização
+              </option>
+              <option value="Web Design & Newmedia">
+                Web Design & Newmedia
+              </option>
+              <option value="Suporte Técnico">Suporte Técnico</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <label
+            htmlFor="message"
+            className="block text-[13px] font-medium text-graphite"
+          >
+            Mensagem
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows={5}
+            required
+            aria-invalid={Boolean(state.errors.message)}
+            aria-describedby={state.errors.message ? "message-error" : undefined}
+            className="field"
+          />
+          <FieldError id="message-error" message={state.errors.message} />
+        </div>
+
+        <Button variant="primary" size="lg" className="w-full" type="submit" disabled={isPending}>
+          <span className="flex items-center justify-center gap-2">
+            {isPending ? "A enviar…" : "Enviar mensagem"}
+            <Send
+              className={`h-4 w-4${isPending ? " motion-safe:animate-spin" : ""}`}
+              aria-hidden="true"
+            />
+          </span>
+        </Button>
+      </form>
+    </Card>
+  );
+}
+
 export default function ContactSection() {
-  const [values, setValues] = useState<FormValues>(initialValues);
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = event.target;
-
-    setValues((current) => ({ ...current, [name]: value }));
-    setErrors((current) => ({ ...current, [name]: undefined }));
-  };
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const nextErrors: FormErrors = {};
-
-    if (!values.name.trim()) {
-      nextErrors.name = "O nome é obrigatório.";
-    }
-
-    if (!values.email.trim()) {
-      nextErrors.email = "O email é obrigatório.";
-    }
-
-    if (!values.message.trim()) {
-      nextErrors.message = "A mensagem é obrigatória.";
-    }
-
-    if (Object.keys(nextErrors).length > 0) {
-      setErrors(nextErrors);
-      return;
-    }
-
-    setSubmitted(true);
-  };
+  const [formKey, setFormKey] = useState(0);
 
   return (
     <section id="formulario" className="border-y border-hairline bg-sand">
@@ -99,13 +256,12 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <SectionHeading
-              eyebrow="Localização"
               title="Como nos encontrar"
               description="Estamos em Luanda, disponíveis para analisar as necessidades da sua empresa e apresentar a solução adequada."
             />
 
             <div className="mt-10 border-t border-hairline">
-              {contactDetails.map(({ label, value, icon: Icon, href }) => (
+              {contactChannels.map(({ label, value, icon: Icon, href }) => (
                 <div
                   key={label}
                   className="flex items-start gap-4 border-b border-hairline py-5"
@@ -137,166 +293,8 @@ export default function ContactSection() {
             </div>
           </div>
 
-          <Reveal className="delay-[100ms] lg:col-span-7">
-            <Card className="p-6 md:p-8">
-              {submitted ? (
-                <div className="flex min-h-[28rem] flex-col items-center justify-center text-center">
-                  <CheckCircle
-                    className="h-12 w-12 text-gold-deep"
-                    strokeWidth={1.5}
-                    aria-hidden="true"
-                  />
-                  <h2 className="mt-6 type-headline-md text-ink">
-                    Mensagem enviada
-                  </h2>
-                  <p className="mt-3 max-w-sm type-body-sm text-graphite">
-                    Obrigado pelo contacto. Entraremos em contacto brevemente.
-                  </p>
-                </div>
-              ) : (
-                <div>
-                  <h2 className="type-headline-md text-ink">
-                    Envie-nos uma mensagem
-                  </h2>
-                  <p className="mt-2 type-body-sm text-graphite">
-                    Preencha os campos abaixo e respondemos com a informação
-                    necessária.
-                  </p>
-
-                  <form className="mt-8 space-y-5" onSubmit={handleSubmit} noValidate>
-                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                      <div className="space-y-2">
-                        <label
-                          htmlFor="name"
-                          className="block text-[13px] font-medium text-graphite"
-                        >
-                          Nome completo
-                        </label>
-                        <input
-                          id="name"
-                          name="name"
-                          type="text"
-                          autoComplete="name"
-                          value={values.name}
-                          onChange={handleChange}
-                          aria-invalid={Boolean(errors.name)}
-                          aria-describedby={errors.name ? "name-error" : undefined}
-                          className="field"
-                        />
-                        {errors.name ? (
-                          <p id="name-error" className="text-[13px] text-error">
-                            {errors.name}
-                          </p>
-                        ) : null}
-                      </div>
-
-                      <div className="space-y-2">
-                        <label
-                          htmlFor="email"
-                          className="block text-[13px] font-medium text-graphite"
-                        >
-                          Email
-                        </label>
-                        <input
-                          id="email"
-                          name="email"
-                          type="email"
-                          autoComplete="email"
-                          value={values.email}
-                          onChange={handleChange}
-                          aria-invalid={Boolean(errors.email)}
-                          aria-describedby={errors.email ? "email-error" : undefined}
-                          className="field"
-                        />
-                        {errors.email ? (
-                          <p id="email-error" className="text-[13px] text-error">
-                            {errors.email}
-                          </p>
-                        ) : null}
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                      <div className="space-y-2">
-                        <label
-                          htmlFor="company"
-                          className="block text-[13px] font-medium text-graphite"
-                        >
-                          Empresa
-                        </label>
-                        <input
-                          id="company"
-                          name="company"
-                          type="text"
-                          autoComplete="organization"
-                          value={values.company}
-                          onChange={handleChange}
-                          className="field"
-                        />
-                      </div>
-
-                      <div className="space-y-2">
-                        <label
-                          htmlFor="subject"
-                          className="block text-[13px] font-medium text-graphite"
-                        >
-                          Assunto
-                        </label>
-                        <select
-                          id="subject"
-                          name="subject"
-                          value={values.subject}
-                          onChange={handleChange}
-                          className="field"
-                        >
-                          <option value="Infraestrutura IT">Infraestrutura IT</option>
-                          <option value="Cibersegurança">Cibersegurança</option>
-                          <option value="Cloud & Virtualização">
-                            Cloud & Virtualização
-                          </option>
-                          <option value="Web Design & Newmedia">
-                            Web Design & Newmedia
-                          </option>
-                          <option value="Suporte Técnico">Suporte Técnico</option>
-                          <option value="Outro">Outro</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <label
-                        htmlFor="message"
-                        className="block text-[13px] font-medium text-graphite"
-                      >
-                        Mensagem
-                      </label>
-                      <textarea
-                        id="message"
-                        name="message"
-                        rows={5}
-                        value={values.message}
-                        onChange={handleChange}
-                        aria-invalid={Boolean(errors.message)}
-                        aria-describedby={errors.message ? "message-error" : undefined}
-                        className="field"
-                      />
-                      {errors.message ? (
-                        <p id="message-error" className="text-[13px] text-error">
-                          {errors.message}
-                        </p>
-                      ) : null}
-                    </div>
-
-                    <Button variant="primary" size="lg" className="w-full" type="submit">
-                      <span className="flex items-center justify-center gap-2">
-                        Enviar mensagem
-                        <Send className="h-4 w-4" aria-hidden="true" />
-                      </span>
-                    </Button>
-                  </form>
-                </div>
-              )}
-            </Card>
+          <Reveal className="delay-[100ms] lg:col-span-7" key={formKey}>
+            <ContactForm onSentAgain={() => setFormKey((current) => current + 1)} />
           </Reveal>
         </div>
       </div>

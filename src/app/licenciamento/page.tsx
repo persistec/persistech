@@ -29,7 +29,6 @@ export default function LicenciamentoPage() {
   return (
     <>
       <PageHero
-        badge="Licenciamento"
         title="Soluções de Licenciamento"
         subtitle="Licenciamento de soluções empresariais para produtividade, comunicação, proteção de endpoints, ferramentas cloud e ambientes corporativos."
         proof={{ value: "4", label: "Parceiros certificados" }}

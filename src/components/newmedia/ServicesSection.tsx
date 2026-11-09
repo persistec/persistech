@@ -50,7 +50,6 @@ export default function ServicesSection() {
     <section className="bg-canvas">
       <div className="container-aurum section-rhythm">
         <SectionHeading
-          eyebrow="O que desenvolvemos"
           title="Soluções digitais e plataformas"
           description="Serviços NewMedia focados em plataformas de gestão, aplicações web e presença digital."
         />

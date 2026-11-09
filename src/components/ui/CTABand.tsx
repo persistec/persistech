@@ -1,9 +1,13 @@
+import { MessageCircle } from "lucide-react";
+
 import Button from "@/components/ui/Button";
-import Eyebrow from "@/components/ui/Eyebrow";
+import CountUp from "@/components/ui/CountUp";
 import Reveal from "@/components/ui/Reveal";
+import { CONTACT } from "@/data/site";
 
 type CTAStat = {
-  value: string;
+  value: number;
+  suffix?: string;
   label: string;
 };
 
@@ -14,25 +18,22 @@ type CTAAction = {
 };
 
 type CTABandProps = {
-  eyebrow?: string;
   title: string;
   description: string;
   primary: CTAAction;
   secondary?: CTAAction;
   stats?: CTAStat[];
+  /** Shows a WhatsApp action next to the primary buttons on the dark band. */
+  whatsapp?: boolean;
 };
 
-function cn(...classes: Array<string | false | null | undefined>) {
-  return classes.filter(Boolean).join(" ");
-}
-
 export default function CTABand({
-  eyebrow,
   title,
   description,
   primary,
   secondary,
   stats,
+  whatsapp = false,
 }: CTABandProps) {
   return (
     <section className="relative overflow-hidden bg-executive">
@@ -45,7 +46,8 @@ export default function CTABand({
               {stats.map((stat) => (
                 <div key={stat.label} className="bg-executive px-5 py-6 md:px-6">
                   <p className="font-mono text-3xl font-medium tracking-tight text-gold-bright md:text-4xl">
-                    {stat.value}
+                    <CountUp to={stat.value} />
+                    {stat.suffix}
                   </p>
                   <p className="mt-2 font-mono text-[10px] uppercase leading-4 tracking-[0.16em] text-on-executive-muted">
                     {stat.label}
@@ -58,8 +60,7 @@ export default function CTABand({
 
         <Reveal className="delay-[100ms]">
           <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-            {eyebrow ? <Eyebrow tone="dark">{eyebrow}</Eyebrow> : null}
-            <h2 className={cn("type-headline-lg text-ivory", eyebrow && "mt-5")}>
+            <h2 className="type-headline-lg text-ivory">
               {title}
             </h2>
             <p className="mt-4 max-w-[60ch] type-body-md text-on-executive-muted">
@@ -86,6 +87,20 @@ export default function CTABand({
                   rel={secondary.external ? "noopener noreferrer" : undefined}
                 >
                   {secondary.label}
+                </Button>
+              ) : null}
+              {whatsapp ? (
+                <Button
+                  variant="outline-light"
+                  size="lg"
+                  href={CONTACT.whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="flex items-center gap-2">
+                    <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                    WhatsApp
+                  </span>
                 </Button>
               ) : null}
             </div>

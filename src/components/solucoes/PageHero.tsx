@@ -1,7 +1,6 @@
 import SharedPageHero from "@/components/ui/PageHero";
 
 type PageHeroProps = {
-  badge: string;
   title: string;
   subtitle: string;
   proof?: {
@@ -10,10 +9,9 @@ type PageHeroProps = {
   };
 };
 
-export default function PageHero({ badge, title, subtitle, proof }: PageHeroProps) {
+export default function PageHero({ title, subtitle, proof }: PageHeroProps) {
   return (
     <SharedPageHero
-      eyebrow={badge}
       title={title}
       lead={subtitle}
       image={{

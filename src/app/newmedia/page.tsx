@@ -41,7 +41,6 @@ export default function NewmediaPage() {
       <ServicesSection />
       <PortfolioSection />
       <CTABand
-        eyebrow="Vamos conversar"
         title="Tem uma solução digital em mente?"
         description="Conte-nos a sua necessidade e avaliamos a melhor abordagem para o seu projeto."
         primary={{ label: "Falar com a equipa", href: "/contactos" }}

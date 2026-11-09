@@ -74,7 +74,6 @@ export default function ServicesSection() {
         <Reveal>
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeading
-              eyebrow="O que fazemos"
               title="Soluções alinhadas ao seu negócio"
               description="Atuamos em consultoria em TI, produtividade e cloud, infraestrutura, licenciamento empresarial, plataformas digitais e suporte técnico."
             />

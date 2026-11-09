@@ -16,7 +16,6 @@ export default function PartnersSection() {
 
       <div className="container-aurum section-rhythm">
         <SectionHeading
-          eyebrow="Tecnologia"
           title="Parceiros & Certificações"
           description="Trabalhamos com fabricantes e plataformas reconhecidas para entregar soluções suportadas e conformes."
           align="center"
