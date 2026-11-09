@@ -39,10 +39,10 @@ export default function HeroSection() {
 
         <div className="min-w-0 lg:col-span-5">
           <div className="relative lg:ml-4">
-            <div className="image-chamfer relative aspect-[1204/1306] overflow-hidden border border-hairline bg-parchment">
+            <div className="image-chamfer relative aspect-[1038/1515] overflow-hidden border border-hairline bg-parchment">
               <Image
                 src="/images/heroes/hero-home.webp"
-                alt="Vista da marginal e do skyline de Luanda ao entardecer"
+                alt="Cruzamento urbano ensolarado de Luanda com edifícios modernos e sinalética hoteleira"
                 fill
                 priority
                 sizes="(min-width: 1024px) 40vw, 100vw"
