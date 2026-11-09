@@ -44,10 +44,12 @@ export default function WhyUsSection() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-28">
-              <SectionHeading
-                title="Valores que orientam cada solução"
-                description="Atuamos com integridade, compromisso com a conformidade e foco na melhoria contínua."
-              />
+              <Reveal>
+                <SectionHeading
+                  title="Valores que orientam cada solução"
+                  description="Atuamos com integridade, compromisso com a conformidade e foco na melhoria contínua."
+                />
+              </Reveal>
             </div>
           </div>
 

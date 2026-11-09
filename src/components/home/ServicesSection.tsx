@@ -71,20 +71,22 @@ export default function ServicesSection() {
   return (
     <section className="bg-sand">
       <div className="container-aurum section-rhythm">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <SectionHeading
-            eyebrow="O que fazemos"
-            title="Soluções alinhadas ao seu negócio"
-            description="Atuamos em consultoria em TI, produtividade e cloud, infraestrutura, licenciamento empresarial, plataformas digitais e suporte técnico."
-          />
-          <Link
-            href="/solucoes"
-            className="link-arrow-group inline-flex shrink-0 items-center gap-2 border-b border-gold pb-1 text-sm font-medium text-ink transition-colors hover:text-gold-deep"
-          >
-            Ver todas as soluções
-            <ArrowUpRight className="link-arrow h-4 w-4" aria-hidden="true" />
-          </Link>
-        </div>
+        <Reveal>
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <SectionHeading
+              eyebrow="O que fazemos"
+              title="Soluções alinhadas ao seu negócio"
+              description="Atuamos em consultoria em TI, produtividade e cloud, infraestrutura, licenciamento empresarial, plataformas digitais e suporte técnico."
+            />
+            <Link
+              href="/solucoes"
+              className="link-arrow-group inline-flex shrink-0 items-center gap-2 border-b border-gold pb-1 text-sm font-medium text-ink transition-colors hover:text-gold-deep"
+            >
+              Ver todas as soluções
+              <ArrowUpRight className="link-arrow h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+        </Reveal>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map(({ title, description, href, icon: Icon }, index) => (
