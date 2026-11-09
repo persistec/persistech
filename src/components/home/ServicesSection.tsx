@@ -79,17 +79,20 @@ export default function ServicesSection() {
           />
           <Link
             href="/solucoes"
-            className="inline-flex shrink-0 items-center gap-2 border-b border-gold pb-1 text-sm font-medium text-ink transition-colors hover:text-gold-deep"
+            className="link-arrow-group inline-flex shrink-0 items-center gap-2 border-b border-gold pb-1 text-sm font-medium text-ink transition-colors hover:text-gold-deep"
           >
             Ver todas as soluções
-            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            <ArrowUpRight className="link-arrow h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map(({ title, description, href, icon: Icon }, index) => (
             <Reveal key={title} className={revealDelays[index]}>
-              <Card featured={index === 0} className="h-full">
+              <Card
+                hover={false}
+                className="h-full motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
+              >
                 <div className="flex h-full flex-col">
                   <div className="flex h-12 w-12 items-center justify-center rounded-[4px] bg-parchment text-gold-deep">
                     <Icon className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
@@ -100,10 +103,10 @@ export default function ServicesSection() {
 
                   <Link
                     href={href}
-                    className="mt-6 inline-flex items-center gap-2 pt-1 text-sm font-medium text-gold-deep transition-colors hover:text-ink"
+                    className="link-underline link-arrow-group mt-6 inline-flex items-center gap-2 self-start pb-1 pt-1 text-sm font-medium text-gold-deep transition-colors hover:text-ink"
                   >
                     Explorar
-                    <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                    <ArrowUpRight className="link-arrow h-4 w-4" aria-hidden="true" />
                   </Link>
                 </div>
               </Card>

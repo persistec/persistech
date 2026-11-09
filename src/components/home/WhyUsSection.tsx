@@ -45,7 +45,6 @@ export default function WhyUsSection() {
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-28">
               <SectionHeading
-                eyebrow="Como trabalhamos"
                 title="Valores que orientam cada solução"
                 description="Atuamos com integridade, compromisso com a conformidade e foco na melhoria contínua."
               />
@@ -56,7 +55,7 @@ export default function WhyUsSection() {
             <div>
               {values.map(({ title, description }, index) => (
                 <Reveal key={title} className={revealDelays[index]}>
-                  <div className="grid grid-cols-[auto_1fr_auto] items-start gap-5 border-t border-hairline py-6">
+                  <div className="group grid grid-cols-[auto_1fr_auto] items-start gap-5 border-t border-hairline py-6">
                     <span className="font-mono text-[11px] leading-6 tracking-[0.14em] text-gold-deep">
                       {String(index + 1).padStart(2, "0")}
                     </span>
@@ -67,7 +66,7 @@ export default function WhyUsSection() {
                       </p>
                     </div>
                     <Check
-                      className="mt-1 h-4 w-4 text-gold"
+                      className="check-draw mt-1 h-4 w-4 text-gold"
                       strokeWidth={2}
                       aria-hidden="true"
                     />

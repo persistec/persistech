@@ -1,7 +1,7 @@
 import Eyebrow from "@/components/ui/Eyebrow";
 
 type SectionHeadingProps = {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   description?: string;
   align?: "left" | "center";
@@ -32,10 +32,11 @@ export default function SectionHeading({
         className,
       )}
     >
-      <Eyebrow tone={tone}>{eyebrow}</Eyebrow>
+      {eyebrow ? <Eyebrow tone={tone}>{eyebrow}</Eyebrow> : null}
       <h2
         className={cn(
-          "mt-4 type-headline-lg",
+          "type-headline-lg",
+          eyebrow && "mt-4",
           isDark ? "text-ivory" : "text-ink",
           isCentered ? "max-w-3xl" : "max-w-2xl",
         )}

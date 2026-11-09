@@ -39,7 +39,7 @@ const sizeClasses: Record<ButtonSize, string> = {
 };
 
 const sharedClasses =
-  "inline-flex items-center justify-center gap-2 rounded-[4px] font-sans font-semibold tracking-[0.01em] transition-colors duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-bright focus-visible:ring-offset-0 disabled:pointer-events-none disabled:opacity-50";
+  "link-arrow-group inline-flex items-center justify-center gap-2 rounded-[4px] font-sans font-semibold tracking-[0.01em] transition-colors duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-bright focus-visible:ring-offset-0 disabled:pointer-events-none disabled:opacity-50";
 
 export default function Button({
   variant = "primary",
@@ -57,7 +57,7 @@ export default function Button({
   const content = (
     <>
       {children}
-      {arrow ? <ArrowUpRight className="h-4 w-4" aria-hidden="true" /> : null}
+      {arrow ? <ArrowUpRight className="link-arrow h-4 w-4" aria-hidden="true" /> : null}
     </>
   );
 

@@ -20,7 +20,7 @@ export default function Card({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-[4px] border border-hairline bg-paper p-8 transition-colors duration-200 ease-out before:absolute before:inset-x-0 before:top-0 before:h-0.5 before:bg-gold before:opacity-0 before:transition-opacity before:content-['']",
+        "relative overflow-hidden rounded-[4px] border border-hairline bg-paper p-8 transition-[color,background-color,border-color,transform,box-shadow] duration-200 ease-out before:absolute before:inset-x-0 before:top-0 before:h-0.5 before:bg-gold before:opacity-0 before:transition-opacity before:content-['']",
         featured && "before:opacity-100",
         hover && "hover:border-gold-bright/60 hover:before:opacity-100",
         className,

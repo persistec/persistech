@@ -22,6 +22,7 @@ const config: Config = {
         hairline: "#DCD4C2",
         ink: "#14120C",
         graphite: "#4A4436",
+        "graphite-strong": "#433D31",
         muted: "#726B5C",
         executive: {
           DEFAULT: "#0E0E0D",
