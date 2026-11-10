@@ -26,9 +26,12 @@ export default function PortfolioSection() {
           description="Uma seleção dos projetos que desenvolvemos para os nossos clientes."
         />
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 flex gap-6 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:thin]">
           {featured.map((project, index) => (
-            <Reveal key={project.name} className={revealDelays[index]}>
+            <Reveal
+              key={project.name}
+              className={`w-[85%] shrink-0 snap-start sm:w-[400px] ${revealDelays[index]}`}
+            >
               <Card
                 hover={false}
                 className="group h-full p-6 motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
@@ -57,7 +60,9 @@ export default function PortfolioSection() {
             </Reveal>
           ))}
 
-          <Reveal className={revealDelays[3]}>
+          <Reveal
+            className={`w-[85%] shrink-0 snap-start sm:w-[400px] ${revealDelays[3]}`}
+          >
             <Card
               hover={false}
               className="group h-full p-6 motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
