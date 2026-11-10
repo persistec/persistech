@@ -123,7 +123,10 @@ export default function ServicesGrid() {
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {microsoftHighlights.map(({ title, description, icon: Icon }, index) => (
               <Reveal key={title} className={microsoftDelays[index]}>
-                <Card featured={index === 0} className="h-full">
+                <Card
+                  hover={false}
+                  className="h-full motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
+                >
                   <div className="flex h-12 w-12 items-center justify-center rounded-[4px] bg-parchment text-gold-deep">
                     <Icon className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
                   </div>
@@ -170,7 +173,10 @@ export default function ServicesGrid() {
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {technicalServices.map(({ title, description, icon: Icon }, index) => (
               <Reveal key={title} className={serviceDelays[index]}>
-                <Card className="h-full p-6">
+                <Card
+                  hover={false}
+                  className="h-full p-6 motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
+                >
                   <div className="flex h-full flex-col">
                     <div className="flex items-start gap-4">
                       <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[4px] bg-parchment text-gold-deep">

@@ -15,8 +15,8 @@ export default function PageHero({ title, subtitle, proof }: PageHeroProps) {
       title={title}
       lead={subtitle}
       image={{
-        src: "/images/heroes/hero-solucoes.jpg",
-        alt: "Infraestrutura tecnológica e soluções empresariais",
+        src: "/images/heroes/hero-solucoes.webp",
+        alt: "Técnico a instalar cablagem de rede num armário de servidores",
         priority: true,
       }}
       proof={proof ?? { value: "5", label: "Áreas de serviço" }}
