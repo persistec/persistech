@@ -165,7 +165,10 @@ export default function LicensingContent() {
           <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
             {quickGroups.map(({ title, description, products, icon: Icon }, index) => (
               <Reveal key={title} className={revealDelays[index]}>
-                <Card featured={index === 0} className="h-full">
+                <Card
+                  hover={false}
+                  className="h-full motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
+                >
                   <div className="flex h-full flex-col">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex h-12 w-12 items-center justify-center rounded-[4px] bg-parchment text-gold-deep">
@@ -208,7 +211,11 @@ export default function LicensingContent() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:col-span-7">
               {malwarebytesPoints.map(({ title, description }) => (
-                <Card key={title} hover={false} className="h-full p-6">
+                <Card
+                  key={title}
+                  hover={false}
+                  className="h-full p-6 motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
+                >
                   <ShieldCheck
                     className="h-6 w-6 text-gold-deep"
                     strokeWidth={1.5}
@@ -234,7 +241,11 @@ export default function LicensingContent() {
 
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {kasperskySolutions.map(({ title, description }) => (
-              <Card key={title} hover={false} className="h-full">
+              <Card
+                key={title}
+                hover={false}
+                className="h-full motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
+              >
                 <div className="flex h-full flex-col">
                   <MonitorCog
                     className="h-6 w-6 text-gold-deep"
