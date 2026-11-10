@@ -1,52 +1,16 @@
-import { ExternalLink, Globe } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 import Badge from "@/components/ui/Badge";
 import Card from "@/components/ui/Card";
+import ProjectMockup from "@/components/ui/ProjectMockup";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { projects } from "@/data/portfolio";
 
-const projects = [
-  {
-    name: "Ripro",
-    category: "Web Design",
-    href: "http://www.ripro.co.ao",
-  },
-  {
-    name: "Interscorp",
-    category: "Programação",
-    href: "http://www.interscorp.net",
-  },
-  {
-    name: "Dental Clinic",
-    category: "Web Design",
-    href: "http://www.dentalclinic.co.ao",
-  },
-  {
-    name: "DDM Angola",
-    category: "Programação",
-    href: "http://www.ddmangola.com",
-  },
-  {
-    name: "Modtech",
-    category: "Web Design",
-    href: "https://www.modtech.co.ao",
-  },
-  {
-    name: "Fundecit",
-    category: "Em curso",
-    href: "https://www.fundecit.ao",
-  },
-];
+const featured = projects.slice(0, 2);
 
-const revealDelays = [
-  "delay-[0ms]",
-  "delay-[100ms]",
-  "delay-[200ms]",
-  "delay-[300ms]",
-  "delay-[0ms]",
-  "delay-[100ms]",
-];
+const revealDelays = ["delay-[0ms]", "delay-[100ms]", "delay-[200ms]"];
 
 export default function PortfolioSection() {
   return (
@@ -57,35 +21,27 @@ export default function PortfolioSection() {
           description="Uma seleção dos projetos que desenvolvemos para os nossos clientes."
         />
 
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
-          {projects.map((project, index) => (
+        <div className="mt-12 grid grid-cols-1 gap-6">
+          {featured.map((project, index) => (
             <Reveal key={project.name} className={revealDelays[index]}>
               <Card
                 hover={false}
                 className="group h-full p-6 motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
               >
-                <div className="overflow-hidden rounded-[2px] border border-hairline bg-gradient-to-br from-parchment to-stone/40">
-                  <div className="flex items-center gap-2 border-b border-hairline px-4 py-2.5">
-                    <span className="h-1.5 w-1.5 rounded-full bg-stone" />
-                    <span className="h-1.5 w-1.5 rounded-full bg-stone" />
-                    <span className="h-1.5 w-1.5 rounded-full bg-stone" />
-                    <span className="ml-2 truncate font-mono text-[9px] uppercase tracking-[0.12em] text-muted">
-                      {project.href.replace(/^https?:\/\//, "")}
-                    </span>
-                  </div>
-                  <div className="flex aspect-[16/8] items-center justify-center">
-                    <Globe
-                      className="h-9 w-9 text-gold-deep transition-transform duration-300 group-hover:scale-110"
-                      strokeWidth={1.25}
-                      aria-hidden="true"
-                    />
-                  </div>
-                </div>
+                <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+                  <ProjectMockup
+                    url={project.href}
+                    className="w-full shrink-0 sm:w-56"
+                  />
 
-                <div className="mt-5 flex items-start justify-between gap-4">
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <Badge>{project.category}</Badge>
-                    <h2 className="mt-3 type-headline-sm text-ink">{project.name}</h2>
+                    <h3 className="mt-3 type-headline-sm text-ink">
+                      {project.name}
+                    </h3>
+                    <p className="mt-2 truncate font-mono text-[11px] uppercase tracking-[0.12em] text-muted">
+                      {project.href.replace(/^https?:\/\//, "")}
+                    </p>
                   </div>
 
                   <Link
@@ -101,6 +57,29 @@ export default function PortfolioSection() {
               </Card>
             </Reveal>
           ))}
+
+          <Reveal className={revealDelays[2]}>
+            <Card
+              hover={false}
+              className="group h-full motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
+            >
+              <Link
+                href="/portfolio"
+                className="flex items-center justify-between gap-4"
+              >
+                <div>
+                  <h3 className="type-headline-sm text-ink">Portefólio</h3>
+                  <p className="mt-2 type-body-sm text-graphite">
+                    Explore todos os projetos que desenvolvemos, com informação
+                    detalhada.
+                  </p>
+                </div>
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[4px] border border-hairline text-gold-deep transition-[color,border-color,transform] duration-200 group-hover:border-gold/60 group-hover:text-ink group-hover:translate-x-0.5">
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </span>
+              </Link>
+            </Card>
+          </Reveal>
         </div>
       </div>
     </section>
