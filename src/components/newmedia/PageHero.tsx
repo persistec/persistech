@@ -4,13 +4,13 @@ export default function NewmediaHero() {
   return (
     <SharedPageHero
       title="Serviços NewMedia"
-      lead="Desenvolvemos plataformas web, plataformas de gestão e soluções digitais personalizadas para apoiar processos e presença digital."
+      lead="Criação e gestão da identidade visual e da presença digital da sua empresa: websites, plataformas de gestão, logotipo e comunicação."
       image={{
         src: "/images/heroes/hero-newmedia.jpg",
         alt: "Ambiente digital e desenvolvimento de plataformas web",
         priority: true,
       }}
-      proof={{ value: "4", label: "Projetos recentes" }}
+      proof={{ value: "3", label: "Áreas de serviço" }}
       actions={[
         { label: "Falar com a equipa", href: "/contactos" },
         { label: "Ver projetos", href: "#projetos", variant: "outline" },

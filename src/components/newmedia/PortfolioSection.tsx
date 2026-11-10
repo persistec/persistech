@@ -49,7 +49,7 @@ export default function PortfolioSection() {
           {projects.map((project, index) => (
             <Reveal key={project.name} className={revealDelays[index]}>
               <Card
-                featured={index === 0}
+                hover={false}
                 className="group h-full p-6 motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
               >
                 <div className="overflow-hidden rounded-[2px] border border-hairline bg-gradient-to-br from-parchment to-stone/40">

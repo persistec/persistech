@@ -6,7 +6,7 @@ import ServicesSection from "@/components/newmedia/ServicesSection";
 import CTABand from "@/components/ui/CTABand";
 
 const description =
-  "Serviços NewMedia da Persistech para plataformas web, plataformas de gestão e soluções digitais personalizadas.";
+  "Serviços NewMedia da Persistech: criação e gestão da identidade visual e da presença digital — websites, plataformas de gestão e comunicação.";
 
 export const metadata: Metadata = {
   title: "Serviços NewMedia",
@@ -41,8 +41,8 @@ export default function NewmediaPage() {
       <ServicesSection />
       <PortfolioSection />
       <CTABand
-        title="Tem uma solução digital em mente?"
-        description="Conte-nos a sua necessidade e avaliamos a melhor abordagem para o seu projeto."
+        title="Tem um projeto digital em mente?"
+        description="Fale connosco sobre o seu website, identidade visual ou plataforma — avaliamos a melhor abordagem para o seu projeto."
         primary={{ label: "Falar com a equipa", href: "/contactos" }}
         secondary={{ label: "Ver serviços", href: "/servicos" }}
       />
