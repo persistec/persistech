@@ -99,13 +99,13 @@ export default function MissionSection() {
               {values.map(({ title, description }, index) => (
                 <div
                   key={title}
-                  className="grid grid-cols-[auto_1fr] gap-4 border-t border-hairline py-5"
+                  className="group grid grid-cols-[auto_1fr] gap-4 border-t border-hairline py-5 transition-all duration-[240ms] hover:border-gold/60 hover:bg-paper/60 hover:pl-3"
                 >
-                  <span className="font-mono text-[10px] leading-6 tracking-[0.14em] text-gold-deep">
+                  <span className="font-mono text-[10px] leading-6 tracking-[0.14em] text-gold-deep transition-colors duration-[240ms] group-hover:text-ink">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h4 className="font-display text-base font-semibold text-ink">
+                    <h4 className="font-display text-base font-semibold text-ink transition-colors duration-[240ms] group-hover:text-gold-deep">
                       {title}
                     </h4>
                     <p className="mt-1 type-body-sm text-graphite">{description}</p>
