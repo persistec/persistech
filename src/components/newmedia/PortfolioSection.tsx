@@ -27,6 +27,16 @@ const projects = [
     category: "Programação",
     href: "http://www.ddmangola.com",
   },
+  {
+    name: "Modtech",
+    category: "Web Design",
+    href: "https://www.modtech.co.ao",
+  },
+  {
+    name: "Fundecit",
+    category: "Em curso",
+    href: "https://www.fundecit.ao",
+  },
 ];
 
 const revealDelays = [
@@ -34,6 +44,8 @@ const revealDelays = [
   "delay-[100ms]",
   "delay-[200ms]",
   "delay-[300ms]",
+  "delay-[0ms]",
+  "delay-[100ms]",
 ];
 
 export default function PortfolioSection() {
