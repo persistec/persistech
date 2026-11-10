@@ -62,7 +62,10 @@ export default function MissionSection() {
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
           {principles.map(({ index, title, description, icon: Icon }, i) => (
             <Reveal key={title} className={principleDelays[i]}>
-              <Card featured={i === 0} className="h-full">
+              <Card
+                hover={false}
+                className="h-full motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
+              >
                 <div className="flex h-full flex-col">
                   <div className="flex items-center justify-between">
                     <div className="flex h-12 w-12 items-center justify-center rounded-[4px] bg-parchment text-gold-deep">
