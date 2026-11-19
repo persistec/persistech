@@ -56,7 +56,6 @@ export default function ServicesGrid() {
       <section className="bg-canvas">
         <div className="container-aurum section-rhythm">
           <SectionHeading
-            eyebrow="Portfólio"
             title="Os Nossos Serviços"
             description="Suporte, presença digital e equipamento para manter a operação da sua empresa estável e produtiva."
           />
@@ -65,7 +64,10 @@ export default function ServicesGrid() {
             {services.map(
               ({ title, category, description, icon: Icon, bullets }, index) => (
                 <Reveal key={title} className={revealDelays[index]}>
-                  <Card featured={index === 0} className="h-full">
+                  <Card
+                    hover={false}
+                    className="h-full motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
+                  >
                     <div className="flex h-full flex-col">
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex h-12 w-12 items-center justify-center rounded-[4px] bg-parchment text-gold-deep">
@@ -105,7 +107,6 @@ export default function ServicesGrid() {
       </section>
 
       <CTABand
-        eyebrow="Pronto para avançar"
         title="Encontre a solução certa para si"
         description="A nossa equipa está pronta para analisar as necessidades da sua empresa e propor a melhor solução."
         primary={{ label: "Solicitar proposta", href: "/contactos" }}

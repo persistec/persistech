@@ -1,4 +1,5 @@
 import {
+  ArrowUpRight,
   Camera,
   Check,
   Cloud,
@@ -11,6 +12,7 @@ import {
   ShieldCheck,
   Wrench,
 } from "lucide-react";
+import Link from "next/link";
 
 import Badge from "@/components/ui/Badge";
 import CTABand from "@/components/ui/CTABand";
@@ -114,7 +116,6 @@ export default function ServicesGrid() {
       <section className="bg-canvas">
         <div className="container-aurum section-rhythm">
           <SectionHeading
-            eyebrow="Produtividade e Nuvem"
             title="Microsoft 365 para empresas"
             description="Somos uma empresa parceira da Microsoft, com expertise em soluções de produtividade e nuvem para empresas de todos os tamanhos. Atuamos na implantação, configuração e suporte completo das soluções Microsoft 365."
           />
@@ -122,7 +123,10 @@ export default function ServicesGrid() {
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {microsoftHighlights.map(({ title, description, icon: Icon }, index) => (
               <Reveal key={title} className={microsoftDelays[index]}>
-                <Card featured={index === 0} className="h-full">
+                <Card
+                  hover={false}
+                  className="h-full motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
+                >
                   <div className="flex h-12 w-12 items-center justify-center rounded-[4px] bg-parchment text-gold-deep">
                     <Icon className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
                   </div>
@@ -162,7 +166,6 @@ export default function ServicesGrid() {
       <section className="border-y border-hairline bg-sand">
         <div className="container-aurum section-rhythm">
           <SectionHeading
-            eyebrow="Serviços Técnicos"
             title="Áreas de atuação"
             description="Serviços técnicos para implementação, suporte e gestão de tecnologia empresarial."
           />
@@ -170,17 +173,30 @@ export default function ServicesGrid() {
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {technicalServices.map(({ title, description, icon: Icon }, index) => (
               <Reveal key={title} className={serviceDelays[index]}>
-                <Card className="h-full p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[4px] bg-parchment text-gold-deep">
-                      <Icon className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
+                <Card
+                  hover={false}
+                  className="h-full p-6 motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
+                >
+                  <div className="flex h-full flex-col">
+                    <div className="flex items-start gap-4">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[4px] bg-parchment text-gold-deep">
+                        <Icon className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" />
+                      </div>
+                      <div>
+                        <h3 className="font-display text-lg font-semibold text-ink">
+                          {title}
+                        </h3>
+                        <p className="mt-2 type-body-sm text-graphite">{description}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-display text-lg font-semibold text-ink">
-                        {title}
-                      </h3>
-                      <p className="mt-2 type-body-sm text-graphite">{description}</p>
-                    </div>
+
+                    <Link
+                      href="/contactos"
+                      className="link-underline link-arrow-group mt-4 inline-flex items-center gap-2 pb-1 pt-2 self-start text-sm font-medium text-gold-deep transition-colors hover:text-ink"
+                    >
+                      Explorar
+                      <ArrowUpRight className="link-arrow h-4 w-4" aria-hidden="true" />
+                    </Link>
                   </div>
                 </Card>
               </Reveal>
@@ -190,7 +206,6 @@ export default function ServicesGrid() {
       </section>
 
       <CTABand
-        eyebrow="Pronto para avançar"
         title="Encontre a solução técnica certa para si"
         description="A nossa equipa está pronta para analisar as necessidades da sua empresa e propor a melhor solução."
         primary={{ label: "Solicitar proposta", href: "/contactos" }}

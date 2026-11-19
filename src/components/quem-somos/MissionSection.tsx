@@ -55,7 +55,6 @@ export default function MissionSection() {
     <section className="bg-canvas">
       <div className="container-aurum section-rhythm">
         <SectionHeading
-          eyebrow="Propósito"
           title="Missão, visão e valores"
           description="A forma como trabalhamos é tão importante quanto a tecnologia que entregamos."
         />
@@ -63,7 +62,10 @@ export default function MissionSection() {
         <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2">
           {principles.map(({ index, title, description, icon: Icon }, i) => (
             <Reveal key={title} className={principleDelays[i]}>
-              <Card featured={i === 0} className="h-full">
+              <Card
+                hover={false}
+                className="h-full motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
+              >
                 <div className="flex h-full flex-col">
                   <div className="flex items-center justify-between">
                     <div className="flex h-12 w-12 items-center justify-center rounded-[4px] bg-parchment text-gold-deep">
@@ -97,13 +99,13 @@ export default function MissionSection() {
               {values.map(({ title, description }, index) => (
                 <div
                   key={title}
-                  className="grid grid-cols-[auto_1fr] gap-4 border-t border-hairline py-5"
+                  className="group grid grid-cols-[auto_1fr] gap-4 border-t border-hairline py-5 transition-all duration-[240ms] hover:border-gold/60 hover:bg-paper/60 hover:pl-3"
                 >
-                  <span className="font-mono text-[10px] leading-6 tracking-[0.14em] text-gold-deep">
+                  <span className="font-mono text-[10px] leading-6 tracking-[0.14em] text-gold-deep transition-colors duration-[240ms] group-hover:text-ink">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h4 className="font-display text-base font-semibold text-ink">
+                    <h4 className="font-display text-base font-semibold text-ink transition-colors duration-[240ms] group-hover:text-gold-deep">
                       {title}
                     </h4>
                     <p className="mt-1 type-body-sm text-graphite">{description}</p>

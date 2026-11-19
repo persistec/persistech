@@ -191,32 +191,6 @@ h6 {
     text-transform: uppercase;
   }
 
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: var(--color-muted);
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    line-height: 1;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-  }
-
-  .eyebrow::before {
-    content: "";
-    display: block;
-    width: 1.5rem;
-    height: 1px;
-    flex: none;
-    background: var(--color-gold);
-  }
-
-  .eyebrow-dark {
-    color: var(--color-gold-pale);
-  }
-
   /* — Link & icon motion — */
   .link-underline {
     position: relative;
@@ -344,6 +318,74 @@ h6 {
     opacity: 1;
     transform: translateY(0);
   }
+
+  /* Fallback: content must be visible when scripting is unavailable */
+  @media (scripting: none) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .tl-card {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .tl-dot {
+      scale: 1;
+      transition: none;
+    }
+  }
+
+  /* — Hero entrance (CSS-only, runs once) — */
+  .hero-rise {
+    animation: hero-rise 600ms ease-out both;
+  }
+  /* — Timeline: spine draws with scroll, dots fill, cards enter from their side — */
+  .tl-card {
+    opacity: 0;
+    transform: translateX(var(--tl-from, 0));
+    transition:
+      opacity 500ms ease-out 100ms,
+      transform 500ms ease-out 100ms;
+  }
+
+  @media (min-width: 768px) {
+    .tl-from-right {
+      --tl-from: 24px;
+    }
+  }
+
+  .tl-from-left {
+    --tl-from: -24px;
+  }
+
+  .tl-card.tl-active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .tl-dot {
+    scale: 0;
+    transition: scale 300ms ease-out;
+  }
+
+  .tl-dot.tl-dot-active {
+    scale: 1;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -354,6 +396,23 @@ h6 {
   .reveal {
     opacity: 1;
     transform: none;
+    transition: none;
+  }
+
+  .hero-rise {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .tl-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .tl-dot {
+    scale: 1;
     transition: none;
   }
 

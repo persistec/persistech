@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     locale: "pt_AO",
     images: [
       {
-        url: "/images/og/og-quem-somos.jpg",
+        url: "/images/og/og-quem-somos.webp",
         width: 1200,
         height: 630,
         alt: "Persistech — Quem Somos",

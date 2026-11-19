@@ -1,11 +1,12 @@
-import { Globe, Mail, MapPin } from "lucide-react";
+import { Globe, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
+import Button from "@/components/ui/Button";
 import SharedPageHero from "@/components/ui/PageHero";
+import { CONTACT } from "@/data/site";
 
 export default function ContactosHero() {
   return (
     <SharedPageHero
-      eyebrow="Fale Connosco"
       title="Contactos"
       lead="Estamos prontos para responder às suas necessidades. Contacte-nos e receba uma proposta personalizada."
       actions={[
@@ -67,11 +68,38 @@ export default function ContactosHero() {
                 </a>
               </div>
             </div>
+            <div className="flex items-start gap-4">
+              <Phone
+                className="mt-0.5 h-4 w-4 shrink-0 text-gold-bright"
+                strokeWidth={1.5}
+                aria-hidden="true"
+              />
+              <div>
+                <p className="text-sm font-medium text-ivory">Telefone</p>
+                <a
+                  href={CONTACT.telHref}
+                  className="mt-1 block type-body-sm text-on-executive-muted transition-colors hover:text-gold-pale"
+                >
+                  {CONTACT.phoneDisplay}
+                </a>
+              </div>
+            </div>
           </div>
 
           <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-5">
+            <Button
+              variant="outline-light"
+              size="sm"
+              href={CONTACT.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="flex items-center gap-2">
+                <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                WhatsApp direto
+              </span>
+            </Button>
             <span className="type-label text-on-executive-muted">Luanda · Angola</span>
-            <span className="h-px w-10 bg-gold" aria-hidden="true" />
           </div>
         </div>
       }

@@ -1,12 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Globe, Mail, MapPin } from "lucide-react";
+import { Globe, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 import {
   FacebookIcon,
   InstagramIcon,
   LinkedinIcon,
 } from "@/components/ui/SocialIcons";
+import { CONTACT } from "@/data/site";
 
 const navLinks = [
   { label: "Início", href: "/" },
@@ -15,6 +16,7 @@ const navLinks = [
   { label: "Licenciamento", href: "/licenciamento" },
   { label: "Serviços", href: "/servicos" },
   { label: "Newmedia", href: "/newmedia" },
+  { label: "Portefólio", href: "/portfolio" },
   { label: "Contactos", href: "/contactos" },
 ];
 
@@ -29,7 +31,7 @@ const services = [
 const socialLinks = [
   {
     label: "Facebook",
-    href: "https://web.facebook.com/Persistech",
+    href: "https://www.facebook.com/Persistech",
     icon: FacebookIcon,
   },
   {
@@ -44,7 +46,38 @@ const socialLinks = [
   },
 ];
 
-const legalLinks = ["Política de Privacidade", "Termos de Uso"];
+const contactRows = [
+  {
+    key: "address",
+    icon: MapPin,
+    value: CONTACT.address,
+    href: undefined as string | undefined,
+  },
+  {
+    key: "phone",
+    icon: Phone,
+    value: CONTACT.phoneDisplay,
+    href: CONTACT.telHref,
+  },
+  {
+    key: "whatsapp",
+    icon: MessageCircle,
+    value: `WhatsApp: ${CONTACT.phoneDisplay}`,
+    href: CONTACT.whatsappHref,
+  },
+  {
+    key: "email",
+    icon: Mail,
+    value: CONTACT.email,
+    href: `mailto:${CONTACT.email}`,
+  },
+  {
+    key: "website",
+    icon: Globe,
+    value: CONTACT.website,
+    href: CONTACT.websiteHref,
+  },
+];
 
 export default function Footer() {
   return (
@@ -56,7 +89,7 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <Link href="/" className="inline-flex items-center" aria-label="Persistech">
               <Image
-                src="/brand/persistech-logo-light.png"
+                src="/brand/persistech-logo-light.webp"
                 alt="Logótipo Persistech"
                 width={1948}
                 height={940}
@@ -119,56 +152,34 @@ export default function Footer() {
           <div className="lg:col-span-3">
             <h3 className="type-label text-gold-pale">Contacto</h3>
             <div className="mt-5 space-y-4">
-              <div className="flex items-start gap-3">
-                <MapPin
-                  className="mt-0.5 h-4 w-4 shrink-0 text-gold-bright"
-                  strokeWidth={1.5}
-                  aria-hidden="true"
-                />
-                <p className="type-body-sm text-on-executive-muted">
-                  Rua da Índia nº 12, 1º Andar, Zona 8, Bairro do Cruzeiro,
-                  Município das Ingombotas, Luanda – Angola
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <Mail
-                  className="mt-0.5 h-4 w-4 shrink-0 text-gold-bright"
-                  strokeWidth={1.5}
-                  aria-hidden="true"
-                />
-                <Link
-                  href="mailto:info@persistec.com"
-                  className="type-body-sm text-on-executive-muted transition-colors hover:text-ivory"
-                >
-                  info@persistec.com
-                </Link>
-              </div>
-              <div className="flex items-start gap-3">
-                <Globe
-                  className="mt-0.5 h-4 w-4 shrink-0 text-gold-bright"
-                  strokeWidth={1.5}
-                  aria-hidden="true"
-                />
-                <Link
-                  href="https://www.persistec.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="type-body-sm text-on-executive-muted transition-colors hover:text-ivory"
-                >
-                  www.persistec.com
-                </Link>
-              </div>
+              {contactRows.map(({ key, icon: Icon, value, href }) => (
+                <div key={key} className="flex items-start gap-3">
+                  <Icon
+                    className="mt-0.5 h-4 w-4 shrink-0 text-gold-bright"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
+                  {href ? (
+                    <Link
+                      href={href}
+                      target={href.startsWith("http") ? "_blank" : undefined}
+                      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="type-body-sm text-on-executive-muted transition-colors hover:text-ivory"
+                    >
+                      {value}
+                    </Link>
+                  ) : (
+                    <p className="type-body-sm text-on-executive-muted">{value}</p>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-[13px] text-on-executive-muted md:flex-row md:items-center md:justify-between">
-          <p>© 2026 Persistech. Todos os direitos reservados.</p>
-          <div className="flex flex-wrap items-center gap-6">
-            {legalLinks.map((link) => (
-              <span key={link}>{link}</span>
-            ))}
-          </div>
+          <p>© {new Date().getFullYear()} Persistech. Todos os direitos reservados.</p>
+          <p className="type-label text-on-executive-muted">Expandimos limites</p>
         </div>
       </div>
     </footer>

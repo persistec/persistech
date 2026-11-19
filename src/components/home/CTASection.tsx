@@ -1,9 +1,9 @@
 import CTABand from "@/components/ui/CTABand";
 
 const stats = [
-  { value: "10+", label: "Anos de experiência" },
-  { value: "5", label: "Áreas de serviço" },
-  { value: "4", label: "Parceiros certificados" },
+  { value: 12, suffix: "+", label: "Anos de experiência" },
+  { value: 5, label: "Áreas de serviço" },
+  { value: 4, label: "Parceiros certificados" },
 ];
 
 export default function CTASection() {
@@ -14,6 +14,7 @@ export default function CTASection() {
       primary={{ label: "Contactos", href: "/contactos" }}
       secondary={{ label: "Ver soluções", href: "/solucoes" }}
       stats={stats}
+      whatsapp
     />
   );
 }

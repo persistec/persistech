@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     locale: "pt_AO",
     images: [
       {
-        url: "/images/og/og-solucoes.jpg",
+        url: "/images/og/og-licenciamento.webp",
         width: 1200,
         height: 630,
         alt: "Persistech — Soluções de Licenciamento",
@@ -29,7 +29,6 @@ export default function LicenciamentoPage() {
   return (
     <>
       <PageHero
-        badge="Licenciamento"
         title="Soluções de Licenciamento"
         subtitle="Licenciamento de soluções empresariais para produtividade, comunicação, proteção de endpoints, ferramentas cloud e ambientes corporativos."
         proof={{ value: "4", label: "Parceiros certificados" }}

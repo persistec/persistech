@@ -36,6 +36,12 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local tooling & legacy assets (do not index)
+/.opencode/
+/.stitch.json
+/to_replace/
+/devres/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
