@@ -64,13 +64,9 @@ export default function RootLayout({
     <html lang="pt-AO">
       <head>
         <JsonLd />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="theme-color" content="#F7F4EC" />
         <meta name="msapplication-navbutton-color" content="#F7F4EC" />
         <meta name="msapplication-TileColor" content="#F7F4EC" />
         <meta name="msapplication-TileImage" content="/brand/persistech-logo.png" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
       </head>
       <body
         className={`${inter.variable} ${sora.variable} ${jetbrainsMono.variable} font-sans antialiased`}

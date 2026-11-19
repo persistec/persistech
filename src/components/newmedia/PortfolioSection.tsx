@@ -74,7 +74,11 @@ export default function PortfolioSection() {
                 hover={false}
                 className="group h-full p-6 motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
               >
-                <ProjectMockup url={project.href} />
+                <ProjectMockup
+                  url={project.domain}
+                  name={project.name}
+                  screenshot={project.screenshot}
+                />
 
                 <div className="mt-5 flex items-start justify-between gap-4">
                   <div>
@@ -84,15 +88,17 @@ export default function PortfolioSection() {
                     </h3>
                   </div>
 
-                  <Link
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Abrir projeto ${project.name}`}
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[4px] border border-hairline text-graphite transition-[color,border-color,transform] duration-200 group-hover:border-gold/60 group-hover:text-gold-deep group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                  >
-                    <ExternalLink className="h-4 w-4" aria-hidden="true" />
-                  </Link>
+                  {project.href ? (
+                    <Link
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Abrir projeto ${project.name}`}
+                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[4px] border border-hairline text-graphite transition-[color,border-color,transform] duration-200 group-hover:border-gold/60 group-hover:text-gold-deep group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    >
+                      <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  ) : null}
                 </div>
               </Card>
             </Reveal>

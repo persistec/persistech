@@ -16,6 +16,7 @@ const navLinks = [
   { label: "Licenciamento", href: "/licenciamento" },
   { label: "Serviços", href: "/servicos" },
   { label: "Newmedia", href: "/newmedia" },
+  { label: "Portefólio", href: "/portfolio" },
   { label: "Contactos", href: "/contactos" },
 ];
 
@@ -30,7 +31,7 @@ const services = [
 const socialLinks = [
   {
     label: "Facebook",
-    href: "https://web.facebook.com/Persistech",
+    href: "https://www.facebook.com/Persistech",
     icon: FacebookIcon,
   },
   {
@@ -88,7 +89,7 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <Link href="/" className="inline-flex items-center" aria-label="Persistech">
               <Image
-                src="/brand/persistech-logo-light.png"
+                src="/brand/persistech-logo-light.webp"
                 alt="Logótipo Persistech"
                 width={1948}
                 height={940}

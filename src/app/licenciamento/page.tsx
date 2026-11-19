@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     locale: "pt_AO",
     images: [
       {
-        url: "/images/og/og-solucoes.jpg",
+        url: "/images/og/og-licenciamento.webp",
         width: 1200,
         height: 630,
         alt: "Persistech — Soluções de Licenciamento",

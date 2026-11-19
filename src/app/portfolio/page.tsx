@@ -18,6 +18,20 @@ export const metadata: Metadata = {
   title: "Portefólio",
   description,
   keywords: ["Portefólio Persistech", "Projetos Web", "Websites Angola"],
+  openGraph: {
+    title: "Portefólio",
+    description,
+    type: "website",
+    locale: "pt_AO",
+    images: [
+      {
+        url: "/images/og/og-portfolio.webp",
+        width: 1200,
+        height: 630,
+        alt: "Persistech — Portefólio",
+      },
+    ],
+  },
 };
 
 const revealDelays = [
@@ -52,7 +66,11 @@ export default function PortfolioPage() {
                   hover={false}
                   className="group h-full p-6 motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-[0_18px_36px_-24px_rgba(20,18,12,0.45)]"
                 >
-                  <ProjectMockup url={project.href} />
+                  <ProjectMockup
+                    url={project.domain}
+                    name={project.name}
+                    screenshot={project.screenshot}
+                  />
 
                   <div className="mt-5 flex items-start justify-between gap-4">
                     <div className="min-w-0">
@@ -64,19 +82,21 @@ export default function PortfolioPage() {
                         {project.description}
                       </p>
                       <p className="mt-3 truncate font-mono text-[11px] uppercase tracking-[0.12em] text-muted">
-                        {project.href.replace(/^https?:\/\//, "")}
+                        {project.domain}
                       </p>
                     </div>
 
-                    <Link
-                      href={project.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Abrir projeto ${project.name}`}
-                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[4px] border border-hairline text-graphite transition-[color,border-color,transform] duration-200 group-hover:border-gold/60 group-hover:text-gold-deep group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                    >
-                      <ExternalLink className="h-4 w-4" aria-hidden="true" />
-                    </Link>
+                    {project.href ? (
+                      <Link
+                        href={project.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Abrir projeto ${project.name}`}
+                        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[4px] border border-hairline text-graphite transition-[color,border-color,transform] duration-200 group-hover:border-gold/60 group-hover:text-gold-deep group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      >
+                        <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                      </Link>
+                    ) : null}
                   </div>
                 </Card>
               </Reveal>

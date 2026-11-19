@@ -92,6 +92,17 @@ export default function PageHero({
                 </div>
               ) : null}
             </div>
+          ) : proof ? (
+            <div className="flex lg:justify-end">
+              <div className="w-full max-w-xs border border-white/10 bg-executive p-8">
+                <p className="font-display text-5xl font-semibold leading-none text-ivory">
+                  {proof.value}
+                </p>
+                <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-gold-pale">
+                  {proof.label}
+                </p>
+              </div>
+            </div>
           ) : null}
         </div>
       </div>

@@ -62,7 +62,7 @@ export default function Navbar() {
         <div className="container-aurum flex h-20 items-center justify-between gap-6">
           <Link href="/" className="flex shrink-0 items-center" aria-label="Persistech">
             <Image
-              src="/brand/persistech-logo.png"
+              src="/brand/persistech-logo.webp"
               alt="Logótipo Persistech"
               width={195}
               height={94}
@@ -132,9 +132,10 @@ export default function Navbar() {
         role={isMenuOpen ? "dialog" : undefined}
         aria-modal={isMenuOpen ? true : undefined}
         aria-label="Menu de navegação"
+        inert={!isMenuOpen}
         className={cn(
-          "fixed inset-y-0 right-0 z-50 flex h-dvh w-[min(88vw,24rem)] flex-col border-l border-hairline bg-canvas px-5 pb-8 pt-24 transition-transform duration-300 ease-out lg:hidden",
-          isMenuOpen ? "translate-x-0" : "translate-x-full",
+          "fixed inset-y-0 right-0 z-50 flex h-dvh w-[min(88vw,24rem)] flex-col border-l border-hairline bg-canvas px-5 pb-8 pt-24 transition-[transform,visibility] duration-300 ease-out lg:hidden",
+          isMenuOpen ? "visible translate-x-0" : "invisible translate-x-full",
         )}
       >
         <button

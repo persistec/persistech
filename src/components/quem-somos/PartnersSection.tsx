@@ -6,13 +6,48 @@ import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 
-const partners = [
-  { name: "HP Silver Partner", slug: "hp" },
-  { name: "Microsoft", slug: "microsoft" },
-  { name: "Google Workspace", slug: "google-workspace" },
-  { name: "VMware", slug: "vmware" },
-  { name: "Kaspersky", slug: "kaspersky" },
-  { name: "Veeam", slug: "veeam" },
+type Partner = {
+  name: string;
+  slug: string;
+  width: number;
+  height: number;
+  frameClassName?: string;
+  imageClassName?: string;
+};
+
+const partners: Partner[] = [
+  {
+    name: "HP Business Partner",
+    slug: "hp",
+    width: 800,
+    height: 364,
+    frameClassName: "px-2",
+    imageClassName: "max-h-16 w-auto max-w-[190px]",
+  },
+  {
+    name: "3CX Partner",
+    slug: "3cx",
+    width: 716,
+    height: 600,
+    frameClassName: "rounded-[4px] bg-[#333333] px-5 py-2.5",
+    imageClassName: "max-h-14 w-auto max-w-[150px]",
+  },
+  {
+    name: "Google Cloud Partner",
+    slug: "google-cloud",
+    width: 460,
+    height: 504,
+    frameClassName: "rounded-[4px] bg-paper px-6 py-2.5",
+    imageClassName: "max-h-14 w-auto max-w-[150px]",
+  },
+  {
+    name: "ThreatDown · Malwarebytes",
+    slug: "threatdown",
+    width: 686,
+    height: 400,
+    frameClassName: "rounded-[4px] bg-paper px-4 py-2.5",
+    imageClassName: "max-h-14 w-auto max-w-[170px]",
+  },
 ];
 
 const revealDelays = [
@@ -20,19 +55,20 @@ const revealDelays = [
   "delay-[80ms]",
   "delay-[160ms]",
   "delay-[240ms]",
-  "delay-[320ms]",
-  "delay-[400ms]",
 ];
 
 /**
- * Renders a white logo when `public/partners/<slug>.png` exists (checked at
- * build time); falls back to the partner name until the files are added.
+ * Resolves `public/partners/<slug>.(webp|png|svg)` at build time; falls back
+ * to the partner name if an image file is not present.
  */
 function logoFor(slug: string): string | null {
   try {
-    return fs.existsSync(path.join(process.cwd(), "public", "partners", `${slug}.png`))
-      ? `/partners/${slug}.png`
-      : null;
+    for (const ext of ["webp", "png", "svg"]) {
+      if (fs.existsSync(path.join(process.cwd(), "public", "partners", `${slug}.${ext}`))) {
+        return `/partners/${slug}.${ext}`;
+      }
+    }
+    return null;
   } catch {
     return null;
   }
@@ -51,21 +87,30 @@ export default function PartnersSection() {
           tone="dark"
         />
 
-        <div className="mt-12 grid grid-cols-1 border-l border-t border-white/10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-          {partners.map(({ name, slug }, index) => {
+        <div className="mt-12 grid grid-cols-1 border-l border-t border-white/10 sm:grid-cols-2 lg:grid-cols-4">
+          {partners.map(({ name, slug, width, height, frameClassName, imageClassName }, index) => {
             const logo = logoFor(slug);
 
             return (
               <Reveal key={slug} className={revealDelays[index]}>
-                <div className="group flex h-full min-h-[140px] flex-col items-center justify-center gap-4 border-b border-r border-white/10 p-5 transition-colors duration-200 hover:bg-white/[0.04]">
+                <div className="group flex h-full min-h-[168px] flex-col items-center justify-center gap-4 border-b border-r border-white/10 p-6 transition-colors duration-200 hover:bg-white/[0.04]">
                   {logo ? (
-                    <Image
-                      src={logo}
-                      alt={name}
-                      width={140}
-                      height={48}
-                      className="max-h-10 w-auto max-w-[140px] object-contain opacity-60 brightness-0 invert transition-opacity duration-200 group-hover:opacity-100"
-                    />
+                    <>
+                      <div
+                        className={`flex h-20 items-center justify-center transition-transform duration-200 motion-safe:group-hover:-translate-y-0.5 ${frameClassName ?? ""}`}
+                      >
+                        <Image
+                          src={logo}
+                          alt={name}
+                          width={width}
+                          height={height}
+                          className={`object-contain ${imageClassName ?? "max-h-14 w-auto max-w-[160px]"}`}
+                        />
+                      </div>
+                      <span className="type-label text-center text-on-executive-muted transition-colors duration-200 group-hover:text-gold-pale">
+                        {name}
+                      </span>
+                    </>
                   ) : (
                     <>
                       <span className="type-label text-gold-pale transition-colors duration-200 group-hover:text-gold-bright">
