@@ -31,6 +31,11 @@ export default function LicenciamentoPage() {
       <PageHero
         title="Soluções de Licenciamento"
         subtitle="Licenciamento de soluções empresariais para produtividade, comunicação, proteção de endpoints, ferramentas cloud e ambientes corporativos."
+        image={{
+          src: "/images/heroes/hero-licenciamento.webp",
+          alt: "Especialista em TI a gerir licenciamento empresarial e plataformas cloud num escritório",
+          priority: true,
+        }}
         proof={{ value: "4", label: "Parceiros certificados" }}
       />
       <LicensingContent />

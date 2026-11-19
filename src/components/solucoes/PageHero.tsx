@@ -3,22 +3,29 @@ import SharedPageHero from "@/components/ui/PageHero";
 type PageHeroProps = {
   title: string;
   subtitle: string;
+  image?: {
+    src: string;
+    alt: string;
+    priority?: boolean;
+  };
   proof?: {
     value: string;
     label: string;
   };
 };
 
-export default function PageHero({ title, subtitle, proof }: PageHeroProps) {
+export default function PageHero({ title, subtitle, image, proof }: PageHeroProps) {
   return (
     <SharedPageHero
       title={title}
       lead={subtitle}
-      image={{
-        src: "/images/heroes/hero-solucoes.webp",
-        alt: "Técnico a instalar cablagem de rede num armário de servidores",
-        priority: true,
-      }}
+      image={
+        image ?? {
+          src: "/images/heroes/hero-solucoes.webp",
+          alt: "Técnico a instalar cablagem de rede num armário de servidores",
+          priority: true,
+        }
+      }
       proof={proof ?? { value: "5", label: "Áreas de serviço" }}
       actions={[
         { label: "Solicitar proposta", href: "/contactos" },

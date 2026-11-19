@@ -42,7 +42,9 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 6rem;
+  /* Matches the 80px sticky header (h-20) without exceeding <main>'s top offset
+     (81px), which would otherwise trigger Next.js Fragment scrollIntoView loops. */
+  scroll-padding-top: 5rem;
 }
 
 body {
