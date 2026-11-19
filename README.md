@@ -1,30 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Persistech — Website Institucional
 
-## Getting Started
+Website corporativo da **Persistech** (`www.persistec.com`), desenvolvido com **Next.js (App Router)**, **React 19**, **Tailwind CSS v4** e **TypeScript**, seguindo o sistema visual **Persistech Aurum** ([DESIGN.md](./DESIGN.md)).
 
-First, run the development server:
+## Stack Tecnológica
+
+- **Framework:** Next.js (App Router, React Compiler ativo, geração estática + Server Actions)
+- **Estilos & Design System:** Tailwind CSS v4 (`@theme` em `src/app/globals.css`) — *Persistech Aurum*
+- **Tipografia:** Self-hosted via `next/font/local` (`Sora`, `Inter`, `JetBrains Mono`)
+- **Ícones:** `lucide-react`
+- **Formulário de Contacto:** Server Action (`src/app/contactos/actions.ts`) integrada com a API HTTP da [Resend](https://resend.com)
+
+## Desenvolvimento Local
+
+Instalar dependências e iniciar o servidor de desenvolvimento:
 
 ```bash
+npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir [http://localhost:3000](http://localhost:3000) no navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts Disponíveis
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` — servidor de desenvolvimento
+- `npm run lint` — verificação ESLint
+- `npm run build` — compilação otimizada de produção
+- `npm run start` — servidor de produção local
 
-## Learn More
+## Variáveis de Ambiente
 
-To learn more about Next.js, take a look at the following resources:
+Para ativar o envio automático do formulário em `/contactos`, configurar em `.env.local` (ou nas variáveis do projeto Vercel):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+RESEND_API_KEY=re_...
+CONTACT_FROM_EMAIL=website@persistec.com
+CONTACT_TO_EMAIL=info@persistec.com
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Sem `RESEND_API_KEY`, o formulário apresenta uma mensagem de alternativa indicando o contacto direto por email (`info@persistec.com`).
 
-## Deploy on Vercel
+## Estrutura de Rotas
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/` — Página inicial
+- `/quem-somos` — Missão, visão, valores, jornada e parceiros certificados
+- `/solucoes` — Microsoft 365 e soluções técnicas empresariais
+- `/licenciamento` — Licenciamento Microsoft, 3CX, Google, Malwarebytes e Kaspersky
+- `/servicos` — Suporte técnico, Newmedia e hardware
+- `/newmedia` — Plataformas digitais, gestão e identidade/comunicação
+- `/portfolio` — Portefólio de projetos desenvolvidos
+- `/contactos` — Canais diretos e formulário de contacto
